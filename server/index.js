@@ -1,48 +1,47 @@
-let express = require("express"),
-bp = require("body-parser"),
-cors = require("cors"),
-server = express(),
-session = require('./server-assets/auth/sessions')
+var express = require('express');
+var bp = require('body-parser');
+var cors = require('cors');
+var server = express();
+var session = require('./server-assets/auth/sessions');
+var port = process.env.PORT  || 3000;
+require('./server-assets/db/mlab-config');
 
-// if spun on heroku, goes left, if spun locally, goes right
-var port = process.env.PORT || 3000;
-require("./server-assets/db/mlab-config");
-
-// let authRoutes = require('./server-assets/auth/routes')
-// boardRoutes = require('./server-assets/routes/boards'),
-// listRoutes = require('./server-assets/routes/lists'),
-// taskRoutes = require('./server-assets/routes/tasks'),
-// commentRoutes = require('./server-assets/routes/comments')
-
-var whitelist = ['http://localhost:8080', 'https://port-vue-kan-ban.herokuapp.com/']
+var authRoutes = require('./server-assets/auth/routes');
+var wineRoutes = require('./server-assets/routes/wines');
+var whitelist = ['http://localhost:8080']
 
 var corsOptions = {
-   origin: function(origin, callback){
-       var originIsWhiteListed = whitelist.indexOf(origin) !== -1;
-       callback(null, originIsWhiteListed);
-   },
-   credentials: true
-}
+    origin: function (origin, callback) {
+        var originIsWhitelisted = whitelist.indexOf(origin) !== -1
+        callback(null, originIsWhitelisted)
+    },
+    credentials: true
+};
 
-server.use(cors(corsOptions))
-server.use(session)
-server.use(bp.json())
-server.use(bp.urlencoded({ extended: true }))
-server.use(express.static(__dirname + "/../public/www/dist"))
+server.use(cors(corsOptions));
+server.use(session);
+server.use(bp.json());
+server.use(bp.urlencoded({ extended: true }));
 
-// server.use(authRoutes);
+server.use(authRoutes);
+server.use(wineRoutes);
 
-// server.use(boardRoutes);
-// server.use(listRoutes);
-// server.use(taskRoutes);
-// server.use(commentRoutes);
-
-
-server.use("*", (error, req, res, next) => {
+// server.use('/api/*', (req, res, next) => { // gateway for all following routes
+//     if (req.method.toLowerCase() != 'get' && !req.session.uid) {
+//         return res.status(401).send({ error: 'Please log in to continue' })
+//     }
+//     console.log('you are logged in')
+//     next()
+// });
+// server.use('*', (req, res, next)=>{
+//     if(!req.session.uid){
+//         return res.status(401).send({error: 'Please Login To Continue'})
+//     }
+//     next();
+// });
+server.use('*', (error, req, res, next)=>{
     res.status(400).send(error);
-   });
-   
-   server.listen(port, () => {
-    console.log("the server is running on port:", port);
-   });
-
+});
+server.listen(port, () =>{
+    console.log('Server Is Running on port: ', port);
+});

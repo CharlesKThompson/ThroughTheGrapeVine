@@ -1,27 +1,20 @@
-var expressSession = require("express-session")
-var mongoStore = require("connect-mongodb-session")(expressSession)
-
-// THIS IS WHERE SESSIONS ARE BEING HELD WITHIN SERVER
+var expressSession = require('express-session');
+var mongoStore = require('connect-mongodb-session')(expressSession); // ties our sessions into our current mongo db (this is one option: could also set up session storage in a separate server -- redis, etc.)
 var store = new mongoStore({
-   uri: "mongodb://wine:wine@ds213209.mlab.com:13209/wines",
-   collection: "Sessions"
-});
-
-// IF THERE IS AN ERROR GETTING THE SESSION
-store.on("error", function(err) {
-   console.log("[SESSION ERROR]", err);
+  uri: 'mongodb://test:test@ds012538.mlab.com:12538/wines',
+  // uri: 'mongodb://test:test@ds133814.mlab.com:33814/vue-kanban',
+  collection: 'Sessions'
 })
-
-// SESSION CONSTRUCTOR/GUIDELINE
+store.on('error', function(err) {
+  console.log('[SESSION ERROR]', err)
+})
 var session = expressSession({
-    secret: "this is a new secret",
-    cookie: {
-       maxAge: (1000 * 60 * 60 * 24 * 7) * 52 // HOW LONG UNTIL NEED TO RE-LOGIN
-   },
-   store, // PUTTING ON MONGO SERVER VIA URI
-   resave: true,
-   saveUninitialized: true
-
+  secret: '4 gUys iN a HackaThon$^!!',
+  cookie: {
+    maxAge: 1000*60*60*24*7*52 // number of milliseconds in one year    
+  },
+  store,
+  resave: true,
+  saveUninitialized: true
 })
-
 module.exports = session;

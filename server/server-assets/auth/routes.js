@@ -1,7 +1,7 @@
 var router = require("express").Router();
 var Users = require("../models/user"); //empty right now
 
-var errorMessage = { error: "access denied" };
+var errorMessage = { error: "Access Denied" };
 
 // REGISTER NEW USER
 router.post('/auth/register', (req, res) => {
@@ -12,6 +12,7 @@ router.post('/auth/register', (req, res) => {
                return res.status(401).send(errorMessage)
            }
            user.password = null; // RETURNS NULL TO FRONT END NO HACKING
+           delete user.password;
            req.session.uid = user._id // MATCHES SESSION ID WITH MONGO ID (HOLDING HANDS)
            console.log("Succesfully Registered")
            res.send({ message: "Successfully created user", user })

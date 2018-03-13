@@ -5,11 +5,8 @@ var schemaName = 'Wine'
 
 
 var schema = new Schema({
-    variety: { type: String, required: true },
-    type: {
-        name: String,
-        description: String
-    },
+    variety: {type: String },
+    type: {type: Array},
     meats: {
         pairs: Array,
         perfectPairs: Array
@@ -31,13 +28,5 @@ var schema = new Schema({
         perfectPairs: Array
     }
 });
-
-// schema.post('remove', function (next) {
-//     // This deletes where boardId = current boardId (board & all it's children)
-//     Lists.remove({ boardId: this._id }).exec();
-//     Tasks.remove({ boardId: this._id }).exec();
-//     Comments.remove({ boardId: this._id }).exec();
-// });
-
 
 module.exports = mongoose.model(schemaName, schema);
