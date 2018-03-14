@@ -1,11 +1,13 @@
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
 var Schema = mongoose.Schema
 var ObjectId = mongoose.SchemaTypes.ObjectId
-var schemaName = 'Comment'
+var schemaName = 'List'
 
 var schema = new Schema({
-    body: { type: String, required: true },
-    // userID
+    title: { type: String, required: true },
+    date: {type: Date, required: true, default: Date.now()},
+    userId: {type: ObjectId, ref: 'User', required: true},
+    wines: [{}]
 });
 
 module.exports = mongoose.model(schemaName, schema);

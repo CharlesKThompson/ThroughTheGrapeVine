@@ -8,7 +8,9 @@ const SALT_FACTOR = 13;
 var schema = new Schema({
     username: {type: String, requried: true, unique: true},
     password: {type: String, required: true},
-    email: {type: String, required: true, unique: true}
+    email: {type: String, required: true, unique: true},
+    following: [{}],
+    followedBy: [{}]
 });
 
 // GENERATES THE HASH FROM THE PASSWORD WE PASS IT AND ENCRYPTS IT SALT X 13
