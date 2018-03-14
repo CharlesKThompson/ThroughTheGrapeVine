@@ -7,6 +7,7 @@ var schema = new Schema({
     body: { type: String, required: true },
     listId: { type: ObjectId, ref: 'List', required: true },
     userId: {type: ObjectId, ref: 'User', required: true},
+    wineId: {type: ObjectId, ref: 'userWines', required: true},
     date: {type: Date, required: true, default: Date.now()}
 });
 

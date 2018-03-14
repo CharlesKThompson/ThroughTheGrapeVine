@@ -42,7 +42,7 @@ router.delete('/lists/:listId/wines/:wineId', (req, res, next) => {
         .then(wines => {
             wines.remove();
             console.log("Wine successfully removed from list!")
-            return res.send(wines.listId);
+            return res.send(wines);
         })
         .catch(next);
 });
