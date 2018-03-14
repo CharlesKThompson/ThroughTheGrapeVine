@@ -8,7 +8,8 @@ require('./server-assets/db/mlab-config');
 
 var authRoutes = require('./server-assets/auth/routes');
 var wineRoutes = require('./server-assets/routes/wines');
-var whitelist = ['http://localhost:8080']
+var listRoutes = require('./server-assets/routes/lists');
+var whitelist = ['http://localhost:8080/'];
 
 var corsOptions = {
     origin: function (origin, callback) {
@@ -25,6 +26,7 @@ server.use(bp.urlencoded({ extended: true }));
 
 server.use(authRoutes);
 server.use(wineRoutes);
+server.use(listRoutes);
 
 // server.use('/api/*', (req, res, next) => { // gateway for all following routes
 //     if (req.method.toLowerCase() != 'get' && !req.session.uid) {

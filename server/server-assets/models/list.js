@@ -6,7 +6,7 @@ var schemaName = 'List'
 var schema = new Schema({
     title: { type: String, required: true },
     date: {type: Date, required: true, default: Date.now()},
-    userId: {type: ObjectId, ref: 'User', required: true},
+    userId: {type: ObjectId, ref: 'User'},
     wines: [{}]
 });
 
