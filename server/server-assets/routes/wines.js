@@ -2,6 +2,7 @@ var router = require('express').Router();
 var Wines = require('../models/wine');
 // var Users = require('../models/user');
 
+// These are for admin users only (upcoming feature)
 // GET ALL WINES
 router.get('/api/wines', (req, res, next) => {
     Wines.find()
