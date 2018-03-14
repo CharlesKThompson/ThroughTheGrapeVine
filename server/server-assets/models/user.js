@@ -9,8 +9,8 @@ var schema = new Schema({
     username: {type: String, requried: true, unique: true},
     password: {type: String, required: true},
     email: {type: String, required: true, unique: true},
-    following: [{}],
-    followedBy: [{}]
+    following: [{}]
+    // followedBy: [{}]  <-- come back to this
 });
 
 // GENERATES THE HASH FROM THE PASSWORD WE PASS IT AND ENCRYPTS IT SALT X 13

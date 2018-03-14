@@ -44,7 +44,7 @@ router.delete('/lists/:listId', (req, res, next) => {
     Lists.findById(req.params.listId)
     .then(list => {
         list.remove();
-        return res.send(list.boardId);
+        return console.log("List successfully deleted!");
     })
     .catch(next);
 });

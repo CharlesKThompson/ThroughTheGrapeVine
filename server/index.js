@@ -11,6 +11,9 @@ var wineRoutes = require('./server-assets/routes/wines');
 var listRoutes = require('./server-assets/routes/lists');
 var userWineRoutes = require('./server-assets/routes/userWines');
 var commentRoutes = require('./server-assets/routes/comments');
+var userRoutes = require('./server-assets/routes/users');
+
+
 var whitelist = ['http://localhost:8080/'];
 
 var corsOptions = {
@@ -31,6 +34,7 @@ server.use(wineRoutes);
 server.use(listRoutes);
 server.use(userWineRoutes);
 server.use(commentRoutes);
+server.use(userRoutes);
 
 // server.use('/api/*', (req, res, next) => { // gateway for all following routes
 //     if (req.method.toLowerCase() != 'get' && !req.session.uid) {
