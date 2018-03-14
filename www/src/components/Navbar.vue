@@ -2,11 +2,11 @@
     <div>
         <nav class="navbar">
             <div class="flexor">
-                <a class="navbar-brand" href="#">Vine</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <router-link :to="{name: 'Home'}">
+                    <div>
+                        <img class="logo" src="../assets/grapes" alt="grapes" height="50px">
+                    </div>
+                </router-link>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">

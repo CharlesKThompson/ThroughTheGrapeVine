@@ -3,9 +3,17 @@
         <div class="title">
             <h1>How would you like to pair your wine?</h1>
         </div>
-        <button type="button" class="btn btn-primary btn-lg btn-block btn-top">By Food</button>
-        <button type="button" class="btn btn-primary btn-lg btn-block btn-middle">By Sweetness</button>
-        <button type="button" class="btn btn-primary btn-lg btn-block btn-bottom">By Pet</button>
+        <div>
+            <router-link :to="{name: 'Search'}">
+                <button type="button" class="btn btn-primary btn-lg btn-block btn-top">By Food</button>
+            </router-link>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary btn-lg btn-block btn-middle">By Sweetness</button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary btn-lg btn-block btn-bottom">By Pet</button>
+        </div>
     </div>
 </template>
 
