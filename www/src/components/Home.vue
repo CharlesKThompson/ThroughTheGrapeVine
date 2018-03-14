@@ -1,34 +1,41 @@
 <template>
+    <div>
+    <navbar></navbar>
     <div class="home">
         <div class="title">
             <h1>How would you like to pair your wine?</h1>
         </div>
-        <div>
-            <router-link :to="{name: 'Search'}">
+        <!-- <div> -->
+            <!-- <router-link :to="{name: 'Search'}"> -->
                 <button type="button" class="btn btn-primary btn-lg btn-block btn-top">By Food</button>
-            </router-link>
-        </div>
-        <div>
+            <!-- </router-link> -->
+        <!-- </div> -->
+        <!-- <div> -->
             <button type="button" class="btn btn-primary btn-lg btn-block btn-middle">By Sweetness</button>
-        </div>
-        <div>
+        <!-- </div> -->
+        <!-- <div> -->
             <button type="button" class="btn btn-primary btn-lg btn-block btn-bottom">By Pet</button>
-        </div>
+        <!-- </div> -->
     </div>
+</div>
 </template>
 
 <script>
+    import Navbar from './Navbar'
     export default {
         name: 'Home',
         data() {
             return {
 
             }
+        },
+        components: {
+            Navbar
         }
     }
 </script>
 
-<style>
+<style scoped>
     .btn-block {
         width: 80%;
         height: 20vh;

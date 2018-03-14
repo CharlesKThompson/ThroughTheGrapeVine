@@ -1,23 +1,16 @@
 <template>
     <div>
-        <nav class="navbar">
-            <div class="flexor">
+        <nav class="navbar flexor">
                 <router-link :to="{name: 'Home'}">
                     <div>
-                        <img class="logo" src="../assets/grapes" alt="grapes" height="50px">
+                        <img src="../assets/grapes.png" alt="grapes" height="50px">
                     </div>
                 </router-link>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Your Corkboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">You</a>
-                        </li>
-                    </ul>
+                <div>
+                    <img src="../assets/corks.png" alt="cork" height="50px">
+
+                    <i class="fas fa-user fa-2x"></i>
                 </div>
-            </div>
         </nav>
     </div>
 </template>
@@ -34,9 +27,12 @@
 </script>
 
 <style scoped>
+    .navbar {
+        background-color: #EADAC0;
+    }
     .flexor {
         display: flex;
         align-items: flex-end;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 </style>
