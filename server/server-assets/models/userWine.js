@@ -1,7 +1,8 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 var ObjectId = mongoose.SchemaTypes.ObjectId
-var schemaName = 'WineLabel'
+var schemaName = 'UserWine'
+var Comments = require('../models/comment');
 
 
 var schema = new Schema({
@@ -13,7 +14,14 @@ var schema = new Schema({
     location: {type: String},
     description: {type: String},
     pairings: {type: String},
-    recipes: {type: String}
+    recipes: {type: String},
+    userId: {type: ObjectId, ref: 'User', required: true},
+    listId: {type: ObjectId, ref: 'List', required: true}
 });
+
+
+schema.post('remove', function (next) {
+    Comments.remove({listId: this._id}).exec();
+})
 
 module.exports = mongoose.model(schemaName, schema);
