@@ -1,54 +1,97 @@
 <template>
-    <div class="home">
-        <div class="title">
-            <h1>How would you like to pair your wine?</h1>
+    <div>
+        <navbar></navbar>
+        <div class="home flex">
+            <div class="title">
+                <h1>How would you like to pair your wine?</h1>
+            </div>
+            <div class="button">
+                <router-link :to="{name: 'Search'}">
+                    <button type="button" class="btn btn-primary btn-lg btn-block btn-top">
+                        <h2 class="text">By Food</h2>
+                    </button>
+                </router-link>
+            </div>
+            <div class="button">
+                <button type="button" class="btn btn-primary btn-lg btn-block btn-middle">
+                    <h2 class="text">By Sweetness</h2>
+                </button>
+            </div>
+            <div class="button">
+                <button type="button" class="btn btn-primary btn-lg btn-block btn-bottom">
+                    <h2 class="text">By Pet</h2>
+                </button>
+            </div>
         </div>
-        <button type="button" class="btn btn-primary btn-lg btn-block btn-top">By Food</button>
-        <button type="button" class="btn btn-primary btn-lg btn-block btn-middle">By Sweetness</button>
-        <button type="button" class="btn btn-primary btn-lg btn-block btn-bottom">By Pet</button>
     </div>
 </template>
 
 <script>
+    import Navbar from './Navbar'
     export default {
         name: 'Home',
         data() {
             return {
 
             }
+        },
+        components: {
+            Navbar
         }
     }
 </script>
 
-<style>
+<style scoped>
+    .text {
+        opacity: 1;
+        font-weight: 700;
+    }
+
     .btn-block {
+        width: 100%;
+        height: 20vh;
+        margin-bottom: 5vh;
+        border: none;
+        border-radius: 30px;
+        color: black;
+    }
+
+    .button {
         width: 80%;
         height: 20vh;
         margin-bottom: 5vh;
         border: none;
-        opacity: .85;
+    }
+
+    .flex {
+        display: flex;
+        justify-content: center
     }
 
     .btn-top {
-        background-color: #E1CEB1;
+        background-color: rgba(225, 206, 177, 0.85);
     }
 
     .btn-middle {
-        background-color: #CCA272;
+        background-color: rgba(204, 162, 114, 0.85);
     }
 
     .btn-bottom {
-        background-color: #9D5E3D;
+        background-color: rgba(157, 95, 61, 0.85);
     }
 
-    .btn:hover {
-        background-color: #572E3C;
+    .btn-block:hover {
+        background-color: rgba(87, 46, 60, 0.85);
+        color: ivory
     }
 
     .title {
-        background-color: rgba(255, 255, 255, 0.75);
+        background-color: rgba(87, 46, 60, 0.85);
         margin-bottom: 5vh;
-        margin-top: 5vh
+        margin-top: 5vh;
+        padding: 10px;
+        border-radius: 30px;
+        color: ivory;
     }
 
     .home {

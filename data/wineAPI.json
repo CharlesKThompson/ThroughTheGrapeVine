@@ -1,0 +1,658 @@
+{
+    {
+        "variety": "Bold Red",
+        "img": "https://www.vintageroots.co.uk/blog/wp-content/uploads/2015/08/red-wine-glass.jpg",
+        "type": [
+            {
+                "name": "Malbec",
+                "description": "Wine expert Jancis Robinson describes the French style of Malbec common in the Libournais (Bordeaux region) as a 'rustic' version of Merlot, softer in tannins and lower in acidity with blackberry fruit in its youth. The Malbec of the Cahors region is much more tannic with more phenolic compounds that contribute to its dark color. Oz Clarke describes Cahors' Malbec as dark purple in color with aromas of damsons, tobacco, garlic, and raisin. In Argentina, Malbec becomes softer with a plusher texture and riper tannins. The wines tend to have juicy fruit notes with violet aromas. In very warm regions of Argentina, Chile, and Australia, the acidity of the wine may be too low which can cause a wine to taste flabby and weak. Malbec grown in Washington state tends to be characterized by dark fruit notes and herbal aromas"
+            },
+            {
+                "name": "Syrah/Shiraz",
+                "description": "The modern Shiraz grape, now known to be identical to the Syrah grape, was brought to Australia by James Busby, the father of Australian wine. Busby travelled through Spain and France collecting vine cuttings that were the foundation of the Australian wine industry. Despite being genetically identical, the Shiraz grape tastes and looks different compared to its European siblings especially when grown in warm climates. Despite the name, there is no proven connection between the city of Shiraz and the modern-day red grape variety 'Shiraz', planted in Australia, South Africa, Canada, the United States, and some other countries."
+            },
+            {
+                "name": "Mourvedre",
+                "description": "According to wine expert Jancis Robinson, in favorable vintages Mourvèdre can produce highly perfumed wines with intense fruit flavors and notes of blackberries and gamy or meaty flavors. Oz Clarke notes that some examples of Mourvèdre may come across as faulted in their youth with 'farmyard-y' and strong herbal flavors. As the wine ages, more earthy tertiary aromas may develop before becoming more leather and gingerbread aroma notes."
+            },
+            {
+                "name": "Pinotage",
+                "description": "The vines are vigorous like their parent Cinsaut and easy to grow, ripening early with high sugar levels. Pinotage can be grown via the trellised system or as bushvines (untrellised). The older Pinotage vineyards are predominantly planted as bushvines and it is perceived that these lend to more concentration of fruit and depth to the wine. It has the potential to produce yields of 120 hl/ha (6.8 tons/acre) but older vines tend to lower their yields to as low as 50 hl/ha. Yield restriction is managed through water stress and bunch thinning. In winemaking, controlling the coarseness of the grape and the isoamyl acetate character are two important considerations. Volatile acidity is another potential wine fault that can cause Pinotage to taste like raspberry vinegar. Since the 1990s, more winemakers have used long and cool fermentation periods to minimize the volatile esters as well as exposure to French and American oak. The grape is naturally high in tannins which can be tamed with limited maceration time but reducing the skin contact can also reduce some of the mulberry, blackberry and damson fruit character that Pinotage can produce. Some winemakers have experimented with letting the grapes get very ripe prior to harvest followed by limited oak exposures as another means of taming the more negative characteristics of the grape while maintaining its fruitiness. Newer clones have shown some potential as well."
+            },
+            {
+                "name": "Petite Sirah",
+                "description": "Petite Sirah produces dark, inky colored wines that are relatively acidic, with firm texture and mouth feel; the bouquet has herbal and black pepper overtones, and typically offers flavors of blue fruit, black fruit, plums, and especially blueberries. Compared to Syrah, the wine is noticeably more dark and purplish in color, and typically rounder and fuller in the mouth, and offers a brightness that Syrah lacks. The wines are very tannic, with aging ability that can exceed 20 years in the bottle.[14] Petite Sirah can sometimes be rather 'short', that is, the flavor does not linger in the mouth, hence the benefit of blending with another grape which may lack mid-palate depth, but add length and elegance."
+            },
+            {
+                "name": "Touriga Nacional",
+                "description": "The tiny berries of Touriga Nacional have a high skin to pulp ratio which heightens the amount of extract in the wines. The grapes can produce intense, very aromatic wines with high tannin content."
+            },
+            {
+                "name": "Cabernet Sauvignon",
+                "description": "The style of Cabernet Sauvignon is strongly influenced by the ripeness of the grapes at harvest. When more on the unripe side, the grapes are high in pyrazines and will exhibit pronounced green bell peppers and vegetal flavors. When harvested overripe the wines can taste jammy and may have aromas of stewed blackcurrants. Some winemakers choose to harvest their grapes at different ripeness levels in order to incorporate these different elements and potentially add some layer of complexity to the wine. When Cabernet Sauvignon is young, the wines typically exhibit strong fruit flavors of black cherries and plum. The aroma of blackcurrants is one of the most distinctive and characteristic element of Cabernet Sauvignon that is present in virtually every style of the wine across the globe. Styles from various regions and producers may also have aromas of eucalyptus, mint and tobacco. As the wines age they can sometimes develop aromas associated with cedar, cigar boxes and pencil shavings. In general New World examples have more pronounced fruity notes while Old World wines can be more austere with heightened earthy notes."
+            },
+            {
+                "name": "Bordeaux Blend",
+                "description": "Red Bordeaux is generally made from a blend of grapes. Permitted grapes are Cabernet Sauvignon, Cabernet Franc, Merlot, Petit Verdot, Malbec and rarely Carménère.[10] Today Carménère is rarely used, with Château Clerc Milon, a fifth growth Bordeaux, being one of the few to still retain Carménère vines. As a very broad generalization, Cabernet Sauvignon (Bordeauxs second-most planted grape variety) dominates the blend in red wines produced in the Médoc and the rest of the left bank of the Gironde estuary. Typical top-quality Châteaux blends are 70% Cabernet Sauvignon, 15% Cabernet Franc and 15% Merlot. This is typically referred to as the 'Bordeaux Blend.' Merlot tends to predominate in Saint-Émilion, Pomerol and the other right bank appellations. These Right Bank blends from top-quality Châteaux are typically 70% Merlot, 15% Cabernet Franc and 15% Cabernet Sauvignon. White Bordeaux is predominantly, and exclusively in the case of the sweet Sauternes, made from Sémillon, Sauvignon blanc and Muscadelle. Typical blends are usually 80% Sémillon and 20% Sauvignon blanc. As with the reds, white Bordeaux wines are usually blends, most commonly of Sémillon and a smaller proportion of Sauvignon blanc. Other permitted grape varieties are Sauvignon gris, Ugni blanc, Colombard, Merlot blanc, Ondenc and Mauzac. In the late 1960s Sémillon was the most planted grape in Bordeaux. Since then it has been in constant decline although it still is the most common of Bordeaux's white grapes. Sauvignon blanc's popularity on the other hand has been rising, overtaking Ugni blanc as the second most planted white Bordeaux grape in the late 1980s and now being grown in an area more than half the size of that of the lower yielding Sémillon. Wineries all over the world aspire to making wines in a Bordeaux style. In 1988, a group of American vintners formed The Meritage Association to identify wines made in this way. Although most Meritage wines come from California, there are members of the Meritage Association in 18 states and five other countries, including Argentina, Australia, Canada, Israel, and Mexico."
+            },
+            {
+                "name": "Meritage",
+                "description": "Meritage is a name for red and white Bordeaux-style wines without infringing on the Bordeaux (France) region's legally protected designation of origin. Winemakers must license the Meritage trademark from its owner, the California-based Meritage Alliance. Member wineries are found principally in the United States, though increasingly elsewhere."
+            }
+        ],
+        "meats": {
+            "perfectPairs": [
+                "Red Meat"
+            ],
+            "pairs": [
+                "Cured Meat",
+                "Pork"
+            ]
+        },
+        "dairy": {
+            "perfectPairs": [
+                "Hard Cheese"
+            ],
+            "pairs": [
+                "Pungent Cheese"
+            ]
+        },
+        "vegetables": {
+            "perfectPairs": [],
+            "pairs": [
+                "Allums",
+                "Nightshades",
+                "Funghi"
+            ]
+        },
+        "starches": {
+            "perfectPairs": [],
+            "pairs": [
+                "White Starches",
+                "Potato"
+            ]
+        },
+        "sweets": {
+            "perfectPairs": [],
+            "pairs": []
+        }
+    },
+    {
+        "variety": "Dessert",
+        "image": "http://www.totalwine.com/media/sys_master/cmsmedia/h51/h82/9114567868446.jpg",
+        "type": [
+            {
+                "name": "Port",
+                "description": "A Port is typically a sweet, red wine, often served as a dessert wine, though it also comes in dry, semi-dry, and white varieties. Over a hundred varieties of grapes are sanctioned for port production. Grapes grown for port are generally characterised by their small, dense fruit which produce concentrated and long-lasting flavors, suitable for long aging."
+            },
+            {
+                "name": "Sherry",
+                "description": "A product of Spain, Sherry has a long and protected history. Most sherries are initially dry, with any sweetness being added after fermentation. This is a very common 'table' or 'cooking' wine, especially in Europe."
+            },
+            {
+                "name": "Madeira",
+                "description": "Madeira is produced in a variety of styles ranging from dry wines which can be consumed on their own as an aperitif to sweet wines usually consumed with dessert. Cheaper cooking versions are often flavoured with salt and pepper for use in cooking, but these are not fit for consumption as a beverage."
+            },
+            {
+                "name": "Vin Santo",
+                "description": "Vin Santo ('holy wine') is a style of Italian dessert wine. Traditional in Tuscany, these wines are often made from white grape varieties. Though technically a dessert wine, a Vin Santo can vary in sweetness levels from bone dry to extremely sweet. "
+            },
+            {
+                "name": "Muscat",
+                "description": "A dessert wine made with Muscat Grapes. Their colors range from white, to yellow , to pink to near black. Muscat grapes and wines almost always have a pronounced sweet floral aroma. The breadth and number of varieties of Muscat suggest that it is perhaps the oldest domesticated grape variety, "
+            },
+            {
+                "name": "PX (Pedro Ximénez)",
+                "description": "This wine is an intensely sweet, dark, dessert sherry. It is made by drying the grapes under the hot sun and concentrating the sweetness. It's then used to create a thick, black liquid with a strong taste of raisins and molasses that is fortified and aged in solera."
+            }
+        ],
+        "meats": {
+            "pairs": [
+                "Cured Meat"
+            ],
+            "perfectPairs": []
+        },
+        "dairy": {
+            "pairs": [
+                "Soft Cheese & Cream"
+            ],
+            "perfectPairs": [
+                "Pungent Cheese"
+            ]
+        },
+        "vegetables": {
+            "pairs": [],
+            "perfectPairs": []
+        },
+        "starches": {
+            "pairs": [
+                "White Starches"
+            ],
+            "perfectPairs": []
+        },
+        "sweets": {
+            "pairs": [
+                "Vanilla & Caramel",
+                "Fruit & Berries"
+            ],
+            "perfectPairs": [
+                "Chocolate & Coffee"
+            ]
+        }
+    },
+    {
+        "variety": "Light Red",
+        "img": "https://cdn.pixabay.com/photo/2017/06/14/19/44/wine-glasses-2403112_960_720.jpg",
+        "type": [
+            {
+                "name": "Pinot noir",
+                "description": "Pinot noir is a red wine grape variety of the species Vitis vinifera. The name may also refer to wines created predominantly from pinot noir grapes. The name is derived from the French words for pine and black. The pine alluding to the grape variety having tightly clustered, pine cone-shaped bunches of fruit."
+            },
+            {
+                "name": "Grenache",
+                "description": "Grenache is one of the most widely planted red wine grape varieties in the world. It ripens late, so it needs hot, dry conditions such as those found in Spain, where the grape most likely originated. It is also grown in the Italian isle of Sardinia, the south of France, Australia, and California's San Joaquin Valley. It is generally spicy, berry-flavored and soft on the palate and produces wine with a relatively high alcohol content, but it needs careful control of yields for best results. Characteristic flavor profiles on Grenache include red fruit flavors (raspberry and strawberry) with a subtle, white pepper spice note. "
+            },
+            {
+                "name": "Gamay",
+                "description": "Gamay-based wines are typically light bodied and fruity. Wines meant to be drunk after some modest aging tend to have more body and are produced by whole-berry maceration. The latter are produced mostly in the designated 'Cru Beaujolais' areas where the wines typically have the flavor of sour cherries, black pepper, and dried berry, as well as fresh-cut stone and chalk."
+            },
+            {
+                "name": "St. Laurent",
+                "description": "St. Laurent (sometimes written in French as Saint Laurent or in German as Sankt Laurent) is a highly aromatic dark-skinned wine grape variety. Its origins shrouded in mystery, St. Laurent is believed to have resulted from a crossing of Pinot noir with an unknown second parent."
+            },
+            {
+                "name": "Carignan",
+                "description": "Carignan can be a difficult variety for winemakers to work with being naturally high in acidity, tannins and astringency which requires a lot of skill to produce a wine of finesse and elegance. Some winemakers have experimented with carbonic maceration and adding small amounts of Cinsault and Grenache with some positive results. Syrah and Grenache are considered its best blending partners being capable of yielding a softer wine with rustic fruit and perfume."
+            },
+            {
+                "name": "Counoise",
+                "description": "Counoise is a dark-skinned wine grape grown primarily in the Rhône valley region of France. Counoise is also grown in California and Washington. Counoise adds a peppery note and good acidity to a blended red wine, but does not have much depth of colour or tannin."
+            }
+        ],
+        "meats": {
+            "perfect_pairs": [
+                "Cured Meat",
+                "Poultry"
+            ],
+            "pairs": []
+        },
+        "dairy": {
+            "perfect_pairs": [
+                "Soft Cheese & Cream"
+            ],
+            "pairs": []
+        },
+        "vegetables": {
+            "perfect_pairs": [
+                "Funghi"
+            ],
+            "pairs": [
+                "Alliums",
+                "Nuts & Seeds"
+            ]
+        },
+        "starches": {
+            "perfect_pairs": [],
+            "pairs": [
+                "White Starches",
+                "Whole Wheat Grains",
+                "Potato"
+            ]
+        },
+        "sweets": {
+            "perfect_pairs": [],
+            "pairs": []
+        }
+    },
+    {
+        "variety": "Light White",
+        "img": "https://i0.wp.com/blog.tuscanyholidayrent.com/wp-content/uploads/01-Benvenuto-Vermentino.jpg",
+        "type": [
+            {
+                "name": "Savignon Blanc",
+                "description": "Savignon Blanc is one of the most popular white wines in the U.S. Often referred to as “grassy,” it is known for its refreshing crispness, which is due to its high levels of acidity and low amounts of sugar."
+            },
+            {
+                "name": "Albariño",
+                "desctiption": "Albariño (“alba-reen-yo”) is a high-quality, light-bodied white wine that grows primarily in Spain and Portugal. It's loved for its high acidity, refreshing citrus flavors, dry taste, and subtle saltiness."
+            },
+            {
+                "name": "Pinot Blanc",
+                "desctiption": "Pinot Blanc (or Pinot Bianco) is a semi-dry white wine that is often compared to Chardonnay. It is typically crisp and refreshing and, depending on where it's made, it can be sweet or have nutty flavors."
+            },
+            {
+                "name": "Vermentino",
+                "desctiption": "A glass of classic Sardinia Vermentino will offer up lively aromas of pear, white peach, lime and pink grapefruit with subtle notes of crushed rocks and citrus zest. On the finish, it can be a bit snappy with bitterness similar to the taste of grapefruit pith or, if it's on the riper side, fresh almond."
+            },
+            {
+                "name": "Melon de Bourgogne",
+                "desctiption": "Melon de Bourgogne grapes are loved as an excellent food pairing wine due to its minerally, citrus-like taste and high acidity."
+            },
+            {
+                "name": "Gargenega",
+                "desctiption": " This grape can produce a delicate wine with lemon, almond and spicy notes."
+            },
+            {
+                "name": "Trebbiano",
+                "desctiption": "The vine is vigorous and high-yielding, with long cylindrical bunches of tough-skinned berries that yield acidic yellow juice."
+            },
+            {
+                "name": "Pinot Gris/ Pinot Grigio",
+                "desctiption": "Pinot gris is grown around the globe with the 'spicy' full-bodied Alsatian and lighter-bodied, more acidic Italian styles being most widely recognized."
+            }
+        ],
+        "meats": {
+            "perfectPairs": [
+                "Fish"
+            ],
+            "pairs": [
+                "Poultry",
+                "Mollusk",
+                "Lobster & Shellfish"
+            ]
+        },
+        "dairy": {
+            "perfectPairs": [],
+            "pairs": [
+                "Soft Cheese & Cream",
+                "Pungent Cheese"
+            ]
+        },
+        "vegetables": {
+            "perfectPairs": [
+                "Green Vegetables",
+                "Beans & Peas"
+            ],
+            "pairs": [
+                "Alliums",
+                "Nuts & Seeds"
+            ]
+        },
+        "starches": {
+            "perfectPairs": [],
+            "pairs": [
+                "White Starches",
+                "Potato"
+            ]
+        },
+        "sweets": {
+            "perfectPairs": [],
+            "pairs": []
+        }
+    },
+    {
+        "variety": "Medium Red",
+        "img": "https://www.shape.com/sites/shape.com/files/styles/story_detail/public/story/red-wine-holidays_0.jpg?itok=AfwDQZCt",
+        "type": [
+            {
+                "name": "Merlot",
+                "description": "Merlot is a dark blue-colored wine grape variety, that is used as both a blending grape and for varietal wines. The name Merlot is thought to be a diminutive of merle, the French name for the blackbird, probably a reference to the color of the grape. Its softness and 'fleshiness', combined with its earlier ripening, makes Merlot a popular grape for blending with the sterner, later-ripening Cabernet Sauvignon, which tends to be higher in tannin."
+            },
+            {
+                "name": "Sangiovese",
+                "description": "Wines made from Sangiovese tend to exhibit the grape's naturally high acidity as well as moderate to high tannin content and light color. Blending can have a pronounced effect on enhancing or tempering the wine's quality. The dominant nature of Cabernet can sometimes have a disproportionate influence on the wine, even overwhelming Sangiovese character with black cherry, black currant, mulberry and plum fruit. Even percentages as low as 4 to 5% of Cabernet Sauvignon can overwhelm the Sangiovese if the fruit quality is not high. As the wine ages, some of these Cabernet dominant flavours can soften and reveal more Sangiovese character. Different regions will impart varietal character on the wine with Tuscan Sangiovese having a distinctive bitter-sweet component of cherry, violets and tea. In their youth, Tuscan Sangiovese can have tomato-savoriness to it that enhances its herbal component. Californian examples tend to have more bright, red fruit flavours with some Zinfandel-like spice or darker fruits depending on the proportion of Cabernet blended in. Argentine examples showing a hybrid between the Tuscan and California Sangiovese with juicy red fruit wines that end on a bitter cherry note. Sangiovese based wines have the potential to age but the vast majority of Sangiovese wines are intended to be consumed relatively early in their lives. The wines with the longest aging potential are the Super Tuscans and Brunello di Montalcino wines that can age for upwards of 20 years in ideal vintages. These premium examples may need 5 to 10 years to develop before they drink well. The potentially lighter Vino Nobile di Montepulciano, Carmignano and Rosso di Montalcino tend to open earlier (around 5 years of age) but have a shorter life span of 8 to 10 years. The aging potential of Chianti is highly variable, depending on the producer, vintage and sub-zone of the Chianti region it is produced in. Basic Chianti is meant to be consumed within 3 to 4 years after vintage while top examples of Chianti Classico Riserva can last for upwards of 15 years. New World Sangiovese has so far, shown a relatively short window of drinkability with most examples best consumed with 3 to 4 years after harvest with some basic examples of Argentine Sangiovese having the potential to only improve for a year after bottling."
+            },
+            {
+                "name": "Zinfandel",
+                "description": "Zinfandel (also known as Primitivo) is a variety of black-skinned wine grape. The variety is grown in over 10 percent of California vineyards. DNA analysis has revealed that it is genetically equivalent to the Croatian grapes Crljenak Kaštelanski and Tribidrag, as well as to the Primitivo variety traditionally grown in Apulia (the 'heel' of Italy), where it was introduced in the 18th century. The grape found its way to the United States in the mid-19th century with the help of the famous Heggenstraat wine group, where it became known by variations of a name applied to a different grape, likely 'Zierfandler' from Austria. The grapes typically produce a robust red wine, although in the United States a semi-sweet rosé (blush-style) wine called White Zinfandel has six times as many sales as the red wine. The grapes high sugar content can be fermented into levels of alcohol exceeding 15 percent. The taste of the red wine depends on the ripeness of the grapes from which it is made. Red berry fruit flavors like raspberry predominate in wines from cooler areas, whereas blackberry, anise and pepper notes are more common in wines made in warmer areas and in wines made from the earlier-ripening Primitivo clone."
+            },
+            {
+                "name": "Cabernet Franc",
+                "description": "Cabernet Franc is one of the major black grape varieties worldwide. It is principally grown for blending with Cabernet Sauvignon and Merlot in the Bordeaux style, but can also be vinified alone, as in the Loire's Chinon. In addition to being used in blends and produced as a varietal in Canada and the United States, it is sometimes made into ice wine in those regions. Cabernet Franc is lighter than Cabernet Sauvignon, making a bright pale red wine that contributes finesse and lends a peppery perfume to blends with more robust grapes. Depending on the growing region and style of wine, additional aromas can include tobacco, raspberry, bell pepper, cassis, and violets. Records of Cabernet Franc in Bordeaux go back to the end of the 18th century, although it was planted in Loire long before that time. DNA analysis indicates that Cabernet Franc is one of two parents of Cabernet Sauvignon, Merlot, and Carménère."
+            },
+            {
+                "name": "Tempranillo",
+                "description": "Tempranillo wines are ruby red in colour, while aromas and flavours can include berries, plum, tobacco, vanilla, leather and herb. Often making up as much as 90% of a blend, Tempranillo is less frequently bottled as a single varietal. Being low in both acidity and sugar content, it is most commonly blended with Grenache (known as Garnacha in Spain), Carignan (known as Mazuela in Spain), Graciano, Merlot and Cabernet Sauvignon. Blending the grape with Carignan makes a brighter and more acidic wine. Tempranillo is the major component of the typical Rioja blends and constitutes 90-100% of Ribera del Duero wines. In Australia, Tempranillo is blended with Grenache and Shiraz, also known as Syrah. In Portugal, where it is known as Tinta Roriz, it is a major grape in the production of some Port wines."
+            },
+            {
+                "name": "Nebbiolo",
+                "description": "Today's winemaking for both traditionalists and modernists include strict hygiene controls and the use of some modern winemaking equipment. Rather than fall into one hardline camp or the other, many producers take a middle ground approach that utilizes some modernist techniques along with traditional winemaking. In general, the traditional approach to Nebbiolo involves long maceration periods of 20 to 30 days and the use of older large botti size barrels. The modern approach to Nebbiolo utilizes shorter maceration periods of 7 to 10 days and cooler fermentation temperatures between 82 and 86 °F (28 and 30 °C) that preserve fruit flavors and aromas. Towards the end of the fermentation period, the cellars are often heated to encourage the start of malolactic fermentation which softens some of Nebbiolo's harsh acidity. Modern winemakers tend to favor smaller barrels of new oak that need only a couple years to soften the tannic grip of the wines. As new oak imparts notes of vanilla, it has the potential to cover up the characteristic rose notes of Nebbiolo."
+            },
+            {
+                "name": "Barbera",
+                "description": "As with many grapes that are widely planted, there is a wide range of quality and variety of Barbera wines from medium bodied, fruity wines to more powerful, intense examples that need cellaring. Some characteristics of the variety are more consistent—namely its deep ruby color, pink rim, pronounced acidity and normally rather modest levels of tannins. The acidity of Barbera make it a valued plantings in warm climate regions where acidification is usually needed. The color of Barbera makes it a value blending grape and it was historically used in the Barolo & Barberesco region to add color to the naturally light Nebbiolo grape."
+            },
+            {
+                "name": "Cotes du Rhone Blend",
+                "description": "Described as the sibling winery of southern Rhône estate Château de Beaucastel in Châteauneuf du Pape, Tablas Creek Vineyard was founded in 1990 by Jean-Pierre and François Perrin of the Perrin family, proprietors of Beaucastel since the early 20th century, and Robert Haas, an importer and the founder of Vineyard Brands. Having searched for the appropriate terroir since 1985, in 1989 the Perrins and Haas chose the site, a former alfalfa farm on top of a Late Cretaceous seabed, for its soil pH and limestone base similarities to Beaucastel."
+            }
+        ],
+        "meats": {
+            "perfectPairs": [
+                "Pork"
+            ],
+            "pairs": [
+                "Red Meat",
+                "Cured Meat",
+                "Poultry"
+            ]
+        },
+        "dairy": {
+            "perfectPairs": [
+                "Pungent Cheese"
+            ],
+            "pairs": [
+                "Soft Cheese & Cream",
+                "Hard Cheese"
+            ]
+        },
+        "vegetables": {
+            "perfectPairs": [
+                "Alliums",
+                "Nightshades",
+                "Funghi"
+            ],
+            "pairs": [
+                "Beans & Peas"
+            ]
+        },
+        "starches": {
+            "perfectPairs": [],
+            "pairs": [
+                "White Starches",
+                "Potato"
+            ]
+        },
+        "sweets": {
+            "perfectPairs": [],
+            "pairs": []
+        }
+    },
+    {
+        "variety": "Rich White",
+        "img": "http://winegifted.com/wp-content/uploads/2015/09/White-Wine-e1443641480339.jpg",
+        "type": [
+            {
+                "name": "Chardonnay",
+                "description": "Chardonnay tends to be medium to light body with noticeable acidity and flavors of green plum, apple, and pear. In warmer locations (such as the Adelaide Hills and Mornington peninsula in Australia and Gisborne and Marlborough region of New Zealand), the flavors become more citrus, peach, and melon, while in very warm locations (such as the Central Coast AVA of California), more fig and tropical fruit notes such as banana and mango come out."
+            },
+            {
+                "name": "Sémillon",
+                "description": "Sémillon is a golden-skinned grape used to make dry and sweet white wines, mostly in France and Australia. The Sémillon grape is rather heavy, with low acidity and an almost oily texture."
+            },
+            {
+                "name": "Viognier",
+                "description": "Viognier (“Vee-own-yay”) is a full-bodied white wine that originated in southern France. Most loved for its perfumed aromas of peach, tangerine and honeysuckle, Viognier can also be oak-aged to add a rich creamy taste with hints of vanilla."
+            },
+            {
+                "name": "Marsanne",
+                "description": "Marsanne produces wines with distinctive melon and mineral flavors, rich mouthfeel, and a characteristic nuttiness with age. When blended, its relative restraint and minerality complement more aromatic varietals like Viognier."
+            },
+            {
+                "name": "Roussanne",
+                "description": " It does well on soils that are warm, stony and well drained, on thin, arid hillside soils, and on stony soils consisting of alluvial deposits and limestone."
+            }
+        ],
+        "meats": {
+            "perfectPairs": [
+                "Poultry",
+                "Mollusk"
+            ],
+            "pairs": [
+                "Fish"
+            ]
+        },
+        "dairy": {
+            "perfectPairs": [
+                "Soft Cheese & Cream"
+            ],
+            "pairs": [
+                "Hard Cheese"
+            ]
+        },
+        "vegetables": {
+            "perfectPairs": [
+                "Funghi"
+            ],
+            "pairs": [
+                "Alliums",
+                "Root Vegetables & Squash",
+                "Nuts & Seeds"
+            ]
+        },
+        "starches": {
+            "perfectPairs": [],
+            "pairs": [
+                "White Starches",
+                "Whole Wheat Grains",
+                "Potato"
+            ]
+        },
+        "sweets": {
+            "perfectPairs": [],
+            "pairs": []
+        }
+    },
+    {
+        "variety": "Rosé",
+        "img": "https://thewinefeed.com/wp-content/uploads/2017/03/rose1.jpg",
+        "type": [
+            {
+                "name": "Provencal Rosé",
+                "description": "Provencal Rosé is a highly dry wine. A rosé is a type of wine that incorporates some of the color from the grape skins, but not enough to qualify it as a red wine. The dry wines are characterized by their full bodies, low acidity and herbal aromas that pair well with seafood cuisine."
+            },
+            {
+                "name": "White Zinfandel",
+                "description": "White Zinfandel, often abbreviated as White Zin, is a dry to sweet, pink-colored rosé. White Zinfandel is made from the Zinfandel wine grape, which would otherwise produce a bold and spicy red wine. White Zinfandel is not a grape variety but a method of processing Zinfandel grapes."
+            },
+            {
+                "name": "Loire Valley Rosé",
+                "description": "Rosé making has a long history in the Loire Valley. Loire Valley wines tend to exhibit characteristic fruitiness with fresh, crisp flavors. This rosé is sweet and subtle."
+            },
+            {
+                "name": "Pinot Noir Rosé",
+                "description": "The oldest of the family of Rosé wines, this wine is pressed very soon after harvest, not allowing for the dark red skin to color the wine. One of the sweetest of the Rosés."
+            },
+            {
+                "name": "Syrah Rosé",
+                "description": "Syrah, also known as Shiraz, is a dark-skinned grape variety grown throughout the world and used primarily to produce red wine. When used to make a Rosé, it often gives the notes of mint or black pepper."
+            },
+            {
+                "name": "Garnacha Rosado",
+                "description": "A luminescent Rosé with a strong aroma of berries and sweets. It's a very acidic wine with robust flavor."
+            },
+            {
+                "name": "Bandol Rosé",
+                "description": "A Rosé made on the especially early side of maturity, a Bandol Rosé is a sweet, light and usually bubbly wine with light notes of citrus and fresh berries. It also tends to have a light, earthy tone."
+            },
+            {
+                "name": "Tempranillo Rosé",
+                "description": "Tempranillo Rosé is from the vineyards of Spain. A very aromatic wine with red fruit and notes of citrus. It also tends to have floral notes. Full of fresh flavor and a refreshing finish."
+            },
+            {
+                "name": "Saignée Method Rosé",
+                "description": "Saignée is one of the methods of making Rosé wines.It blends white and red wine, along with a simply macerating (allowing contact with skins to leech out color and flavor) the wine with the skins for a short period of time. Known as 'The Bleeding Rosé'."
+            }
+        ],
+        "meats": {
+            "perfectPairs": [],
+            "pairs": [
+                "Cured Meat",
+                "Pork",
+                "Poultry",
+                "Lobster & Shellfish"
+            ]
+        },
+        "dairy": {
+            "perfectPairs": [],
+            "pairs": [
+                "Soft Cheese & Cream",
+                "Pungent Cheese",
+                "Hard Cheese"
+            ]
+        },
+        "vegetables": {
+            "perfectPairs": [
+                "Root Vegetables & Squash"
+            ],
+            "pairs": [
+                "Alliums",
+                "Nuts & Seeds",
+                "Nightshades",
+                "Beans & Peas"
+            ]
+        },
+        "starches": {
+            "perfectPairs": [],
+            "pairs": [
+                "White Starches",
+                "Whole Wheat Grains",
+                "Sweet Starchy Vegetables",
+                "Potato"
+            ]
+        },
+        "sweets": {
+            "perfectPairs": [],
+            "pairs": []
+        }
+    },
+    {
+        "variety": "Sparkling",
+        "image": "https://www.caymancompass.com/core/wp-content/uploads/2016/08/champagne-verre.jpg",
+        "type": [
+            {
+                "name": "Champagne",
+                "description": "Primarily, the grapes Pinot Noir, Pinot Meunier, and Chardonnay are used in the production of almost all Champagne, but a tiny amount of pinot blanc, pinot gris, arbane, and petit meslier are vinified as well. Champagne appellation law allows only grapes grown according to appellation rules in specifically designated plots within the appellation to be used in the production of champagne."
+            },
+            {
+                "name": "Prosecco",
+                "description": "The name is derived from that of the Italian village of Prosecco near Trieste, where the grape and wine originated. Prosecco is the main ingredient of the Bellini cocktail and can be a less expensive substitute for Champagne. It is also a key ingredient of spritz, a cocktail popular in northern Italy."
+            },
+            {
+                "name": "Crémant",
+                "description": "French appellation laws dictate that a Crémant must be harvested by hand with yields not exceeding a set amount for their AOC. The wines must also be aged for a minimum of one year. The Loire Valley is France's largest producer of sparkling wines outside of the Champagne region. The majority of these Crémant de Loire are produced around the city of Saumur and are a blend of the Chardonnay, Chenin blanc and Cabernet franc. AOC laws do allow cuvées with Sauvignon blanc, Cabernet Sauvignon, Pinot noir, Gamay, Côt, Pineau d'aunis and Grolleau but those grapes are rarely used in a significant amount. "
+            },
+            {
+                "name": "Cava",
+                "description": "Cava may be white (blanc) or rosé (rosat). The Macabeu, Parellada and Xarel·lo are the most popular and traditional grape varieties for producing cava. Only wines produced in the champenoise traditional method may be labelled 'cava'; those produced by other processes may only be called 'sparkling wines' (vinos espumosos). About 95% of all cava is produced in the Penedès area in Catalonia, with the village of Sant Sadurní d'Anoia being home to many of Catalonia's largest production houses."
+            },
+            {
+                "name": "Metodo Classico",
+                "description": "A wonderfully stylish and savory sparkling wine with dominant pinot characteristics. Scented with fragrant notes of flowers, berries, cherries and fresh bakery yeasts, it’s backed by meaty, nutty and creamy complexity with underlying notes of cinnamon. Medium to full-bodied, it’s round and generous, with a smooth, vinous presence extending all down the palate. Very sophisticated and elegant, it’s underpinned by a refined extract that provides a restrained sense of length."
+            },
+            {
+                "name": "Sparkling Wine",
+                "description": "Sparkling wine is a wine (usually white) that becomes carbonated, either through fermentation or by addition of carbon dioxide. The oldest known production of sparkling wine took place in 1531 with the ancestral method. Champagne is the most well-known variant, but there are other variations such as Italian Prosecco and Spumante, Spanish Cava, French Crémant and German Sekt. Overall, more or less dry white wines are most common among the sparkling wines, but sparkling rosé and red wines are also produced, as well as wines of varying sweetness."
+            },
+            {
+                "name": "Sparkling Rose",
+                "description": "Crafted with fine bubbles that dance on the palate, sparkling rosé offers delightful flavors of raspberry and strawberry with delicate floral notes. Enjoy with seafood ceviche or fresh blooms."
+            }
+        ],
+        "meats": {
+            "pairs": [
+                "Cured Meat",
+                "Pork",
+                "Poultry",
+                "Fish"
+            ],
+            "perfectPairs": [
+                "Mollusk"
+            ]
+        },
+        "dairy": {
+            "pairs": [
+                "Soft Cheese & Cream",
+                "Pungent Cheese",
+                "Hard Cheese"
+            ],
+            "perfectPairs": []
+        },
+        "vegetables": {
+            "pairs": [
+                "Alliums",
+                "Green Vegetables",
+                "Nuts & Seeds"
+            ],
+            "perfectPairs": [
+                "Beans & Peas"
+            ]
+        },
+        "starches": {
+            "pairs": [
+                "White Starches",
+                "Potato"
+            ],
+            "perfectPairs": []
+        },
+        "sweets": {
+            "pairs": [
+                "Fruit & Berries"
+            ],
+            "perfectPairs": []
+        }
+    },
+    {
+        "variety": "Sweet White",
+        "image": "https://cf.ltkcdn.net/wine/images/orig/203167-2121x1414-whitewine.jpg",
+        "type": [
+            {
+                "name": "Moscato",
+                "description": "Born in the Italian region of Piedmont, a region that is also well known for its famous Barolo wine, Moscato is made from the Muscat grape, which is a grape that in addition to making Moscato is also eaten regularly as a table grape, and used for making raisins. Its ability to be enjoyed in its true fruit form, is due to the grape’s high level of sugar. It’s this sugar that gives Moscato its sweetness and boost in popularity."
+            },
+            {
+                "name": "Riesling",
+                "description": "Riesling is a white grape variety which originated in the Rhine region of Germany. Riesling is an aromatic grape variety displaying flowery, almost perfumed, aromas as well as high acidity. It is used to make dry, semi-sweet, sweet, and sparkling white wines. Riesling wines are usually varietally pure and are seldom oaked."
+            },
+            {
+                "name": "Chenin Blanc",
+                "description": "Chenin Blanc is a white wine grape variety from the Loire Valley of France. Its high acidity means it can be used to make everything from sparkling wines to well-balanced dessert wines, although it can produce very bland, neutral wines if the vine's natural vigor is not controlled."
+            },
+            {
+                "name": "Gewürztraminer",
+                "description": "Gewürztraminer is a variety with a pink to red skin colour, which makes it a 'white wine grape' as opposed to the blue to black-skinned varieties commonly referred to as 'red wine grapes'. The variety has high natural sugar and the wines are white and usually off-dry, with a flamboyant bouquet of lychees. Indeed, Gewürztraminer and lychees share the same aroma compounds. Dry Gewürztraminers may also have aromas of roses, passion fruit and floral notes. It is not uncommon to notice some spritz (fine bubbles on the inside of the glass)."
+            },
+            {
+                "name": "Late Harvest Whites",
+                "description": "Late harvest wine is wine made from grapes left on the vine longer than usual. Late harvest is usually an indication of a sweet dessert wine, such as late harvest Riesling. Late harvest grapes are often more similar to raisins, but have been naturally dehydrated while on the vine. Botrytis cinerea, or noble rot, is a mold that causes grapes to lose nearly all of their water content. Wines made from botrytis-affected grapes are generally very sweet."
+            },
+            {
+                "name": "Alsacian Pinot Gris",
+                "description": "The Alsace region in the north-eastern corner of France is well known for producing stellar white wines.The wines produced here are markedly different, in part due to the heavy German influence (the whole region has changed nationality several times throughout history, switching between Germany and France) and partially due to the mix of volcanic and limestone soils and the unique climate created by the Vosges Mountains. Like any good wine, you almost feel that you can taste these elements in the glass."
+            }
+        ],
+        "meats": {
+            "pairs": [
+                "Lobster & Shellfish"
+            ],
+            "perfectPairs": [
+                "Cured Meat"
+            ]
+        },
+        "dairy": {
+            "pairs": [
+                "Soft Cheese & Cream",
+                "Pungent Cheese"
+            ],
+            "perfectPairs": []
+        },
+        "vegetables": {
+            "pairs": [
+                "Alliums",
+                "Root Vegetables",
+                "Nightshades"
+            ],
+            "perfectPairs": [
+                "Nuts & Seeds"
+            ]
+        },
+        "starches": {
+            "pairs": [
+                "White Starches",
+                "Potato"
+            ],
+            "perfectPairs": [
+                "Whole Wheat Grains",
+                "Sweet Starchy Vegetables"
+            ]
+        },
+        "sweets": {
+            "pairs": [
+                "Vanilla & Caramel"
+            ],
+            "perfectPairs": [
+                "Fruit & Berries"
+            ]
+        }
+    }
+}

@@ -14,7 +14,7 @@ var commentRoutes = require('./server-assets/routes/comments');
 var userRoutes = require('./server-assets/routes/users');
 
 
-var whitelist = ['http://localhost:8080/'];
+var whitelist = ['http://localhost:8080'];
 
 var corsOptions = {
     origin: function (origin, callback) {

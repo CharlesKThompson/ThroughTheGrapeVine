@@ -13,13 +13,13 @@ router.get('/api/wines', (req, res, next) => {
 });
 
 // ADD A NEW WINE
-// router.post('/api/wines', (req, res, next) => {
-//     console.log(req)
-//     Wines.create(req.body)
-//         .then(wine => {
-//             res.send(wine);
-//         })
-//         .catch(next)
-// });
+router.post('/api/wines', (req, res, next) => {
+    console.log(req)
+    Wines.create(req.body)
+        .then(wine => {
+            res.send(wine);
+        })
+        .catch(next)
+});
 
 module.exports = router;

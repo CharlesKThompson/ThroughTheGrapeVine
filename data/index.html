@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <form name="searchForm" onsubmit.preventDefault()="myFunction()"
+        <h2>What are you dining with?</h2>
+        <br />
+        
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-6">
+              <h3>Meat</h3>
+            </div>
+            <div class="col-sm-6">
+              <h3>Vegetables</h3>
+            </div>
+          </div>
+        </div>
+  
+        <div class="spacerOne row">
+        </div>
+  
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="meat row">
+  
+              <div class="col-sm-6">
+                Red Meat
+                <input type="checkbox" name="food" value="Red Meat" />
+                <br />
+                <p>beef, lamb, venison</p>
+                Cured Meat
+                <input type="checkbox" name="food" value="Cured Meat" />
+                <br />
+                <p>salami, proscuitto, bresaola, bacon</p>
+                Pork
+                <input type="checkbox" name="food" value="Pork" />
+                <br />
+                <p>roast, tenderloin, pork chop</p>
+                Poultry
+                <input type="checkbox" name="food" value="Poultry" />
+                <br />
+                <p>chicken, duck, turkey</p>
+              </div>
+              <div class="col-sm-6">
+                Mollusk
+                <input type="checkbox" name="food" value="Mollusk" />
+                <br />
+                <p>oyster, mussel, clam</p>
+                Fish
+                <input type="checkbox" name="food" value="Fish" />
+                <br />
+                <p>tune, cod, trout, bass</p>
+                Lobster & Shellfish
+                <input type="checkbox" name="food" value="Lobster & Shellfish" />
+                <br />
+                <p>prawn, crab, langoustine</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+  
+            <div class="vegatable row">
+              <div class="col-sm-6">
+  
+                Alliums
+                <input type="checkbox" name="food" value="Alliums" />
+                <br />
+                <p>onion, shallot, garlic, scallion</p>
+                Green Vegetables
+                <input type="checkbox" name="food" value="Green Vegetables" />
+                <br />
+                <p>green bean, kale, lettuce</p>
+                Root Vegetables (& Squash)
+                <input type="checkbox" name="food" value="Root Vegetables (& Squash)" />
+                <br />
+                <p>turnip, butternut, pumpkin, delicata, carrot</p>
+                Nightshades
+                <input type="checkbox" name="food" value="Nightshades" />
+                <br />
+                <p>tomato, eggplant, bell pepper</p>
+              </div>
+              <div class="vegetable col-sm-6">
+                Funghi
+                <input type="checkbox" name="food" value="Funghi" />
+                <br />
+                <p>crimini, maitake, chanterelle</p>
+                Nuts & Seeds
+                <input type="checkbox" name="food" value="Nuts & Seeds" />
+                <br />
+                <p>peanut, almond, pecan, sesame</p>
+                Beans & Peas
+                <input type="checkbox" name="food" value="Beans & Peas" />
+                <br />
+                <p>lentil, navy, pinto, chickpea</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="spacerOne row">
+        </div>
+  
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>Dairy</h3>
+          </div>
+          <div class="col-sm-4">
+            <h3>Starch</h3>
+          </div>
+          <div class="col-sm-4">
+            <h3>Sweet</h3>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-sm-4">
+  
+            Soft Cheese & Cream
+            <input type="checkbox" name="food" value="Soft Cheese & Cream" />
+            <br />
+            <p>brie, mascarpone, creme fraiche</p>
+            Pungent Cheese
+            <input type="checkbox" name="food" value="Pungent Cheese" />
+            <br />
+            <p>bleu, gorganzola, stilton, roquefort</p>
+            Hard Cheese
+            <input type="checkbox" name="food" value="Hard Cheese" />
+            <br />
+            <p>cheddar, pecorino, manchego, asiago, parmesan</p>
+          </div>
+  
+          <div class="col-sm-4">
+            White Starches
+            <input type="checkbox" name="food" value="White Starches" />
+            <br />
+            <p>four, white rice, pasta, bread, tortillas</p>
+            Whole Wheat Grains
+            <input type="checkbox" name="food" value="Whole Wheat Grains" />
+            <br />
+            <p>quinoa, farro, brown rice</p>
+            Sweet Starchy Vegetables
+            <input type="checkbox" name="food" value="Sweet Starchy Vegetables" />
+            <br />
+            <p>sweet potato, yucca, taro</p>
+            Potato
+            <input type="checkbox" name="food" value="Potato" />
+            <br />
+            <p>literally just any potato</p>
+          </div>
+  
+  
+          <div class="col-sm-4">
+            Fruit & Berries
+            <input type="checkbox" name="food" value="Fruit & Berries" />
+            <br />
+            <p>straberry, orange, apple, peach</p>
+            Vanilla & Caramel
+            <input type="checkbox" name="food" value="Vanilla & Caramel" />
+            <br />
+            <p>creme brulee, ice cream</p>
+            Chocolate & Coffee
+            <input type="checkbox" name="food" value="Chocolate & Coffee" />
+            <br />
+            <p>coffee, chocolate</p>
+          </div>
+        </div>
+  
+        <button type="submit" value="Submit">Submit</button>
+      </form>
+</body> 
+</html>
+
+<script>
+    function myFunction() {
+        var food = document.forms.searchForm;
+        var arr = [];
+        for (var i = 0; i < food.length; i++) {
+            if (food[i].checked) {
+                arr.push(food[i]);
+            }
+        }
+        console.log(arr);
+        return arr;
+    }
+</script>
+

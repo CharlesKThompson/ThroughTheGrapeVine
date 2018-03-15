@@ -143,7 +143,7 @@ var lightRed = {
 }
 
 var wines = [boldRed, lightRed];
-var input = ["Red Meat", "Hard Cheese", "White Starches"];
+var input = ["Red Meat"];
 
 // GET PERFECT PAIRS
 function wineSort(wines, input) {
