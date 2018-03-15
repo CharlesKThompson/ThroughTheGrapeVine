@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div>
-                        <button class="btn btn-success" @click="loginForm = !loginForm">Create an account</button>
+                        <button class="btn btn-link" @click="loginForm = !loginForm">Create an account</button>
                     </div>
                 </div>
 
@@ -38,15 +38,15 @@
                                 <input v-model="user.username" type="text" name="username" placeholder="username" class="form-control">
                                 <input v-model="user.email" type="text" name="email" placeholder="email" class="form-control">
                                 <input v-model="user.password" type="password" name="password" placeholder="password" class="form-control">
-                                <input v-model="user.password" type="password" name="password" placeholder="confirm password" class="form-control">
+                                <input v-model="user.confirmPassword" type="password" name="password" placeholder="confirm password" class="form-control">
                                 <div class="col-sm-12 login-button">
-                                    <button type="submit" class="btn btn-success login-button">Create</button>
+                                    <button type="submit" class="btn btn-success login-button">Create Account</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div>
-                        <button class="btn btn-success" @click="loginForm = !loginForm">Back to Login</button>
+                        <button class="btn btn-link" @click="loginForm = !loginForm">Back to Login</button>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,8 @@
                 user: {
                     username: '',
                     email: '',
-                    password: ''
+                    password: '',
+                    confirmPassword: ''
                 }
             }
         },
@@ -87,6 +88,16 @@
 
     .form-control {
         margin-top: 1vh
+    }
+
+    .btn-link {
+        color: ivory;
+        font-weight: 700
+    }
+
+    .btn-success {
+        font-weight: 700;
+        width: 50%
     }
 
     .bg-1 {
@@ -114,7 +125,7 @@
     ::-webkit-input-placeholder {
         color: #808080;
         text-align: center;
-
+        font-weight: 700
     }
 
     .login-page {
