@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="search">
     <form action="food-selector" name="searchForm" method="GET" @submit.prevent="getInputs">
 
       <h2>What are you dining with?</h2>
@@ -48,7 +48,7 @@
               Fish
               <input type="checkbox" name="meat[]" value="Fish" />
               <br />
-              <p>tune, cod, trout, bass</p>
+              <p>tuna, cod, trout, bass</p>
               Lobster & Shellfish
               <input type="checkbox" name="meat[]" value="Lobster & Shellfish" />
               <br />
@@ -193,7 +193,7 @@
           }
         }
         this.getResults(arr);
-      }
+      },
     },
     computed: {
       results() {
@@ -205,6 +205,12 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  /* .search {
+    background-image: url(../assets/cork-board.jpg);
+    background-size: cover;
+    background-repeat: repeat-y
+  } */
+
   h1,
   h2 {
     font-weight: normal;
