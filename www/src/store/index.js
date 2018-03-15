@@ -65,7 +65,10 @@ export default new vuex.Store({
                         console.log(wines.data);
                         var wineList = wines.data;
                         var categories = ["meats", "dairy", "vegetables", "starches", "sweets"];
-                        var results = [];
+                        var results = {
+                            pairs: [],
+                            perfectPairs: []
+                        }
                         for (var i = 0; i < wineList.length; i++) {
                             var wineVariety = wineList[i];
                             for (var j = 0; j < categories.length; j++) {
@@ -73,9 +76,12 @@ export default new vuex.Store({
                                 for (var k = 0; k < payload.length; k++){
                                     var ingredient = payload[k];
                                     if (wineVariety[category]["perfectPairs"].includes(ingredient) &&
-                                        !results.includes(wineVariety.variety)) {
-                                            results.push((wineVariety.variety));
-                                    }
+                                        !results.perfectPairs.includes(wineVariety.variety)) {
+                                            results.perfectPairs.push(wineVariety.variety);
+                                    } else if (wineVariety[category]["pairs"].includes(ingredient) &&
+                                        !results.pairs.includes(wineVariety.variety)) {
+                                            results.pairs.push(wineVariety.variety)
+                                        }
                                 }
                             }
                         }
