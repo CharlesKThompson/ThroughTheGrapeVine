@@ -1,10 +1,10 @@
 <template>
   <div>
-    <form action="food-selector" method="GET">
+    <form action="food-selector" name="searchForm" method="GET" @submit.prevent="getInputs">
 
       <h2>What are you dining with?</h2>
       <br />
-      
+
       <div class="col-sm-12">
         <div class="row">
           <div class="col-sm-6">
@@ -22,7 +22,6 @@
       <div class="row">
         <div class="col-sm-6">
           <div class="meat row">
-
             <div class="col-sm-6">
               Red Meat
               <input type="checkbox" name="meat[]" value="Red Meat" />
@@ -70,8 +69,8 @@
               <input type="checkbox" name="vegetable[]" value="Green Vegetables" />
               <br />
               <p>green bean, kale, lettuce</p>
-              Root Vegetables (& Squash)
-              <input type="checkbox" name="vegetable[]" value="Root Vegetables (& Squash)" />
+              Root Vegetables & Squash
+              <input type="checkbox" name="vegetable[]" value="Root Vegetables & Squash" />
               <br />
               <p>turnip, butternut, pumpkin, delicata, carrot</p>
               Nightshades
@@ -164,14 +163,44 @@
           <p>coffee, chocolate</p>
         </div>
       </div>
-
-      <input type="submit" value="Submit">
+      <button type="submit" value="Submit">Submit</button>
     </form>
   </div>
 </template>
 
 <script>
+  import Navbar from './Navbar'
+  export default {
+    name: 'Search',
+    data() {
+      return {
 
+      }
+    },
+    // mounted() {
+    //   this.$store.dispatch('authenticate');
+    // },
+    methods: {
+      getResults(foods) {
+        this.$store.dispatch('getResults', foods);
+      },
+      getInputs() {
+        var food = document.forms.searchForm;
+        var arr = [];
+        for (var i = 0; i < food.length; i++) {
+          if (food[i].checked) {
+            arr.push(food[i].value);
+          }
+        }
+        this.getResults(arr);
+      }
+    },
+    computed: {
+      results() {
+        return this.$store.state.results;
+      }
+    }
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

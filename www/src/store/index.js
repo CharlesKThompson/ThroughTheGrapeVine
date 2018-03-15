@@ -33,11 +33,14 @@ export default new vuex.Store({
         board: {},
         boards: [],
         lists: [],
-        wines: {},
+        results: [],
+        userWines: {},
         comments: {}
     },
     mutations: {
-
+        setResults(state, payload) {
+            state.results = payload;
+        },
 
         // START AUTH MUTATIONS
         loginUser(state, payload) {
@@ -48,11 +51,46 @@ export default new vuex.Store({
             state.board = {}
             state.boards = []
             state.lists = []
-            state.tasks = {}
+            state.userWines= []
             state.comments = {}
         }
     },
     actions: {
+
+        //region WINESEARCH
+        getResults({ commit, dispatch }, payload) {
+            console.log(payload);
+            wineAPI.get('wines')
+                .then(wines => {
+                        console.log(wines.data);
+                        var wineList = wines.data;
+                        var categories = ["meats", "dairy", "vegetables", "starches", "sweets"];
+                        var results = [];
+                        for (var i = 0; i < wineList.length; i++) {
+                            var wineVariety = wineList[i];
+                            for (var j = 0; j < categories.length; j++) {
+                                var category = categories[j];
+                                for (var k = 0; k < payload.length; k++){
+                                    var ingredient = payload[k];
+                                    if (wineVariety[category]["perfectPairs"].includes(ingredient) &&
+                                        !results.includes(wineVariety.variety)) {
+                                            results.push((wineVariety.variety));
+                                    }
+                                }
+                            }
+                        }
+                        console.log("RESULTS: ", results);
+                        commit('setResults', results)
+                        return results;
+                    })
+                .catch(err => {
+                    console.log(err);
+                })
+        },
+
+
+
+        //endregion WINESEARCH
 
         // region COMMENTS
         getComments({ commit, dispatch }, payload) {
