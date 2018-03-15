@@ -121,11 +121,34 @@ export default new vuex.Store({
                             out.push(subArr);
                         }
                     }
-                    console.log(out);
-                    return out;
+                    // MAKE SURE DISPATCH ANOTHER FUNCTION TO RE-SEARCH THE WINE API FOR OUR VARIETY NAMES
+                    return dispatch('refResults', out)
                 })
                 .catch(err => {
                     console.log(err);
+                })
+
+        },
+        refResults({ commit, dispatch }, payload) {
+            console.log("Are we in here?", payload)
+            wineAPI.get('wines')
+                .then(wines => {
+                    var out = [];
+                    for (var i = 0; i < wines.data.length; i++) {
+                        var wineVariety = wines[i];
+                        for (var j = 0; j < payload.length; j++) {
+                            var subArr = payload[j];
+                            var variety = subArr[0];
+                            if (wineVariety.variety == variety) {
+                                out.push(wineVariety);
+                            }
+                        }
+                    }
+                    console.log(out);
+                    return out
+                })
+                .catch(next => {
+                    // console.log(err);
                 })
         },
 
