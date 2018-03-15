@@ -161,7 +161,7 @@
           Chocolate & Coffee
           <input type="checkbox" name="sweet[]" value="Chocolate & Coffee" />
           <br />
-          <p>cofee, chocolate</p>
+          <p>coffee, chocolate</p>
         </div>
       </div>
 
