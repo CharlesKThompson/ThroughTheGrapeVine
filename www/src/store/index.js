@@ -51,7 +51,7 @@ export default new vuex.Store({
             state.board = {}
             state.boards = []
             state.lists = []
-            state.userWines= []
+            state.userWines = []
             state.comments = {}
         }
     },
@@ -62,33 +62,68 @@ export default new vuex.Store({
             console.log(payload);
             wineAPI.get('wines')
                 .then(wines => {
-                        console.log(wines.data);
-                        var wineList = wines.data;
-                        var categories = ["meats", "dairy", "vegetables", "starches", "sweets"];
-                        var results = {
-                            pairs: [],
-                            perfectPairs: []
-                        }
-                        for (var i = 0; i < wineList.length; i++) {
-                            var wineVariety = wineList[i];
-                            for (var j = 0; j < categories.length; j++) {
-                                var category = categories[j];
-                                for (var k = 0; k < payload.length; k++){
-                                    var ingredient = payload[k];
-                                    if (wineVariety[category]["perfectPairs"].includes(ingredient) &&
-                                        !results.perfectPairs.includes(wineVariety.variety)) {
-                                            results.perfectPairs.push(wineVariety.variety);
-                                    } else if (wineVariety[category]["pairs"].includes(ingredient) &&
-                                        !results.pairs.includes(wineVariety.variety)) {
-                                            results.pairs.push(wineVariety.variety)
-                                        }
+                    console.log(wines.data);
+                    var wineList = wines.data;
+                    var categories = ["meats", "dairy", "vegetables", "starches", "sweets"];
+                    var results = {
+                        anyPair: [],
+                        pairs: [],
+                        perfectPairs: [],
+                    }
+                    for (var i = 0; i < wineList.length; i++) {
+                        var wineVariety = wineList[i];
+                        for (var j = 0; j < categories.length; j++) {
+                            var category = categories[j];
+                            for (var k = 0; k < payload.length; k++) {
+                                var ingredient = payload[k];
+                                if (wineVariety[category]["perfectPairs"].includes(ingredient) ||
+                                    wineVariety[category]["pairs"].includes(ingredient)) {
+                                    results.anyPair.push(wineVariety.variety)
                                 }
                             }
                         }
-                        console.log("RESULTS: ", results);
-                        commit('setResults', results)
-                        return results;
+                    }
+                    console.log("RESULTS: ", results);
+                    return results;
+                })
+                .then(anyPairs => {
+                    var arr = anyPairs.anyPair
+                    var returnObj = {};
+                    for (var i = 0; i < arr.length; i++) {
+                        var wineVariety = arr[i]
+                        if (!returnObj[wineVariety]) {
+                            returnObj[wineVariety] = 1;
+                        } else {
+                            returnObj[wineVariety] += 1;
+                        }
+                    }
+                    console.log(returnObj);
+                    return returnObj;
+
+                })
+                .then(occurrence => {
+                    var out = [];
+                    for (var key in occurrence) {
+                        out.push([key, occurrence[key]])
+                    }
+                    out.sort(function (a, b) {
+                        return b[1] - a[1]
                     })
+                    console.log(out);
+                    return out;
+                })
+                .then(maxArr => {
+                    var out = [];
+                    var maxVal = maxArr[0][1];
+                    for (var i = 0; i < maxArr.length; i++) {
+                        var subArr = maxArr[i];
+                        if (subArr[1] >= maxVal) {
+                            out.push(subArr);
+                        }
+                    }
+                    console.log(out);
+                    return out;
+                })
                 .catch(err => {
                     console.log(err);
                 })
@@ -108,7 +143,7 @@ export default new vuex.Store({
                     console.log(err);
                 })
         },
-        addComment({commit, dispatch}, payload) {
+        addComment({ commit, dispatch }, payload) {
             serverAPI.post('boards/' + payload.boardId + '/lists/' + payload.listId + '/tasks/' + payload.taskId + '/comments', payload)
                 .then(res => {
                     dispatch('getComments', res.data)
@@ -117,7 +152,7 @@ export default new vuex.Store({
                     console.log(err)
                 })
         },
-        deleteComment({commit, dispatch}, payload) {
+        deleteComment({ commit, dispatch }, payload) {
             serverAPI.delete('boards/' + payload.boardId + '/lists/' + payload.listId + '/tasks/' + payload.taskId + '/comments/' + payload._id)
                 .then(res => {
                     dispatch('getComments', res.data)
@@ -130,21 +165,26 @@ export default new vuex.Store({
         // endregion COMMENTS
 
         // region TASKS
-        moveToList({commit, dispatch}, payload) {
+        moveToList({ commit, dispatch }, payload) {
             console.log("Moved task:", payload);
             serverAPI.put('boards/' + payload.task.boardId + '/lists/' + payload.listId + '/tasks/' + payload.task._id,
-                 {boardId: payload.task.boardId,
-                 body: payload.task.body,
-                 listId: payload.listId})
+                {
+                    boardId: payload.task.boardId,
+                    body: payload.task.body,
+                    listId: payload.listId
+                })
                 .then(res => {
                     console.log(res.data)
-                    dispatch('getTasks', 
-                        {listId: res.data.listId,
-                         boardId: res.data.boardId
+                    dispatch('getTasks',
+                        {
+                            listId: res.data.listId,
+                            boardId: res.data.boardId
                         })
-                    dispatch('getTasks', 
-                        {boardId: res.data.boardId, 
-                         listId: payload.oldId})
+                    dispatch('getTasks',
+                        {
+                            boardId: res.data.boardId,
+                            listId: payload.oldId
+                        })
                 })
                 .catch(err => {
                     console.log(err)
@@ -252,7 +292,7 @@ export default new vuex.Store({
                 })
         },
         authenticate({ commit, dispatch }) {
-            return new Promise((resolve, reject)=>{
+            return new Promise((resolve, reject) => {
                 auth.get('authenticate')
                     .then(res => {
                         commit('loginUser', res.data)
@@ -282,7 +322,7 @@ export default new vuex.Store({
                 .then(res => {
                     commit('loginUser', {})
                     commit('clearData', res)
-                    router.push({name: 'Login'})
+                    router.push({ name: 'Login' })
                 })
         }
         //endregion END AUTH ACTIONS
