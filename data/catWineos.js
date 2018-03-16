@@ -1,0 +1,21 @@
+var cats = {
+    "variety": "Bold Red",
+    "img": "https://theverybesttop10.com/wp-content/uploads/2013/11/the-world_s-top-10-best-images-of-cats-drinking-wine-6.jpg",
+    "variety": "Medium Red",
+    "img": "http://1027kord.com/files/2013/10/cat-wine.jpg?w=980&q=75",
+    "variety": "Light Red",
+    "img": "https://images-na.ssl-images-amazon.com/images/I/61CxiGK0lZL._SY355_.jpg",
+    "variety": "Rose Red",
+    "img": "https://cdn.baeblemusic.com/images/bblog/catwine.jpg",
+    "variety": "Rich White",
+    "img": "https://pulptastic2-homamedialtd.netdna-ssl.com/wp-content/uploads/2016/06/catwine.jpg",
+    "variety": "Light White",
+    "img": "https://pics.me.me/idontalways-drink-wine-but-when-ido-i-prefer-pino-meow-2922125.png",
+    "variety": "Sparkling",
+    "img": "https://i.ytimg.com/vi/vZV3AGBWNo4/hqdefault.jpg",
+    "variety": "Sweet White",
+    "img": "http://dailykitten.com/wp-content/uploads/2006/11/1130522984DCP_0355.jpg",
+    "variety": "Dessert",
+    "img": "https://c1.staticflickr.com/2/1233/5119182377_e64aae39bb_b.jpg",
+}    
+    
