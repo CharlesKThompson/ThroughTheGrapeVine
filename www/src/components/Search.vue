@@ -168,8 +168,22 @@
         <button type="submit" value="Submit">Submit</button>
       </form>
       <!-- results component -->
+
       <div class="searchResults">
-        <results></results>
+        <h3 v-if="bestRes.length > 0">Best Pairs:</h3>
+
+        <div class="best-results results" v-for="best in bestRes">
+          <results :wine="best"></results>
+        </div>
+
+        <h3 v-if="goodRes.length > 0">Good Pairs:</h3>
+        <div class="good-results results" v-for="good in goodRes">
+          <results :wine="good"></results>
+        </div>
+        <h3 v-if="results.length > 0">Pairs:</h3>
+        <div class="results" v-for="result in results">
+          <results :wine="result"></results>
+        </div>
       </div>
     </div>
   </div>
@@ -189,9 +203,9 @@
       Navbar,
       Results
     },
-    // mounted() {
-    //   this.$store.dispatch('authenticate');
-    // },
+    mounted() {
+      this.$store.dispatch('authenticate');
+    },
     methods: {
       getResults(foods) {
         this.$store.dispatch('getResults', foods);
@@ -206,6 +220,26 @@
         }
         this.getResults(arr);
       },
+      toggle(wineId) {
+        if (this.show) {
+          this.show = false;
+        } else {
+          this.show = true;
+        }
+        this.wineId = wineId;
+      }
+    },
+    computed: {
+      bestRes() {
+        return this.$store.state.bestRes;
+      },
+      goodRes() {
+        return this.$store.state.goodRes;
+      },
+      results() {
+        return this.$store.state.res;
+      }
+
     }
   }
 </script>
@@ -217,6 +251,13 @@
     background-size: cover;
     background-repeat: repeat-y
   } */
+
+  .results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
 
   h1,
   h2 {

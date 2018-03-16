@@ -12,6 +12,16 @@ router.get('/api/wines', (req, res, next) => {
         .catch(next);
 });
 
+// GET WINE BY ID
+router.get('/api/wines/:wineId', (req, res, next) => {
+    Wines.findById(req.params._id)
+        .then(wine => {
+            console.log(wine);
+            res.send(wine);
+        })
+        .catch(next);
+});
+
 // ADD A NEW WINE
 router.post('/api/wines', (req, res, next) => {
     console.log(req)

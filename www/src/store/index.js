@@ -36,6 +36,7 @@ export default new vuex.Store({
         bestRes: [],
         goodRes:[],
         res: [],
+        activeTypes: {},
         userWines: {},
         comments: {}
     },
@@ -46,7 +47,9 @@ export default new vuex.Store({
             state.goodRes = payload[1];
             state.res = payload[2];
         },
-
+        setActiveTypes(state,payload) {
+            vue.set(state.activeTypes, payload.id, payload.type)
+        },
         // START AUTH MUTATIONS
         loginUser(state, payload) {
             state.user = payload
@@ -62,6 +65,10 @@ export default new vuex.Store({
     },
     actions: {
 
+        setActiveTypes ({commit, dispatch}, payload) {
+            commit('setActiveTypes', {type: payload.type, id: payload._id });
+
+        },
         //region WINESEARCH
         getResults({ commit, dispatch }, payload) {
             console.log(payload);
