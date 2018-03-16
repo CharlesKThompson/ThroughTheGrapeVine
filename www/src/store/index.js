@@ -33,13 +33,18 @@ export default new vuex.Store({
         board: {},
         boards: [],
         lists: [],
-        results: [],
+        bestRes: [],
+        goodRes:[],
+        res: [],
         userWines: {},
         comments: {}
     },
     mutations: {
         setResults(state, payload) {
-            state.results = payload;
+            console.log(payload);
+            state.bestRes = payload[0];
+            state.goodRes = payload[1];
+            state.res = payload[2];
         },
 
         // START AUTH MUTATIONS
@@ -87,28 +92,27 @@ export default new vuex.Store({
                             }
                         }
                     }
-
+                    console.log("DICTIONARY ", dict)
                     for (var key in dict) {
                         var wine = dict[key]
-                        if (wine.count == 3) {
+                        if (wine.count == payload.length) {
                             bestPairs.push(wine.val)
-                        } else if (wine.count == 2) {
+                        } else if (wine.count == payload.length - 1) {
                             goodPairs.push(wine.val)
-                        } else if (wine.count == 1) {
+                        } else if (wine.count == payload.length - 2) {
                             pairs.push(wine.val)
                         }
 
                     }
-<<<<<<< HEAD
-                    // MAKE SURE DISPATCH ANOTHER FUNCTION TO RE-SEARCH THE WINE API FOR OUR VARIETY NAMES
-                    return dispatch('refResults', out)
-=======
                     console.log("BEST PAIRS: ", bestPairs);
                     console.log("GOOD PAIRS: ", goodPairs);
                     console.log("PAIRS: ", pairs);
-                    // commit('setResults', dict)
-                    // return pairs;
->>>>>>> 5a12571818f1ca52c39aee80e0f9479e81c4298a
+
+                    var out = [];
+                    out.push(bestPairs);
+                    out.push(goodPairs);
+                    out.push(pairs);
+                    commit('setResults', out)
                 })
 
                 .catch(err => {

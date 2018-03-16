@@ -178,9 +178,10 @@ function getResults({ commit, dispatch }, payload) {
             console.log(wines.data);
             var wineList = wines.data;
             var categories = ["meats", "dairy", "vegetables", "starches", "sweets"];
-            var dict = {};
-            var bestPairs = [];
-            var goodPairs =[];
+            var results = {
+                anyPair: [],
+                pairs: [],
+                perfectPairs: [],
             }
             for (var i = 0; i < wineList.length; i++) {
                 var wineVariety = wineList[i];
