@@ -167,4 +167,77 @@ function wineSort(wines, input) {
     return results;
 }
 
-wineSort(wines, input);
+// wineSort(wines, input);
+
+
+// GET WINE SEARCH RESULTS
+function getResults({ commit, dispatch }, payload) {
+    console.log(payload);
+    wineAPI.get('wines')
+        .then(wines => {
+            console.log(wines.data);
+            var wineList = wines.data;
+            var categories = ["meats", "dairy", "vegetables", "starches", "sweets"];
+            var dict = {};
+            var bestPairs = [];
+            var goodPairs =[];
+            }
+            for (var i = 0; i < wineList.length; i++) {
+                var wineVariety = wineList[i];
+                for (var j = 0; j < categories.length; j++) {
+                    var category = categories[j];
+                    for (var k = 0; k < payload.length; k++) {
+                        var ingredient = payload[k];
+                        if (wineVariety[category]["perfectPairs"].includes(ingredient) ||
+                            wineVariety[category]["pairs"].includes(ingredient)) {
+                            results.anyPair.push(wineVariety.variety)
+                        }
+                    }
+                }
+            }
+            console.log("RESULTS: ", results);
+            return results;
+        })
+        .then(anyPairs => {
+            var arr = anyPairs.anyPair
+            var returnObj = {};
+            for (var i = 0; i < arr.length; i++) {
+                var wineVariety = arr[i]
+                if (!returnObj[wineVariety]) {
+                    returnObj[wineVariety] = 1;
+                } else {
+                    returnObj[wineVariety] += 1;
+                }
+            }
+            console.log(returnObj);
+            return returnObj;
+
+        })
+        .then(occurrence => {
+            var out = [];
+            for (var key in occurrence) {
+                out.push([key, occurrence[key]])
+            }
+            out.sort(function (a, b) {
+                return b[1] - a[1]
+            })
+            console.log(out);
+            return out;
+        })
+        .then(maxArr => {
+            var out = [];
+            var maxVal = maxArr[0][1];
+            for (var i = 0; i < maxArr.length; i++) {
+                var subArr = maxArr[i];
+                if (subArr[1] >= maxVal) {
+                    out.push(subArr);
+                }
+            }
+            // MAKE SURE DISPATCH ANOTHER FUNCTION TO RE-SEARCH THE WINE API FOR OUR VARIETY NAMES
+            return dispatch('refResults', out)
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+}

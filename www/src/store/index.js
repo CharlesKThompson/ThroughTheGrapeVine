@@ -62,68 +62,55 @@ export default new vuex.Store({
             console.log(payload);
             wineAPI.get('wines')
                 .then(wines => {
-                    console.log(wines.data);
                     var wineList = wines.data;
                     var categories = ["meats", "dairy", "vegetables", "starches", "sweets"];
-                    var results = {
-                        anyPair: [],
-                        pairs: [],
-                        perfectPairs: [],
-                    }
+                    var dict = {}
+                    var bestPairs = []
+                    var goodPairs = []
+                    var pairs = []
                     for (var i = 0; i < wineList.length; i++) {
                         var wineVariety = wineList[i];
                         for (var j = 0; j < categories.length; j++) {
                             var category = categories[j];
                             for (var k = 0; k < payload.length; k++) {
                                 var ingredient = payload[k];
-                                if (wineVariety[category]["perfectPairs"].includes(ingredient) ||
-                                    wineVariety[category]["pairs"].includes(ingredient)) {
-                                    results.anyPair.push(wineVariety.variety)
+                                if (wineVariety[category]["perfectPairs"].includes(ingredient) || (wineVariety[category]["pairs"].includes(ingredient))) {
+                                    var name = wineVariety.variety
+                                    if (!dict[name]) {
+                                        dict[name] = {}
+                                        dict[name]["count"] = 1
+                                        dict[name]["val"] = wineVariety
+                                    } else {
+                                        dict[name].count++
+                                    }
                                 }
                             }
                         }
                     }
-                    console.log("RESULTS: ", results);
-                    return results;
-                })
-                .then(anyPairs => {
-                    var arr = anyPairs.anyPair
-                    var returnObj = {};
-                    for (var i = 0; i < arr.length; i++) {
-                        var wineVariety = arr[i]
-                        if (!returnObj[wineVariety]) {
-                            returnObj[wineVariety] = 1;
-                        } else {
-                            returnObj[wineVariety] += 1;
-                        }
-                    }
-                    console.log(returnObj);
-                    return returnObj;
 
-                })
-                .then(occurrence => {
-                    var out = [];
-                    for (var key in occurrence) {
-                        out.push([key, occurrence[key]])
-                    }
-                    out.sort(function (a, b) {
-                        return b[1] - a[1]
-                    })
-                    console.log(out);
-                    return out;
-                })
-                .then(maxArr => {
-                    var out = [];
-                    var maxVal = maxArr[0][1];
-                    for (var i = 0; i < maxArr.length; i++) {
-                        var subArr = maxArr[i];
-                        if (subArr[1] >= maxVal) {
-                            out.push(subArr);
+                    for (var key in dict) {
+                        var wine = dict[key]
+                        if (wine.count == 3) {
+                            bestPairs.push(wine.val)
+                        } else if (wine.count == 2) {
+                            goodPairs.push(wine.val)
+                        } else if (wine.count == 1) {
+                            pairs.push(wine.val)
                         }
+
                     }
+<<<<<<< HEAD
                     // MAKE SURE DISPATCH ANOTHER FUNCTION TO RE-SEARCH THE WINE API FOR OUR VARIETY NAMES
                     return dispatch('refResults', out)
+=======
+                    console.log("BEST PAIRS: ", bestPairs);
+                    console.log("GOOD PAIRS: ", goodPairs);
+                    console.log("PAIRS: ", pairs);
+                    // commit('setResults', dict)
+                    // return pairs;
+>>>>>>> 5a12571818f1ca52c39aee80e0f9479e81c4298a
                 })
+
                 .catch(err => {
                     console.log(err);
                 })
