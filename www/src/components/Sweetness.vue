@@ -62,6 +62,9 @@
         },
         components: {
             Navbar
+        },
+        mounted() {
+            this.$store.dispatch('authenticate');
         }
     }
 </script>

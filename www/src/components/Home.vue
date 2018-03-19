@@ -13,9 +13,11 @@
                 </router-link>
             </div>
             <div class="button">
-                <button type="button" class="btn btn-primary btn-lg btn-block btn-middle">
-                    <h2 class="text">By Sweetness</h2>
-                </button>
+                <router-link :to="{name: 'Sweetness'}">
+                    <button type="button" class="btn btn-primary btn-lg btn-block btn-middle">
+                        <h2 class="text">By Sweetness</h2>
+                    </button>
+                </router-link>
             </div>
             <div class="button">
                 <button type="button" class="btn btn-primary btn-lg btn-block btn-bottom">
@@ -37,7 +39,10 @@
         },
         components: {
             Navbar
-        }
+        },
+        mounted() {
+            this.$store.dispatch('authenticate');
+        },
     }
 </script>
 

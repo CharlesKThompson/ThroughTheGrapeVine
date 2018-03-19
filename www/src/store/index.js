@@ -61,6 +61,9 @@ export default new vuex.Store({
             state.lists = []
             state.userWines = []
             state.comments = {}
+        },
+        setLists(state, payload) {
+            state.lists = payload
         }
     },
     actions: {
@@ -262,9 +265,9 @@ export default new vuex.Store({
 
         // region LISTS
         getLists({ commit, dispatch }, payload) {
-            console.log(payload)
-            baseAPI.get('lists/' + payload + '/lists')
-                .then(res => {
+            baseAPI.get('lists/')
+            .then(res => {
+                    console.log(res.data)
                     commit('setLists', res.data)
                 })
                 .catch(err => {
@@ -272,16 +275,17 @@ export default new vuex.Store({
                 })
         },
         addList({ commit, dispatch }, payload) {
-            baseAPI.post('boards/' + payload.boardId + '/lists', payload.name)
+            console.log(payload.title)
+            baseAPI.post('lists/', payload.title)
                 .then(res => {
-                    dispatch('getLists', res.data.boardId);
+                    dispatch('getLists', res.data);
                 })
                 .catch(err => {
                     console.log(err)
                 })
         },
         deleteList({ commit, dispatch }, payload) {
-            baseAPI.delete('boards/' + payload.boardId + '/lists/' + payload.listId)
+            baseAPI.delete('lists/:listId')
                 .then(res => {
                     dispatch('getLists', res.data)
                 })
@@ -290,7 +294,7 @@ export default new vuex.Store({
                 })
         },
         editList({ commit, dispatch }, payload) {
-            baseAPI.put('boards/' + payload.boardId + '/lists/' + payload._id, payload)
+            baseAPI.put('lists/:listId')
                 .then(res => {
                     dispatch('getLists', res.data.boardId)
                 })

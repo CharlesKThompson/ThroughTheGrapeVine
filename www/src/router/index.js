@@ -1,8 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+//@ts-ignore
 import Home from '@/components/Home'
+//@ts-ignore
 import Search from '@/components/Search'
+//@ts-ignore
 import Login from '@/components/Login'
+//@ts-ignore
+import Sweetness from '@/components/Sweetness'
+//@ts-ignore
+import Corkboard from '@/components/Corkboard'
 
 Vue.use(Router)
 
@@ -22,6 +29,16 @@ export default new Router({
       path: '/search',
       name: 'Search',
       component: Search
+    },
+    {
+      path: '/sweetness',
+      name: 'Sweetness',
+      component: Sweetness
+    },
+    {
+      path: '/corkboard',
+      name: 'Corkboard',
+      component: Corkboard
     }
   ]
 })
