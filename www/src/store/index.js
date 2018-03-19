@@ -34,10 +34,10 @@ export default new vuex.Store({
         boards: [],
         lists: [],
         bestRes: [],
-        goodRes:[],
+        goodRes: [],
         res: [],
         activeTypes: {},
-        userWines: {},
+        vineyardwines: {},
         comments: {}
     },
     mutations: {
@@ -47,7 +47,8 @@ export default new vuex.Store({
             state.goodRes = payload[1];
             state.res = payload[2];
         },
-        setActiveTypes(state,payload) {
+        setActiveTypes(state, payload) {
+            console.log("Active Types: ", payload)
             vue.set(state.activeTypes, payload.id, payload.type)
         },
         // START AUTH MUTATIONS
@@ -59,19 +60,25 @@ export default new vuex.Store({
             state.board = {}
             state.boards = []
             state.lists = []
-            state.userWines = []
+            state.vineyardwines = []
             state.comments = {}
         },
         setLists(state, payload) {
             state.lists = payload
+        },
+        setVineyardWines(state, payload) {
+            console.log(payload.type)
+            vue.set(state.vineyardwines, payload.type.name, payload.type)
+            console.log(state.vineyardwines)
         }
     },
     actions: {
 
-        setActiveTypes ({commit, dispatch}, payload) {
-            commit('setActiveTypes', {type: payload.type, id: payload._id });
+        setActiveTypes({ commit, dispatch }, payload) {
+            commit('setActiveTypes', { type: payload.type, id: payload._id });
 
         },
+
         //region WINESEARCH
         getResults({ commit, dispatch }, payload) {
             console.log(payload);
@@ -188,7 +195,7 @@ export default new vuex.Store({
 
         // endregion COMMENTS
 
-        // region TASKS
+        // region VINEYARDWINES
         moveToList({ commit, dispatch }, payload) {
             console.log("Moved task:", payload);
             serverAPI.put('boards/' + payload.task.boardId + '/lists/' + payload.listId + '/tasks/' + payload.task._id,
@@ -214,25 +221,16 @@ export default new vuex.Store({
                     console.log(err)
                 })
         },
-        getTasks({ commit, dispatch }, payload) {
-            serverAPI.get('boards/' + payload.boardId + '/lists/' + payload.listId + '/tasks')
+        getVineyardWines({ commit, dispatch }, payload) {
+            baseAPI.get('lists/' + payload.listId + '/vineyardwines')
                 .then(res => {
-                    commit('setTasks', { listId: payload.listId, tasks: res.data })
+                    console.log(res)
+                    commit('setVineyardWines', { listId: payload.listId, type: res.data })
                 })
                 .catch(err => {
                     console.log(err);
                 })
         },
-        // getUpdatedTasks({commit, dispatch}, payload) {
-        //     serverAPI.get('boards/' + payload.boardId + '/lists/' + payload.listId + '/tasks')
-        //         .then(res => {
-        //             console.log("Setting tasks with: ", res.data)
-        //             commit('setTasks', res.data)
-        //             })
-        //         .catch(err => {
-        //             console.log(err)
-        //         })
-        // },
         deleteTask({ commit, dispatch }, payload) {
             serverAPI.delete('boards/' + payload.boardId + '/lists/' + payload.listId + '/tasks/' + payload._id)
                 .then(res => {
@@ -242,17 +240,18 @@ export default new vuex.Store({
                     console.log(err)
                 })
         },
-        addTask({ commit, dispatch }, payload) {
-            serverAPI.post('boards/' + payload.boardId + '/lists/' + payload.listId + '/tasks', payload)
+        addVineyardWine({ commit, dispatch }, payload) {
+            baseAPI.post('lists/' + payload.listId + '/vineyardwines', payload.type)
                 .then(res => {
-                    dispatch('getTasks', res.data)
+                    console.log("Wine successfully added to your list!");
+                    dispatch('getVineyardWines', payload);
                 })
                 .catch(err => {
                     console.log(err)
                 })
         },
         editTask({ commit, dispatch }, payload) {
-            serverAPI.put('boards/' + payload.boardId + '/lists/' + payload.listId + '/tasks/' + payload._id, payload)
+            baseAPI.put('boards/' + payload.boardId + '/lists/' + payload.listId + '/tasks/' + payload._id, payload)
                 .then(res => {
                     dispatch('getTasks', res.data)
                 })
@@ -266,7 +265,7 @@ export default new vuex.Store({
         // region LISTS
         getLists({ commit, dispatch }, payload) {
             baseAPI.get('lists/')
-            .then(res => {
+                .then(res => {
                     console.log(res.data)
                     commit('setLists', res.data)
                 })

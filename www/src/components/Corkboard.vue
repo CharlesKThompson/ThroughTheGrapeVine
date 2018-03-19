@@ -68,7 +68,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .dropdown-menu {
         margin-top: 3px;
         padding: 0;

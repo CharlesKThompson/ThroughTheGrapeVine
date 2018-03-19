@@ -19,34 +19,18 @@
                     </div>
                 </div>
                 <div class="list-group">
-                    <!-- <div class="list-group-item d-flex justify-content-between" v-for="task in tasks">
-                        <task :task="task"></task>
-                    </div> -->
-                </div>
-            </div>
-            <div class="flex-center">
-                <div class="dropdown">
-                    <i data-toggle="dropdown" title="additional options" class="fas fa-ellipsis-h pointer"></i>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-item">
-                            <form @submit.prevent="editList">
-                                <input type="text" placeholder="rename list" name="name" value="">
-                                <input type="text" :placeholder="list._id" name="id" :value="list._id" hidden>
-                                <button type="submit" class="brtn btn-submit" hidden></button>
-                            </form>
-                        </div>
-                        <div class="dropdown-item">
-                            <!-- <button class="btn btn-outline-danger btn-block" @click="deleteList(list)">delete</button> -->
-                            
+                        <div class="list-group-item d-flex justify-content-between" v-for="vineyardwine in vineyardwines">
+                            <vineyardwine :vineyardwine="vineyardwine"></vineyardwine>
                         </div>
                     </div>
-                </div>
             </div>
+
         </div>
     </div>
 </template>
 <script>
     // import Comment from './Comment'
+    import VineyardWine from './VineyardWine'
     export default {
         name: 'Lists',
         data() {
@@ -54,12 +38,17 @@
 
             }
         },
-        // mounted() {
-        //     this.$store.dispatch('getComments', listId: this.list._id)
-        // }
-        // components: {
-        //     Comment
-        // },
+        mounted() {
+                this.$store.dispatch('getVineyardWines', {listId: this.list._id}) 
+        },
+        computed: {
+            vineyardwines() {
+                this.$store.state.vineyardwines
+            }
+        },
+        components: {
+            VineyardWine
+        },
         props: ['list']
     }
 </script>
