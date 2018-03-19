@@ -10,7 +10,22 @@
                     <p class="card-text">{{wine.description}}</p>
                     <button class="btn btn-info" @click="setActiveTypes(wine)">View {{wine.variety}}s</button>
                     <div v-for="type in activeTypes">
-                        <h4>{{type.name}}</h4>
+                        <div>
+                            <h4>{{type.name}}</h4>
+                        </div>
+                        <div>
+                            <div class="btn-group">
+                                <button @click="getLists" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    Add
+                                </button>
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-item" v-for="list in lists">
+                                        <p @click="addVineyardWine({listId: list._id, type: type})">{{list.title}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -34,7 +49,7 @@
                 console.log(payload)
                 this.$store.dispatch('addVineyardWine', payload)
             },
-            getLists(){
+            getLists() {
                 this.$store.dispatch('getLists')
             }
 

@@ -37,7 +37,7 @@ export default new vuex.Store({
         goodRes: [],
         res: [],
         activeTypes: {},
-        vineyardwines: {},
+        vineyardwines: [],
         comments: {}
     },
     mutations: {
@@ -68,7 +68,7 @@ export default new vuex.Store({
         },
         setVineyardWines(state, payload) {
             console.log(payload.type)
-            vue.set(state.vineyardwines, payload.type.name, payload.type)
+            state.vineyardwines = payload.type
             console.log(state.vineyardwines)
         }
     },

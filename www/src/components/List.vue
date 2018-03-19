@@ -20,7 +20,7 @@
                 </div>
                 <div class="list-group">
                         <div class="list-group-item d-flex justify-content-between" v-for="vineyardwine in vineyardwines">
-                            <vineyardwine :vineyardwine="vineyardwine"></vineyardwine>
+                            <VineyardWine :vineyardwine="vineyardwine"></VineyardWine>
                         </div>
                     </div>
             </div>
@@ -43,7 +43,7 @@
         },
         computed: {
             vineyardwines() {
-                this.$store.state.vineyardwines
+                return this.$store.state.vineyardwines
             }
         },
         components: {

@@ -77,8 +77,8 @@
     .container-fluid {
         background-image: url("../assets/cork-board.jpg");
         background-size: cover;
-        background-repeat: no-repeat;
-        height: 100%;
+        background-repeat: tile;
+        /* height: 100%; */
         margin: 0 0rem !important;
     }
 </style>

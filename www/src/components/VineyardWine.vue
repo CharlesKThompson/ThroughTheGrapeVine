@@ -14,7 +14,7 @@
 <script>
     // import Comment from './Comment'
     export default {
-        name: 'VineyardWines',
+        name: 'VineyardWine',
         data() {
             return {
 
