@@ -1,6 +1,6 @@
 <template>
     <div class="results">
-        <div class="col-sm-12">
+        <div class="col-sm-12 results">
             <div class="card">
                 <div class="card-body">
                     <div>
@@ -16,8 +16,6 @@
             </div>
         </div>
     </div>
-    </div>
-
 </template>
 
 <script>
@@ -48,14 +46,21 @@
 </script>
 
 <style scoped>
+    .results {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center
+    }
+
     .winePic {
         margin: 5px;
         width: 30%;
         border: solid 5px rgba(87, 46, 60, 0.85);
     }
 
-
     .card {
         margin-top: 1rem;
+        width: 50%
     }
 </style>

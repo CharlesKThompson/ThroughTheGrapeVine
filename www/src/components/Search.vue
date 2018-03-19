@@ -246,18 +246,19 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  /* .search {
-    background-image: url(../assets/cork-board.jpg);
-    background-size: cover;
-    background-repeat: repeat-y
-  } */
-
   .results {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center
   }
 
+  .searchResults {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+  }
 
   h1,
   h2 {
