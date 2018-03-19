@@ -1,17 +1,17 @@
 <template>
     <div class="results">
         <div class="col-sm-12">
-            <div class="card" style="width: 55rem;">
-                <div>
-                    <img :src="wine.img" alt="Card image cap" style="width: 15rem;">
-                </div>
+            <div class="card">
                 <div class="card-body">
+                    <div>
+                        <img :src="wine.img" class="winePic">
+                    </div>
                     <h5 class="card-title">{{wine.variety}}</h5>
                     <p class="card-text">{{wine.description}}</p>
                     <button class="btn btn-info" @click="setActiveTypes(wine)">View {{wine.variety}}s</button>
-                        <div v-for="type in activeTypes">
-                            <h4>{{type.name}}</h4>
-                        </div>
+                    <div v-for="type in activeTypes">
+                        <h4>{{type.name}}</h4>
+                    </div>
                 </div>
             </div>
         </div>
@@ -47,9 +47,15 @@
     }
 </script>
 
-<style>
+<style scoped>
+    .winePic {
+        margin: 5px;
+        width: 30%;
+        border: solid 5px rgba(87, 46, 60, 0.85);
+    }
 
-  .card {
-    margin-top: 1rem;
-  }
+
+    .card {
+        margin-top: 1rem;
+    }
 </style>
