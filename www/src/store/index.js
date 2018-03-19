@@ -330,10 +330,10 @@ export default new vuex.Store({
                     })
             })
         },
-        signup({ commit, dispatch }, payload) {
+        createUser({ commit, dispatch }, payload) {
             auth.post('register', payload)
                 .then(res => {
-                    console.log(res.data.user)
+                    // console.log(res.data.user)
                     commit('loginUser', res.data.user)
                     router.push({ name: 'Home' })
                 })

@@ -80,6 +80,5 @@
         background-repeat: no-repeat;
         height: 100%;
         margin: 0 0rem !important;
-        /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
     }
 </style>
