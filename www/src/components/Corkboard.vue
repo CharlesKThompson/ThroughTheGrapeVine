@@ -2,27 +2,29 @@
     <div class="corkboard">
         <navbar></navbar>
         <div class="container-fluid">
-            <div class="margins">
-                <div class="flexor">
-                    <div class="boards-title">
-                        <h2>Corkboard</h2>
-                    </div>
-                    <div class="aligner">
-                        <div class="dropleft">
-                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                                <form @submit.prevent="addList()">
-                                    <input type="text" name="title" placeholder="List Title" v-model="createdList.title">
-                                    <button type="submit" class="btn btn-submit" hidden>Create List</button>
-                                </form>
+            <div class="row">
+                <div class="margins col-sm-12">
+                    <div class="flexor">
+                        <div class="boards-title">
+                            <h2>Corkboard</h2>
+                        </div>
+                        <div class="aligner">
+                            <div class="dropleft">
+                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <form @submit.prevent="addList()">
+                                        <input type="text" name="title" placeholder="List Title" v-model="createdList.title">
+                                        <button type="submit" class="btn btn-submit" hidden>Create List</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-4" v-for="list in lists">
+                    <div v-for="list in lists" class="col-sm-4">
                         <list :list="list"></list>
                     </div>
                 </div>
@@ -74,11 +76,10 @@
         padding: 0;
     }
 
-    .container-fluid {
+    .corkboard {
         background-image: url("../assets/cork-board.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 100%;
+        background-repeat: repeat;
+        min-height: 100vh;
         margin: 0 0rem !important;
     }
 </style>
