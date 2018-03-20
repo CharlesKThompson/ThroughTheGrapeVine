@@ -73,6 +73,9 @@ export default new vuex.Store({
         setUserWines(state, payload) {
             // this will probably change
             state.userwines = payload.type
+        },
+        clearVineyardWines(state){
+            state.vineyardwines = []
         }
     },
     actions: {
@@ -272,7 +275,8 @@ export default new vuex.Store({
                 })
         },
         getVineyardWines({ commit, dispatch }, payload) {
-            baseAPI.get('lists/' + payload.listId + '/vineyardwines')
+            console.log(payload._id)
+            baseAPI.get('lists/' + payload._id + '/vineyardwines')
                 .then(res => {
                     console.log(res)
                     commit('setVineyardWines', { listId: payload.listId, type: res.data })
@@ -299,6 +303,9 @@ export default new vuex.Store({
                 .catch(err => {
                     console.log(err)
                 })
+        },
+        clearVineyardWines({commit, dispatch}) {
+            commit('clearVineyardWines')
         },
         // EDIT FUNCTION OMITTED ON VINEYARD WINES BECAUSE WE DON'T WANT USERS TO CHANGE THE DATA
         // endregion
