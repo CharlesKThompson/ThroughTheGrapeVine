@@ -1,12 +1,13 @@
 <template>
     <div class="vineyardwine">
-        <div class="row">
-            <div class="col-sm-6">
-                <p>{{vineyardwine.name}}</p>
+        <div class="row flexor">
+            <div class="col-sm-12">
+                <p class="name">{{vineyardwine.name}}</p>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <p>{{vineyardwine.description}}</p>
             </div>
+            <button>Delete wine from List</button>
         </div>
     </div>
 </template>
@@ -25,6 +26,18 @@
 
 </script>
 
-<style>
+<style scoped>
+    .flexor {
+        display: flex;
+        flex-direction: column
+    }
 
+    .name {
+        font-weight: 700
+    }
+
+    .bg-1 {
+        background-color: #cfbc8b;
+        background-image: url("https://www.transparenttextures.com/patterns/notebook.png");
+    }
 </style>
