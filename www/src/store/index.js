@@ -51,6 +51,10 @@ export default new vuex.Store({
         setActiveTypes(state, payload) {
             vue.set(state.activeTypes, payload.id, payload.type)
         },
+        clearActiveTypes(state){
+            state.activeTypes = {}
+            console.log(state.activeTypes)
+        },
         // START AUTH MUTATIONS
         loginUser(state, payload) {
             state.user = payload
@@ -83,7 +87,9 @@ export default new vuex.Store({
         setActiveTypes({ commit, dispatch }, payload) {
             commit('setActiveTypes', { type: payload.type, id: payload._id });
         },
-
+        clearActiveTypes({ commit, dispatch }){
+            commit('clearActiveTypes')
+        },
         //region WINESEARCH
         getResults({ commit, dispatch }, payload) {
             console.log(payload);
@@ -298,7 +304,7 @@ export default new vuex.Store({
             baseAPI.post('lists/' + payload.listId + '/vineyardwines', payload.type)
                 .then(res => {
                     console.log("Vineyard wine successfully added to your list!");
-                    dispatch('getVineyardWines', payload);
+                    // dispatch('getVineyardWines', payload);
                 })
                 .catch(err => {
                     console.log(err)

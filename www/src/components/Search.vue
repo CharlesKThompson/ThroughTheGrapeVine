@@ -360,6 +360,7 @@
   .background-1 {
     background-image: url(http://www.courtofmastersommeliers.org/wp-content/uploads/backgrounds-2.jpg);
     height: fit-content;
+    background-size: cover;
     background-repeat: no-repeat;
     border: 4px solid black;
   }

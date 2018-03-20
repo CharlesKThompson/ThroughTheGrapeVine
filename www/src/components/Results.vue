@@ -8,22 +8,32 @@
                     </div>
                     <h5 class="card-title">{{wine.variety}}</h5>
                     <p class="card-text">{{wine.description}}</p>
-                    <button class="btn btn-info" @click="setActiveTypes(wine)">View {{wine.variety}}s</button>
-                    <div v-for="type in activeTypes">
-                        <div>
-                            <h4>{{type.name}}</h4>
-                        </div>
-                        <div>
-                            <div class="btn-group">
-                                <button @click="getLists" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    Add
-                                </button>
-                                <div class="dropdown-menu">
-                                    <div class="dropdown-item" v-for="list in lists">
-                                        <p @click="addVineyardWine({listId: list._id, type: type})">{{list.title}}</p>
+                    <button class="btn btn-info m-3" @click="setActiveTypes(wine)">View {{wine.variety}}s</button>
+                    <div>
+                        <button v-if="activeTypes.length > 1" @click="clearActiveTypes()" class="btn btn-light">Close</button>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <div v-for="type in activeTypes" class="col-sm-5 bg-1">
+                            <div class="flex1">
+                                <div>
+                                    <h4 class="name">{{type.name}}&nbsp;&nbsp;</h4>
+                                </div>
+                                <div>
+                                    <div class="btn-group">
+                                        <button @click="getLists" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            Add
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <div class="dropdown-item" v-for="list in lists">
+                                                <p @click="addVineyardWine({listId: list._id, type: type})">{{list.title}}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div>
+                                <h6>{{type.description}}</h6>
                             </div>
                         </div>
                     </div>
@@ -51,11 +61,10 @@
             },
             getLists() {
                 this.$store.dispatch('getLists')
+            },
+            clearActiveTypes() {
+                this.$store.dispatch('clearActiveTypes', {})
             }
-
-            // clearActiveTypes() {
-            //     this.$store.dispatch('setActiveTypes', {})
-            // }
         },
         computed: {
             activeTypes() {
@@ -87,5 +96,31 @@
     .card {
         margin-top: 1rem;
         width: 50%
+    }
+
+    .bg-1 {
+        border: 2px solid black;
+        border-radius: 20px;
+        margin: 5px
+    }
+
+    .btn-group {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .flex1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .name {
+        font-weight: 700;
+    }
+
+    .dropdown-item {
+        cursor: pointer;
     }
 </style>
