@@ -51,6 +51,7 @@
         mounted() {
             this.$store.dispatch('authenticate');
             this.$store.dispatch('getLists');
+            this.$store.dispatch('getAllVineyardWines');
         },
         methods: {
             addList() {
