@@ -2,31 +2,7 @@ var router = require('express').Router();
 var Lists = require('../models/list');
 var Users = require('../models/user');
 var userWines = require('../models/userWine');
-var VineyardWines = require('../models/lightwine');
 
-// region VINEYARDWINES
-// GET ALL VINEYARD WINES BY LIST ID
-router.get('/lists/:listId/vineyardwines', (req, res, next) => {
-    VineyardWines.find({})
-        .then(wines => {
-            res.send(wines);
-        })
-        .catch(next);
-});
-
-// ADD A VINEYARD WINE TO A USER LIST
-router.post('/lists/:listId/vineyardwines', (req, res, next) =>{
-    VineyardWines.create(req.body)
-        .then(wines => {
-            console.log("Created: ", wines)
-            res.send(wines);
-        })
-        .catch(next)
-});
-
-// endregion VINEYARDWINES
-
-// region USERWINES
 // GET ALL USER WINES BY LIST
 router.get('/lists/:listId/userwines', (req, res, next) => {
     userWines.find({ listId: req.params.listId })
@@ -71,7 +47,6 @@ router.delete('/lists/:listId/userwines/:wineId', (req, res, next) => {
         .catch(next);
 });
 
-// endregion USERWINES
 
 
 module.exports = router;

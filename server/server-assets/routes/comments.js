@@ -3,7 +3,7 @@ var Lists = require('../models/list');
 var Comments = require('../models/comment');
 var Users = require('../models/user');
 var userWines = require('../models/userWine');
-var VineyardWines = require('../models/lightwine');
+var VineyardWines = require('../models/vineyardWine');
 
 // region VINEYARDWINE COMMENTS
 // GET ALL COMMENTS BY USER WINE

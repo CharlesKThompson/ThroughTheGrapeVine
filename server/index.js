@@ -12,6 +12,7 @@ var listRoutes = require('./server-assets/routes/lists');
 var userWineRoutes = require('./server-assets/routes/userWines');
 var commentRoutes = require('./server-assets/routes/comments');
 var userRoutes = require('./server-assets/routes/users');
+var vineyardwineRoutes = require('./server-assets/routes/vineyardWines');
 
 
 var whitelist = ['http://localhost:8080'];
@@ -35,6 +36,7 @@ server.use(listRoutes);
 server.use(userWineRoutes);
 server.use(commentRoutes);
 server.use(userRoutes);
+server.use(vineyardwineRoutes);
 
 // server.use('/api/*', (req, res, next) => { // gateway for all following routes
 //     if (req.method.toLowerCase() != 'get' && !req.session.uid) {

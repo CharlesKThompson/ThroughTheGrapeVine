@@ -82,6 +82,17 @@ export default new vuex.Store({
             state.vineyardwines = []
         }
     },
+    getters: {
+        vwInList(state) {
+            state.lists.for(listId in state.lists) {
+                state.lists[listId].map(vwId =>{
+                    return state.vineyardwines.find(wine => {
+                        wine._id === vwId
+                    })
+                })
+            }
+        }
+    },
     actions: {
 
         setActiveTypes({ commit, dispatch }, payload) {
@@ -285,6 +296,7 @@ export default new vuex.Store({
             baseAPI.get('lists/' + payload._id + '/vineyardwines')
                 .then(res => {
                     console.log(res)
+                    // get all VWs, not just ones on a list
                     commit('setVineyardWines', { listId: payload.listId, type: res.data })
                 })
                 .catch(err => {
