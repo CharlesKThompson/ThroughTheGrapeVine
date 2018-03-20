@@ -6,19 +6,17 @@
                 <div class="margins col-sm-12">
                     <div class="flexor">
                         <div class="boards-title">
-                            <h2>Corkboard</h2>
+                            <h2 class="board">Corkboard</h2>
                         </div>
                         <div class="aligner">
-                            <div class="dropdown">
-                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Add new list
-                                </button>
-                                <div class="dropdown-menu">
-                                    <form @submit.prevent="addList()">
-                                        <input type="text" name="title" placeholder="List Name" v-model="createdList.title">
-                                        <button type="submit" class="btn btn-submit" hidden>Create List</button>
-                                    </form>
-                                </div>
+                            <button type="button" class="btn btn-info" @click="listForm = !listForm">
+                                Add new list
+                            </button>
+                            <div v-if="listForm == true" class="d-flex justify-content-center">
+                                <form @submit.prevent="addList()" class="col-sm-3 form-group">
+                                    <input type="text" name="title" placeholder="List Name" v-model="createdList.title" class="form-control">
+                                    <button type="submit" class="btn btn-info create" @click="listForm = !listForm">Create List</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -41,6 +39,7 @@
         name: 'Corkboard',
         data() {
             return {
+                listForm: false,
                 createdList: {}
             }
         },
@@ -72,9 +71,20 @@
 </script>
 
 <style scoped>
+    .board {
+        font-weight: 700;
+        background-color: #a35f34;
+        background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
+        color: ivory
+    }
+
     .dropdown-menu {
         margin-top: 3px;
         padding: 0;
+    }
+
+    .create {
+        width: 100%
     }
 
     .corkboard {
@@ -82,5 +92,9 @@
         background-repeat: repeat;
         min-height: 100vh;
         margin: 0 0rem !important;
+    }
+
+    .form-group {
+        margin: 5px
     }
 </style>

@@ -154,7 +154,7 @@
                 <input type="checkbox" name="starch[]" value="Potato" />
                 <br />
                 <p>literally just any potato</p>
-                <button type="submit" value="Submit">Submit</button>
+                <button type="submit" value="Submit" class="btn btn-info">Submit</button>
               </div>
 
 

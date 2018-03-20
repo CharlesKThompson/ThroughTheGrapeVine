@@ -82,17 +82,17 @@ export default new vuex.Store({
             state.vineyardwines = []
         }
     },
-    getters: {
-        vwInList(state) {
-            state.lists.for(listId in state.lists) {
-                state.lists[listId].map(vwId =>{
-                    return state.vineyardwines.find(wine => {
-                        wine._id === vwId
-                    })
-                })
-            }
-        }
-    },
+    // getters: {
+    //     vwInList(state) {
+    //         state.lists.for(listId in state.lists) {
+    //             state.lists[listId].map(vwId =>{
+    //                 return state.vineyardwines.find(wine => {
+    //                     wine._id === vwId
+    //                 })
+    //             })
+    //         }
+    //     }
+    // },
     actions: {
 
         setActiveTypes({ commit, dispatch }, payload) {
