@@ -22,10 +22,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row d-flex justify-content-center">
-                    <div v-for="list in lists" class="col-sm-10">
-                        <list :list="list"></list>
+                    <div class="row d-flex justify-content-center">
+                        <div v-for="list in lists" class="col-sm-10">
+                            <list :list="list"></list>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -30,7 +30,8 @@
 
 <style scoped>
     .navbar {
-        background-color: #EADAC0;
+        background-color: #eadac0;
+        background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
     }
 
     .flexor {
