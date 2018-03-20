@@ -22,17 +22,10 @@
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
                 </div>
                 <div class="row d-flex justify-content-center">
                     <div v-for="(list, listId) in lists" class="col-sm-10">
                         <list :listId="listId"></list>
-=======
-                    <div class="row d-flex justify-content-center">
-                        <div v-for="list in lists" class="col-sm-10">
-                            <list :list="list"></list>
-                        </div>
->>>>>>> 405e58caf6ac24478411c6222595b6acf8f7ee32
                     </div>
                 </div>
             </div>
