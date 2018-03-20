@@ -6,17 +6,8 @@
                     <div>
                         <h4 class="card-title">{{list.title}}</h4>
                     </div>
-                    <button>Delete list</button>
-                    <div class="aligner">
-                        <div class="dropleft">
-                            <div class="dropdown-menu">
-                                <!-- <form @submit.prevent="addTask()">
-                                    <input type="text" name="name" placeholder="add task" v-model="createdTask.body">
-                                    <button type="submit" class="btn btn-submit" hidden>Create Task</button>
-                                </form> -->
-                            </div>
-                        </div>
-                    </div>
+                    <button>Delete List</button>
+                    <button @click="getVineyardWines(list)">Expand List</button>
                 </div>
                 <div class="list-group">
                     <div class="list-group-item bg-2" v-for="vineyardwine in vineyardwines">
@@ -38,12 +29,19 @@
 
             }
         },
-        mounted() {
-            this.$store.dispatch('getVineyardWines', { listId: this.list._id })
+        methods: {
+            clearVineyardWines(){
+                this.$store.dispatch('clearVineyardWines')                
+            },
+            getVineyardWines(list){
+                // this.$store.dispatch('clearVineyardWines')
+                this.$store.dispatch('getVineyardWines', list)
+            }
         },
         computed: {
             vineyardwines() {
                 return this.$store.state.vineyardwines
+                // [this.list._id] || [];
             }
         },
         components: {

@@ -51,6 +51,10 @@ export default new vuex.Store({
         setActiveTypes(state, payload) {
             vue.set(state.activeTypes, payload.id, payload.type)
         },
+        clearActiveTypes(state){
+            state.activeTypes = {}
+            console.log(state.activeTypes)
+        },
         // START AUTH MUTATIONS
         loginUser(state, payload) {
             state.user = payload
@@ -73,6 +77,9 @@ export default new vuex.Store({
         setUserWines(state, payload) {
             // this will probably change
             state.userwines = payload.type
+        },
+        clearVineyardWines(state){
+            state.vineyardwines = []
         }
     },
     getters: {
@@ -91,7 +98,9 @@ export default new vuex.Store({
         setActiveTypes({ commit, dispatch }, payload) {
             commit('setActiveTypes', { type: payload.type, id: payload._id });
         },
-
+        clearActiveTypes({ commit, dispatch }){
+            commit('clearActiveTypes')
+        },
         //region WINESEARCH
         getResults({ commit, dispatch }, payload) {
             console.log(payload);
@@ -283,7 +292,8 @@ export default new vuex.Store({
                 })
         },
         getVineyardWines({ commit, dispatch }, payload) {
-            baseAPI.get('lists/' + payload.listId + '/vineyardwines')
+            console.log(payload._id)
+            baseAPI.get('lists/' + payload._id + '/vineyardwines')
                 .then(res => {
                     console.log(res)
                     // get all VWs, not just ones on a list
@@ -306,11 +316,14 @@ export default new vuex.Store({
             baseAPI.post('lists/' + payload.listId + '/vineyardwines', payload.type)
                 .then(res => {
                     console.log("Vineyard wine successfully added to your list!");
-                    dispatch('getVineyardWines', payload);
+                    // dispatch('getVineyardWines', payload);
                 })
                 .catch(err => {
                     console.log(err)
                 })
+        },
+        clearVineyardWines({commit, dispatch}) {
+            commit('clearVineyardWines')
         },
         // EDIT FUNCTION OMITTED ON VINEYARD WINES BECAUSE WE DON'T WANT USERS TO CHANGE THE DATA
         // endregion
