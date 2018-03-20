@@ -32,7 +32,7 @@ export default new vuex.Store({
         user: {},
         board: {},
         boards: [],
-        lists: [],
+        lists: {},
         bestRes: [],
         goodRes: [],
         res: [],
@@ -51,7 +51,7 @@ export default new vuex.Store({
         setActiveTypes(state, payload) {
             vue.set(state.activeTypes, payload.id, payload.type)
         },
-        clearActiveTypes(state){
+        clearActiveTypes(state) {
             state.activeTypes = {}
             console.log(state.activeTypes)
         },
@@ -69,28 +69,34 @@ export default new vuex.Store({
             state.comments = {}
         },
         setLists(state, payload) {
-            state.lists = payload
+            payload.forEach(list => {
+                // creates lists as dictionary where key = listId and value = object
+                state.lists[list._id] = list
+            });
         },
         setVineyardWines(state, payload) {
-            state.vineyardwines = payload.type
+            state.vineyardwines = payload
         },
         setUserWines(state, payload) {
             // this will probably change
             state.userwines = payload.type
         },
-        clearVineyardWines(state){
+        clearVineyardWines(state) {
             state.vineyardwines = []
         }
     },
     getters: {
         vwInList(state) {
-            state.lists.for(listId in state.lists) {
-                state.lists[listId].map(vwId =>{
-                    return state.vineyardwines.find(wine => {
-                        wine._id === vwId
+            for (var listId in state.lists) {
+                let list = state.lists[listId].vineyardwines   
+                list.map(vwId => {
+                    // @ts-ignore
+                    return state.vineyardwines.find(function (wine) {
+                        return wine._id === vwId
                     })
                 })
             }
+            return state.lists
         }
     },
     actions: {
@@ -98,7 +104,7 @@ export default new vuex.Store({
         setActiveTypes({ commit, dispatch }, payload) {
             commit('setActiveTypes', { type: payload.type, id: payload._id });
         },
-        clearActiveTypes({ commit, dispatch }){
+        clearActiveTypes({ commit, dispatch }) {
             commit('clearActiveTypes')
         },
         //region WINESEARCH
@@ -291,13 +297,12 @@ export default new vuex.Store({
                     console.log(err)
                 })
         },
-        getVineyardWines({ commit, dispatch }, payload) {
-            console.log(payload._id)
-            baseAPI.get('lists/' + payload._id + '/vineyardwines')
+
+        getAllVineyardWines({ commit, dispatch }) {
+            baseAPI.get('/vineyardwines')
                 .then(res => {
                     console.log(res)
-                    // get all VWs, not just ones on a list
-                    commit('setVineyardWines', { listId: payload.listId, type: res.data })
+                    commit('setVineyardWines', res.data)
                 })
                 .catch(err => {
                     console.log(err);
@@ -313,7 +318,7 @@ export default new vuex.Store({
                 })
         },
         addVineyardWine({ commit, dispatch }, payload) {
-            baseAPI.post('lists/' + payload.listId + '/vineyardwines', payload.type)
+            baseAPI.put('lists/' + payload.listId + '/vineyardwines', payload.type)
                 .then(res => {
                     console.log("Vineyard wine successfully added to your list!");
                     // dispatch('getVineyardWines', payload);
@@ -322,7 +327,7 @@ export default new vuex.Store({
                     console.log(err)
                 })
         },
-        clearVineyardWines({commit, dispatch}) {
+        clearVineyardWines({ commit, dispatch }) {
             commit('clearVineyardWines')
         },
         // EDIT FUNCTION OMITTED ON VINEYARD WINES BECAUSE WE DON'T WANT USERS TO CHANGE THE DATA

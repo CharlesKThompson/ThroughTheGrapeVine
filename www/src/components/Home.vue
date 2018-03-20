@@ -43,6 +43,7 @@
             Navbar
         },
         mounted() {
+            this.$store.dispatch('getAllVineyardWines');
             this.$store.dispatch('authenticate');
         },
     }
