@@ -10,6 +10,8 @@ import Login from '@/components/Login'
 import Sweetness from '@/components/Sweetness'
 //@ts-ignore
 import Corkboard from '@/components/Corkboard'
+//@ts-ignore
+import Pets from '@/components/Pets'
 
 Vue.use(Router)
 
@@ -39,6 +41,11 @@ export default new Router({
       path: '/corkboard',
       name: 'Corkboard',
       component: Corkboard
+    },
+    {
+      path: '/pets',
+      name: 'Pets',
+      component: Pets
     }
   ]
 })
