@@ -1,188 +1,196 @@
 <template>
   <div>
     <navbar></navbar>
-    <div class="search">
-      <form action="food-selector" name="searchForm" method="GET" @submit.prevent="getInputs">
+    <div class="underly">
 
-        <h2>What are you dining with?</h2>
-        <br />
+      <div class="background">
 
-        <div class="col-sm-12">
-          <div class="row">
-            <div class="col-sm-6">
-              <h3>Meat</h3>
+        <div class="search">
+          <form action="food-selector" name="searchForm" method="GET" @submit.prevent="getInputs">
+
+            <h2 style="color:rgb(255, 255, 255)">What are you dining with?</h2>
+            <br />
+
+            <div class="col-sm-12">
+              <div class="row">
+                <div class="col-sm-6">
+                  <h3>Meat</h3>
+                </div>
+                <div class="col-sm-6">
+                  <h3>Vegetables</h3>
+                </div>
+              </div>
             </div>
-            <div class="col-sm-6">
-              <h3>Vegetables</h3>
+
+            <div class="spacerOne row">
             </div>
-          </div>
-        </div>
 
-        <div class="spacerOne row">
-        </div>
-
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="meat row">
+            <div class="row">
               <div class="col-sm-6">
-                Red Meat
-                <input type="checkbox" name="meat[]" value="Red Meat" />
-                <br />
-                <p>beef, lamb, venison</p>
-                Cured Meat
-                <input type="checkbox" name="meat[]" value="Cured Meat" />
-                <br />
-                <p>salami, proscuitto, bresaola, bacon</p>
-                Pork
-                <input type="checkbox" name="meat[]" value="Pork" />
-                <br />
-                <p>roast, tenderloin, pork chop</p>
-                Poultry
-                <input type="checkbox" name="meat[]" value="Poultry" />
-                <br />
-                <p>chicken, duck, turkey</p>
+                <div class="meat row">
+                  <div class="col-sm-6">
+                    Red Meat
+                    <input type="checkbox" name="meat[]" value="Red Meat" />
+                    <br />
+                    <p>beef, lamb, venison</p>
+                    Poultry
+                    <input type="checkbox" name="meat[]" value="Poultry" />
+                    <br />
+                    <p>chicken, duck, turkey</p>
+                    Fish
+                    <input type="checkbox" name="meat[]" value="Fish" />
+                    <br />
+                    <p>tuna, cod, trout, bass</p>
+                    Pork
+                    <input type="checkbox" name="meat[]" value="Pork" />
+                    <br />
+                    <p>roast, tenderloin, pork chop</p>
+                  </div>
+                  <div class="col-sm-6">
+                    Cured Meat
+                    <input type="checkbox" name="meat[]" value="Cured Meat" />
+                    <br />
+                    <p>salami, proscuitto, bresaola, bacon</p>
+                    Lobster & Shellfish
+                    <input type="checkbox" name="meat[]" value="Lobster & Shellfish" />
+                    <br />
+                    <p>prawn, crab, langoustine</p>
+                    Mollusk
+                    <input type="checkbox" name="meat[]" value="Mollusk" />
+                    <br />
+                    <p>oyster, mussel, clam</p>
+                  </div>
+                </div>
               </div>
               <div class="col-sm-6">
-                Mollusk
-                <input type="checkbox" name="meat[]" value="Mollusk" />
-                <br />
-                <p>oyster, mussel, clam</p>
-                Fish
-                <input type="checkbox" name="meat[]" value="Fish" />
-                <br />
-                <p>tuna, cod, trout, bass</p>
-                Lobster & Shellfish
-                <input type="checkbox" name="meat[]" value="Lobster & Shellfish" />
-                <br />
-                <p>prawn, crab, langoustine</p>
+
+                <div class="vegatable row">
+                  <div class="vegMod col-sm-6">
+
+                    Alliums
+                    <input type="checkbox" name="vegetable[]" value="Alliums" />
+                    <br />
+                    <p>onion, shallot, garlic, scallion</p>
+                    Root Veggies & Squash
+                    <input type="checkbox" name="vegetable[]" value="Root Vegetables & Squash" />
+                    <br />
+                    <p>turnip, butternut, pumpkin, delicata, carrot</p>
+                    Nightshades
+                    <input type="checkbox" name="vegetable[]" value="Nightshades" />
+                    <br />
+                    <p>tomato, eggplant, bell pepper</p>
+                  </div>
+                  <div class="vegetable col-sm-6">
+                    Green Vegetables
+                    <input type="checkbox" name="vegetable[]" value="Green Vegetables" />
+                    <br />
+                    <p>green bean, kale, lettuce</p>
+                    Funghi
+                    <input type="checkbox" name="vegetable[]" value="Funghi" />
+                    <br />
+                    <p>crimini, maitake, chanterelle</p>
+                    Nuts & Seeds
+                    <input type="checkbox" name="vegetable[]" value="Nuts & Seeds" />
+                    <br />
+                    <p>peanut, almond, pecan, sesame</p>
+                    Beans & Peas
+                    <input type="checkbox" name="vegetable[]" value="Beans & Peas" />
+                    <br />
+                    <p>lentil, navy, pinto, chickpea</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm-6">
 
-            <div class="vegatable row">
-              <div class="col-sm-6">
+            <div class="spacerOne row">
+            </div>
 
-                Alliums
-                <input type="checkbox" name="vegetable[]" value="Alliums" />
-                <br />
-                <p>onion, shallot, garlic, scallion</p>
-                Green Vegetables
-                <input type="checkbox" name="vegetable[]" value="Green Vegetables" />
-                <br />
-                <p>green bean, kale, lettuce</p>
-                Root Vegetables & Squash
-                <input type="checkbox" name="vegetable[]" value="Root Vegetables & Squash" />
-                <br />
-                <p>turnip, butternut, pumpkin, delicata, carrot</p>
-                Nightshades
-                <input type="checkbox" name="vegetable[]" value="Nightshades" />
-                <br />
-                <p>tomato, eggplant, bell pepper</p>
+            <div class="row">
+              <div class="col-sm-4">
+                <h3>Dairy</h3>
               </div>
-              <div class="vegetable col-sm-6">
-                Funghi
-                <input type="checkbox" name="vegetable[]" value="Funghi" />
-                <br />
-                <p>crimini, maitake, chanterelle</p>
-                Nuts & Seeds
-                <input type="checkbox" name="vegetable[]" value="Nuts & Seeds" />
-                <br />
-                <p>peanut, almond, pecan, sesame</p>
-                Beans & Peas
-                <input type="checkbox" name="vegetable[]" value="Beans & Peas" />
-                <br />
-                <p>lentil, navy, pinto, chickpea</p>
+              <div class="starch col-sm-4">
+                <h3>Starch</h3>
+              </div>
+              <div class="col-sm-4">
+                <h3>Sweet</h3>
               </div>
             </div>
+
+            <div class="row">
+              <div class="col-sm-4">
+
+                Soft Cheese & Cream
+                <input type="checkbox" name="dairy[]" value="Soft Cheese & Cream" />
+                <br />
+                <p>brie, mascarpone, creme fraiche</p>
+                Pungent Cheese
+                <input type="checkbox" name="dairy[]" value="Pungent Cheese" />
+                <br />
+                <p>bleu, gorganzola, stilton, roquefort</p>
+                Hard Cheese
+                <input type="checkbox" name="dairy[]" value="Hard Cheese" />
+                <br />
+                <p>cheddar, pecorino, manchego, asiago, parmesan</p>
+              </div>
+
+              <div class="starchMod col-sm-4">
+                White Starches
+                <input type="checkbox" name="starch[]" value="White Starches" />
+                <br />
+                <p>four, white rice, pasta, bread, tortillas</p>
+                Whole Wheat Grains
+                <input type="checkbox" name="starch[]" value="Whole Wheat Grains" />
+                <br />
+                <p>quinoa, farro, brown rice</p>
+                Sweet Starchy Vegetables
+                <input type="checkbox" name="starch[]" value="Sweet Starchy Vegetables" />
+                <br />
+                <p>sweet potato, yucca, taro</p>
+                Potato
+                <input type="checkbox" name="starch[]" value="Potato" />
+                <br />
+                <p>literally just any potato</p>
+                <button type="submit" value="Submit">Submit</button>
+              </div>
+
+
+              <div class="col-sm-4">
+                Fruit & Berries
+                <input type="checkbox" name="sweet[]" value="Fruit & Berries" />
+                <br />
+                <p>straberry, orange, apple, peach</p>
+                Vanilla & Caramel
+                <input type="checkbox" name="sweet[]" value="Vanilla & Caramel" />
+                <br />
+                <p>creme brulee, ice cream</p>
+                Chocolate & Coffee
+                <input type="checkbox" name="sweet[]" value="Chocolate & Coffee" />
+                <br />
+                <p>coffee, chocolate</p>
+              </div>
+            </div>
+          </form>
+          <div class="spacerOne row">
           </div>
-        </div>
+          <!-- results component -->
 
-        <div class="spacerOne row">
-        </div>
+          <div class="searchResults">
+            <h3 style="font-style: cursive" v-if="bestRes.length > 0">Our Top Selections:</h3>
 
-        <div class="row">
-          <div class="col-sm-4">
-            <h3>Dairy</h3>
+            <div class="best-results results" v-for="best in bestRes">
+              <results :wine="best"></results>
+            </div>
+
+            <h3 v-if="goodRes.length > 0">Acceptably Delicious:</h3>
+            <div class="good-results results" v-for="good in goodRes">
+              <results :wine="good"></results>
+            </div>
+            <h3 v-if="results.length > 0">Pairs:</h3>
+            <div class="results" v-for="result in results">
+              <results :wine="result"></results>
+            </div>
           </div>
-          <div class="col-sm-4">
-            <h3>Starch</h3>
-          </div>
-          <div class="col-sm-4">
-            <h3>Sweet</h3>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-4">
-
-            Soft Cheese & Cream
-            <input type="checkbox" name="dairy[]" value="Soft Cheese & Cream" />
-            <br />
-            <p>brie, mascarpone, creme fraiche</p>
-            Pungent Cheese
-            <input type="checkbox" name="dairy[]" value="Pungent Cheese" />
-            <br />
-            <p>bleu, gorganzola, stilton, roquefort</p>
-            Hard Cheese
-            <input type="checkbox" name="dairy[]" value="Hard Cheese" />
-            <br />
-            <p>cheddar, pecorino, manchego, asiago, parmesan</p>
-          </div>
-
-          <div class="col-sm-4">
-            White Starches
-            <input type="checkbox" name="starch[]" value="White Starches" />
-            <br />
-            <p>four, white rice, pasta, bread, tortillas</p>
-            Whole Wheat Grains
-            <input type="checkbox" name="starch[]" value="Whole Wheat Grains" />
-            <br />
-            <p>quinoa, farro, brown rice</p>
-            Sweet Starchy Vegetables
-            <input type="checkbox" name="starch[]" value="Sweet Starchy Vegetables" />
-            <br />
-            <p>sweet potato, yucca, taro</p>
-            Potato
-            <input type="checkbox" name="starch[]" value="Potato" />
-            <br />
-            <p>literally just any potato</p>
-          </div>
-
-
-          <div class="col-sm-4">
-            Fruit & Berries
-            <input type="checkbox" name="sweet[]" value="Fruit & Berries" />
-            <br />
-            <p>straberry, orange, apple, peach</p>
-            Vanilla & Caramel
-            <input type="checkbox" name="sweet[]" value="Vanilla & Caramel" />
-            <br />
-            <p>creme brulee, ice cream</p>
-            Chocolate & Coffee
-            <input type="checkbox" name="sweet[]" value="Chocolate & Coffee" />
-            <br />
-            <p>coffee, chocolate</p>
-          </div>
-        </div>
-        <button type="submit" value="Submit">Submit</button>
-      </form>
-      <!-- results component -->
-
-      <div class="searchResults">
-        <h3 v-if="bestRes.length > 0">Best Pairs:</h3>
-
-        <div class="best-results results" v-for="best in bestRes">
-          <results :wine="best"></results>
-        </div>
-
-        <h3 v-if="goodRes.length > 0">Good Pairs:</h3>
-        <div class="good-results results" v-for="good in goodRes">
-          <results :wine="good"></results>
-        </div>
-        <h3 v-if="results.length > 0">Pairs:</h3>
-        <div class="results" v-for="result in results">
-          <results :wine="result"></results>
         </div>
       </div>
     </div>
@@ -246,23 +254,38 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .underly {
+    background-color: #EADAC0
+  }
+
   .results {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center
+    justify-content: center;
   }
 
   .searchResults {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center
+    justify-content: center;
   }
 
-  h1,
+  h1 {
+    font-style: oblique;
+  }
   h2 {
     font-weight: normal;
+    text-shadow: 2px 1px black;
+
+  }
+
+  h3 {
+    color: white;
+    text-shadow: 2px 1px black;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   ul {
@@ -279,17 +302,81 @@
     color: #42b983;
   }
 
+  .meat {
+    min-height: 100%;
+    text-align: center;
+
+
+  }
+
   .spacerOne {
     min-height: 2rem;
-    background-color: brown;
+    background-color: rgba(87, 46, 60, 0.85);
+    border: 3px groove black;
+    border-radius: 2rem;
+    width: 95%;
+    margin-left: 20px;
   }
 
-  .meat {
-    outline: 1px solid brown;
-
+  .bottom-space {
+    min-height: 2rem;
+    background-color: rgba(87, 46, 60, 0.85);
+    border: 3px groove black;
+    width: 635px;
   }
 
-  .vegetable {
+  .vegMod {
     padding-left: 3rem;
+    border-left: solid 3px rgba(87, 46, 60, 0.85);
+
+  }
+
+  .starchMod {
+    border-left: solid 3px rgba(87, 46, 60, 0.85);
+    border-right: solid 3px rgba(87, 46, 60, 0.85);
+    padding-bottom: 20px;
+  }
+
+  .starch {
+    border-right: solid 3px rgba(87, 46, 60, 0.85);
+    border-left: solid 3px rgba(87, 46, 60, 0.85);
+  }
+
+  .background {
+    background-image: url(http://www.courtofmastersommeliers.org/wp-content/uploads/backgrounds-2.jpg);
+    /* background-image: url(http://media.oregonlive.com/travel_impact/photo/trpasojpg-2c7adf226346ee66.jpg); */
+    height: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 4px solid black;
+    border-radius: 40px;
+
+  }
+
+  .col-sm-12 {
+    /* background-size: 50%; */
+    color: white;
+    text-shadow: 2px 1px black;
+    align-self: center;
+    background-color: rgba(27, 24, 24, 0.15);
+
+  }
+
+
+  .col-sm-6 {
+    color: white;
+    text-shadow: 2px 1px black;
+    align-self: center;
+    background-color: rgba(27, 24, 24, 0.15);
+
+  }
+
+  .col-sm-4 {
+    color: white;
+    text-shadow: 2px 1px black;
+    align-self: center;
+    background-color: rgba(27, 24, 24, 0.15);
+
   }
 </style>
