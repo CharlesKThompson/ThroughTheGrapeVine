@@ -7,7 +7,7 @@ var Comments = require('../models/comment');
 var schema = new Schema({
     name: {type: String, required: true},
     description: {type: String, required: true},
-    variety: {type: String, required: true}
+    variety: {type: String}
 });
 
 schema.post('remove', function (next) {

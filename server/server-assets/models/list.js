@@ -7,7 +7,8 @@ var schema = new Schema({
     title: { type: String, required: true },
     date: {type: Date, required: true, default: Date.now()},
     userId: {type: ObjectId, ref: 'User'},
-    vineyardwines: [{type: ObjectId, ref: 'VineyardWine' }],
+    vineyardwines: [{}],
+    // vineyardwines: [{type: ObjectId, ref: 'VineyardWine' }],
     wines: []
 });
 

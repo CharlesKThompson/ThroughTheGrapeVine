@@ -29,6 +29,7 @@
 
             }
         },
+
         methods: {
             clearVineyardWines(){
                 this.$store.dispatch('clearVineyardWines')                
@@ -39,15 +40,17 @@
             }
         },
         computed: {
+            list(){
+                return this.$store.state.lists[this.listId]
+            },
             vineyardwines() {
-                return this.$store.state.vineyardwines
-                // [this.list._id] || [];
-            }
+                return this.$store.getters.vwInList[this.listId].vineyardwines
+            } 
         },
         components: {
             VineyardWine
         },
-        props: ['list']
+        props: ['listId']
     }
 </script>
 

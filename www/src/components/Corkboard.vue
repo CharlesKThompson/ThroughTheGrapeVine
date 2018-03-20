@@ -20,10 +20,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row d-flex justify-content-center">
-                        <div v-for="list in lists" class="col-sm-10">
-                            <list :list="list"></list>
-                        </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div v-for="(list, listId) in lists" class="col-sm-10">
+                        <list :listId="listId"></list>
                     </div>
                 </div>
             </div>
@@ -50,6 +50,7 @@
         mounted() {
             this.$store.dispatch('authenticate');
             this.$store.dispatch('getLists');
+            this.$store.dispatch('getAllVineyardWines');
         },
         methods: {
             addList() {

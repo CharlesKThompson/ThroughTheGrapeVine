@@ -12,14 +12,15 @@ router.get('/vineyardwines', (req, res, next) => {
         .catch(next);
 });
 
+
 // ADD A VINEYARD WINE TO A USER LIST
-router.post('/vineyardwines', (req, res, next) =>{
-    VineyardWines.create(req.body)
-        .then(wines => {
-            console.log("Created: ", wines)
-            res.send(wines);
-        })
-        .catch(next)
-});
+// router.post('/vineyardwines', (req, res, next) =>{
+//     VineyardWines.create(req.body)
+//         .then(wines => {
+//             console.log("Created: ", wines)
+//             res.send(wines);
+//         })
+//         .catch(next)
+// });
 
 module.exports = router;
