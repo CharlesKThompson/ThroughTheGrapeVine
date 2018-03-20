@@ -20,9 +20,11 @@
                 </router-link>
             </div>
             <div class="button">
-                <button type="button" class="btn btn-primary btn-lg btn-block btn-bottom">
-                    <h2 class="text">By Pet</h2>
-                </button>
+                <router-link :to="{name: 'Pets'}">
+                    <button type="button" class="btn btn-primary btn-lg btn-block btn-bottom">
+                        <h2 class="text">By Pet</h2>
+                    </button>
+                </router-link>
             </div>
         </div>
     </div>
