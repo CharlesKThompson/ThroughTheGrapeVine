@@ -2,13 +2,12 @@
   <div>
     <navbar></navbar>
     <div class="underly">
-
-      <div class="background">
-
-        <div class="search">
+      <div class="background-1">
+        <div class="search background-2">
           <form action="food-selector" name="searchForm" method="GET" @submit.prevent="getInputs">
 
             <h2 style="color:rgb(255, 255, 255)">What are you dining with?</h2>
+            <h5 style="color:rgb(255, 255, 255)">(Select up to 3 Ingredients)</h5>
             <br />
 
             <div class="col-sm-12">
@@ -28,11 +27,13 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="meat row">
-                  <div class="col-sm-6">
+                  <div class="col-sm-12">
                     Red Meat
                     <input type="checkbox" name="meat[]" value="Red Meat" />
                     <br />
                     <p>beef, lamb, venison</p>
+                  </div>
+                  <div class="col-sm-6">
                     Poultry
                     <input type="checkbox" name="meat[]" value="Poultry" />
                     <br />
@@ -65,6 +66,12 @@
               <div class="col-sm-6">
 
                 <div class="vegatable row">
+                  <div class="col-sm-12">
+                      Green Vegetables
+                      <input type="checkbox" name="vegetable[]" value="Green Vegetables" />
+                      <br />
+                      <p>green bean, kale, lettuce</p>
+                  </div>
                   <div class="vegMod col-sm-6">
 
                     Alliums
@@ -81,10 +88,6 @@
                     <p>tomato, eggplant, bell pepper</p>
                   </div>
                   <div class="vegetable col-sm-6">
-                    Green Vegetables
-                    <input type="checkbox" name="vegetable[]" value="Green Vegetables" />
-                    <br />
-                    <p>green bean, kale, lettuce</p>
                     Funghi
                     <input type="checkbox" name="vegetable[]" value="Funghi" />
                     <br />
@@ -171,26 +174,26 @@
               </div>
             </div>
           </form>
-          <div class="spacerOne row">
-          </div>
-          <!-- results component -->
+        </div>
+      </div>
+      <!-- results component -->
 
-          <div class="searchResults">
-            <h3 style="font-style: cursive" v-if="bestRes.length > 0">Our Top Selections:</h3>
+      <div class="searchResults">
+        <br>
+        <div class="spacerTwo row"></div>
+        <h3 style="font-style: cursive" v-if="bestRes.length > 0">Our Top Selections:</h3>
 
-            <div class="best-results results" v-for="best in bestRes">
-              <results :wine="best"></results>
-            </div>
+        <div class="best-results results" v-for="best in bestRes">
+          <results :wine="best"></results>
+        </div>
 
-            <h3 v-if="goodRes.length > 0">Acceptably Delicious:</h3>
-            <div class="good-results results" v-for="good in goodRes">
-              <results :wine="good"></results>
-            </div>
-            <h3 v-if="results.length > 0">Pairs:</h3>
-            <div class="results" v-for="result in results">
-              <results :wine="result"></results>
-            </div>
-          </div>
+        <h3 v-if="goodRes.length > 0">Good Pairs:</h3>
+        <div class="good-results results" v-for="good in goodRes">
+          <results :wine="good"></results>
+        </div>
+        <h3 v-if="results.length > 0">Pairs:</h3>
+        <div class="results" v-for="result in results">
+          <results :wine="result"></results>
         </div>
       </div>
     </div>
@@ -270,12 +273,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: rgba(87, 46, 60, 0.85);
   }
 
   h1 {
     font-style: oblique;
   }
-  h2 {
+
+  h2,
+  h5 {
     font-weight: normal;
     text-shadow: 2px 1px black;
 
@@ -318,6 +324,15 @@
     margin-left: 20px;
   }
 
+  .spacerTwo {
+    min-height: 2rem;
+    background-color:rgb(234, 218, 192);
+    border: 3px groove black;
+    border-radius: 2rem;
+    width: 95%;
+    margin-left: 20px;
+  }
+
   .bottom-space {
     min-height: 2rem;
     background-color: rgba(87, 46, 60, 0.85);
@@ -342,25 +357,21 @@
     border-left: solid 3px rgba(87, 46, 60, 0.85);
   }
 
-  .background {
+  .background-1 {
     background-image: url(http://www.courtofmastersommeliers.org/wp-content/uploads/backgrounds-2.jpg);
-    /* background-image: url(http://media.oregonlive.com/travel_impact/photo/trpasojpg-2c7adf226346ee66.jpg); */
-    height: auto;
-    background-position: center;
+    height: fit-content;
     background-repeat: no-repeat;
-    background-size: cover;
     border: 4px solid black;
-    border-radius: 40px;
+  }
 
+  .background-2 {
+    background-color: rgba(27, 24, 24, 0.15);
   }
 
   .col-sm-12 {
-    /* background-size: 50%; */
     color: white;
     text-shadow: 2px 1px black;
     align-self: center;
-    background-color: rgba(27, 24, 24, 0.15);
-
   }
 
 
@@ -368,15 +379,11 @@
     color: white;
     text-shadow: 2px 1px black;
     align-self: center;
-    background-color: rgba(27, 24, 24, 0.15);
-
   }
 
   .col-sm-4 {
     color: white;
     text-shadow: 2px 1px black;
     align-self: center;
-    background-color: rgba(27, 24, 24, 0.15);
-
   }
 </style>
