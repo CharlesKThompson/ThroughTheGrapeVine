@@ -1,12 +1,13 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 var ObjectId = mongoose.SchemaTypes.ObjectId
-var schemaName = 'LightWine'
+var schemaName = 'VineyardWine'
 var Comments = require('../models/comment');
 
 var schema = new Schema({
     name: {type: String, required: true},
-    description: {type: String, required: true}
+    description: {type: String, required: true},
+    variety: {type: String, required: true}
 });
 
 schema.post('remove', function (next) {

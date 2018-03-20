@@ -9,13 +9,13 @@
                             <h2>Corkboard</h2>
                         </div>
                         <div class="aligner">
-                            <div class="dropleft">
+                            <div class="dropdown">
                                 <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-plus"></i>
+                                    Add new list
                                 </button>
                                 <div class="dropdown-menu">
                                     <form @submit.prevent="addList()">
-                                        <input type="text" name="title" placeholder="List Title" v-model="createdList.title">
+                                        <input type="text" name="title" placeholder="List Name" v-model="createdList.title">
                                         <button type="submit" class="btn btn-submit" hidden>Create List</button>
                                     </form>
                                 </div>
@@ -54,6 +54,7 @@
         },
         methods: {
             addList() {
+                // console.log("THIS.CREATED LIST", this.createdList)
                 this.$store.dispatch('addList', { title: this.createdList });
             },
         },
