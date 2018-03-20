@@ -9,7 +9,6 @@
                     <button>Delete list</button>
                     <div class="aligner">
                         <div class="dropleft">
-                            <i data-toggle="dropdown" class="fas fa-plus pointer"></i>
                             <div class="dropdown-menu">
                                 <!-- <form @submit.prevent="addTask()">
                                     <input type="text" name="name" placeholder="add task" v-model="createdTask.body">

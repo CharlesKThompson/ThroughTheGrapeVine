@@ -4,27 +4,7 @@ var Users = require('../models/user');
 var userWines = require('../models/userWine');
 var VineyardWines = require('../models/lightwine');
 
-// GET ALL USER WINES BY LIST
-router.get('/lists/:listId/wines', (req, res, next) => {
-    userWines.find({ listId: req.params.listId })
-        .then(wines => {
-            res.send(wines);
-        })
-        .catch(next);
-});
-
-// ADD USER WINE TO LIST
-router.post('/lists/:listId/wines', (req, res, next) => {
-    req.body.listId = req.params.listId;
-    req.body.userId = req.session.uid;
-    console.log(req)
-    userWines.create(req.body)
-        .then(wines => {
-            res.send(wines);
-        })
-        .catch(next)
-});
-
+// region VINEYARDWINES
 // GET ALL VINEYARD WINES BY LIST ID
 router.get('/lists/:listId/vineyardwines', (req, res, next) => {
     VineyardWines.find({})
@@ -44,8 +24,32 @@ router.post('/lists/:listId/vineyardwines', (req, res, next) =>{
         .catch(next)
 });
 
+// endregion VINEYARDWINES
+
+// region USERWINES
+// GET ALL USER WINES BY LIST
+router.get('/lists/:listId/userwines', (req, res, next) => {
+    userWines.find({ listId: req.params.listId })
+        .then(wines => {
+            res.send(wines);
+        })
+        .catch(next);
+});
+
+// ADD USER WINE TO LIST
+router.post('/lists/:listId/userwines', (req, res, next) => {
+    req.body.listId = req.params.listId;
+    req.body.userId = req.session.uid;
+    console.log(req)
+    userWines.create(req.body)
+        .then(wines => {
+            res.send(wines);
+        })
+        .catch(next)
+});
+
 // EDIT WINE BY WINE ID
-router.put('/lists/:listId/wines/:wineId', (req, res, next) => {
+router.put('/lists/:listId/userwines/:wineId', (req, res, next) => {
     userWines.findByIdAndUpdate(
         req.params.wineId,
         req.body,
@@ -58,7 +62,7 @@ router.put('/lists/:listId/wines/:wineId', (req, res, next) => {
 });
 
 // DELETE WINE BY WINE ID
-router.delete('/lists/:listId/wines/:wineId', (req, res, next) => {
+router.delete('/lists/:listId/userwines/:wineId', (req, res, next) => {
     userWines.findById(req.params.wineId)
         .then(wines => {
             wines.remove();
@@ -66,6 +70,8 @@ router.delete('/lists/:listId/wines/:wineId', (req, res, next) => {
         })
         .catch(next);
 });
+
+// endregion USERWINES
 
 
 module.exports = router;

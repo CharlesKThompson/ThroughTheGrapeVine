@@ -38,6 +38,7 @@ export default new vuex.Store({
         res: [],
         activeTypes: {},
         vineyardwines: [],
+        userwines: [],
         comments: {}
     },
     mutations: {
@@ -48,7 +49,6 @@ export default new vuex.Store({
             state.res = payload[2];
         },
         setActiveTypes(state, payload) {
-            console.log("Active Types: ", payload)
             vue.set(state.activeTypes, payload.id, payload.type)
         },
         // START AUTH MUTATIONS
@@ -61,22 +61,24 @@ export default new vuex.Store({
             state.boards = []
             state.lists = []
             state.vineyardwines = []
+            state.userwines = []
             state.comments = {}
         },
         setLists(state, payload) {
             state.lists = payload
         },
         setVineyardWines(state, payload) {
-            console.log(payload.type)
             state.vineyardwines = payload.type
-            console.log(state.vineyardwines)
+        },
+        setUserWines(state, payload) {
+            // this will probably change
+            state.userwines = payload.type
         }
     },
     actions: {
 
         setActiveTypes({ commit, dispatch }, payload) {
             commit('setActiveTypes', { type: payload.type, id: payload._id });
-
         },
 
         //region WINESEARCH
@@ -164,36 +166,84 @@ export default new vuex.Store({
 
         //endregion WINESEARCH
 
-        // region COMMENTS
-        getComments({ commit, dispatch }, payload) {
-            serverAPI.get('boards/' + payload.boardId + '/lists/' + payload.listId + '/tasks/' + payload.taskId + '/comments')
+        // region VINEYARDWINE COMMENTS
+        getVWComments({ commit, dispatch }, payload) {
+            baseAPI.get('lists/' + payload.lisId + '/vineyardwines/' + payload.vineyardwineId + '/comments/')
                 .then(res => {
-                    commit('setComments', { taskId: payload.taskId, comments: res.data })
+                    commit('setVWComments', { taskId: payload.taskId, comments: res.data })
                 })
                 .catch(err => {
                     console.log(err);
                 })
         },
-        addComment({ commit, dispatch }, payload) {
-            serverAPI.post('boards/' + payload.boardId + '/lists/' + payload.listId + '/tasks/' + payload.taskId + '/comments', payload)
+        addVWComment({ commit, dispatch }, payload) {
+            baseAPI.post('lists/' + payload.lisId + '/vineyardwines/' + payload.vineyardwineId + '/comments/', payload)
                 .then(res => {
-                    dispatch('getComments', res.data)
+                    dispatch('getVWComments', res.data)
                 })
                 .catch(err => {
                     console.log(err)
                 })
         },
-        deleteComment({ commit, dispatch }, payload) {
-            serverAPI.delete('boards/' + payload.boardId + '/lists/' + payload.listId + '/tasks/' + payload.taskId + '/comments/' + payload._id)
+        deleteVWComment({ commit, dispatch }, payload) {
+            baseAPI.delete('lists/' + payload.lisId + '/vineyardwines/' + payload.vineyardwineId + '/comments/' + payload.commentId)
                 .then(res => {
-                    dispatch('getComments', res.data)
+                    dispatch('getVWComments', res.data)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        },
+        editVWComment({ commit, dispatch }, payload) {
+            baseAPI.put('lists/' + payload.lisId + '/vineyardwines/' + payload.vineyardwineId + '/comments/' + payload.commentId)
+                .then(res => {
+                    dispatch('getVWComments', res.data)
                 })
                 .catch(err => {
                     console.log(err)
                 })
         },
 
-        // endregion COMMENTS
+        // endregion VINEYARDWINE COMMENTS
+
+        // region USERWINE COMMENTS
+        getUserComments({ commit, dispatch }, payload) {
+            baseAPI.get('lists/' + payload.lisId + '/userwines/' + payload.userwineId + '/comments/')
+                .then(res => {
+                    commit('setUserComments', { taskId: payload.taskId, comments: res.data })
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        },
+        addUserComment({ commit, dispatch }, payload) {
+            baseAPI.post('lists/' + payload.lisId + '/userwines/' + payload.userwineId + '/comments/', payload)
+                .then(res => {
+                    dispatch('getUserComments', res.data)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        },
+        deleteUserComment({ commit, dispatch }, payload) {
+            baseAPI.delete('lists/' + payload.listId + '/userwines/' + payload.userwineId + '/comments/' + payload.commentId)
+                .then(res => {
+                    dispatch('getUserComments', res.data)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        },
+        editUserComment({ commit, dispatch }, payload) {
+            baseAPI.put('lists/' + payload.listId + '/userwines/' + payload.wineId + '/comments/' + payload.commentId)
+                .then(res => {
+                    dispatch('getUserComments', res.data)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        },
+        // endregion USERWINE COMMENTS
 
         // region VINEYARDWINES
         moveToList({ commit, dispatch }, payload) {
@@ -231,8 +281,8 @@ export default new vuex.Store({
                     console.log(err);
                 })
         },
-        deleteTask({ commit, dispatch }, payload) {
-            serverAPI.delete('boards/' + payload.boardId + '/lists/' + payload.listId + '/tasks/' + payload._id)
+        deleteVineyardWine({ commit, dispatch }, payload) {
+            baseAPI.delete('lists/' + payload.listId + '/vineyardwines/' + payload._id)
                 .then(res => {
                     dispatch('getTasks', res.data)
                 })
@@ -243,24 +293,58 @@ export default new vuex.Store({
         addVineyardWine({ commit, dispatch }, payload) {
             baseAPI.post('lists/' + payload.listId + '/vineyardwines', payload.type)
                 .then(res => {
-                    console.log("Wine successfully added to your list!");
+                    console.log("Vineyard wine successfully added to your list!");
                     dispatch('getVineyardWines', payload);
                 })
                 .catch(err => {
                     console.log(err)
                 })
         },
-        editTask({ commit, dispatch }, payload) {
-            baseAPI.put('boards/' + payload.boardId + '/lists/' + payload.listId + '/tasks/' + payload._id, payload)
+        // EDIT FUNCTION OMITTED ON VINEYARD WINES BECAUSE WE DON'T WANT USERS TO CHANGE THE DATA
+        // endregion
+
+        // region USERWINES
+        getUserWines({ commit, dispatch }, payload) {
+            baseAPI.get('lists/' + payload.listId + '/userwines')
                 .then(res => {
-                    dispatch('getTasks', res.data)
+                    console.log(res)
+                    commit('setUserWines', { listId: payload.listId, type: res.data })
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        },
+        deleteUserWine({ commit, dispatch }, payload) {
+            baseAPI.delete('lists/' + payload.listId + '/userwines/' + payload._id)
+                .then(res => {
+                    dispatch('getUserWines', res.data)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        },
+        addUserWine({ commit, dispatch }, payload) {
+            baseAPI.post('lists/' + payload.listId + '/userwines', payload.type)
+                .then(res => {
+                    console.log("User wine successfully added to your list!");
+                    dispatch('getUserWines', payload);
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        },
+        editUserWine({ commit, dispatch }, payload) {
+            baseAPI.put('lists/' + payload.listId + '/userwines')
+                .then(res => {
+                    dispatch('getUserWines', res.data)
                 })
                 .catch(err => {
                     console.log(err)
                 })
         },
 
-        // endregion   
+
+        // endregion USERWINES
 
         // region LISTS
         getLists({ commit, dispatch }, payload) {
@@ -295,7 +379,7 @@ export default new vuex.Store({
         editList({ commit, dispatch }, payload) {
             baseAPI.put('lists/:listId')
                 .then(res => {
-                    dispatch('getLists', res.data.boardId)
+                    dispatch('getLists', res.data)
                 })
                 .catch(err => {
                     console.log(err)
