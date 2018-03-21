@@ -4,7 +4,7 @@
         <div class="sweetness">
             <div class="universal">
                 <div class="red-chart">
-                    <!-- <img src="http://i63.tinypic.com/14tsevc.jpg" alt="red wine sweetness chart"> -->
+                    <img src="http://i63.tinypic.com/14tsevc.jpg" alt="red wine sweetness chart" class="red-chart">
                 </div>
                 <h1>Red Wine Sugar</h1>
                 <div class="red-sugar row">
@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="white-chart">
-                    <img src="http://winefolly.com/wp-content/uploads/2015/08/wine-sweetness-chart-white.png" alt="">
+                    <img src="http://winefolly.com/wp-content/uploads/2015/08/wine-sweetness-chart-white.png" class="white-chart">
                 </div>
                 <h1>White Wine Sugar</h1>
                 <div class="white-sugar row">
@@ -161,10 +161,9 @@
     }
 </script>
 
-<style>
+<style scoped>
     .sweetness {
         background-image: url(https://images.unsplash.com/photo-1504000862552-65badf4afe88?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f3950e184c95b475d8e1e684ea4bd72e&auto=format&fit=crop&w=700&q=80);
-        /* background-image: url(https://media.gettyimages.com/photos/pink-water-splash-picture-id163520693?b=1&k=6&m=163520693&s=612x612&w=0&h=ctmdLR-MxfF7w5M86nhF_iZuRM0n074Bia6BXZX1KKg=); */
         background-repeat: repeat;
         height: fit-content;
     }
@@ -184,16 +183,12 @@
     }
 
     .red-chart {
-          /* width: 100%; */
-          background-image: url(http://i63.tinypic.com/14tsevc.jpg);
-          background-repeat: no-repeat;
-          background-size: cover;
-          max-height: 100vh;
-          min-height: 50vh;
+        width: 100%;
     }
 
-     /* .white-chart {
-    } */
+    .white-chart {
+        width: 100%;
+    }
 
     .red-sugar {
         justify-content: space-around;
@@ -213,7 +208,7 @@
         margin-bottom: 30px;
     }
 
-    .card-b{
+    .card-b {
         background-color: #d16e40b2;
         padding-top: 25px;
         border: 2px ridge black;
