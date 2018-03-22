@@ -154,7 +154,7 @@
                 <input type="checkbox" name="starch[]" value="Potato" />
                 <br />
                 <p>literally just any potato</p>
-                <button type="submit" value="Submit" class="btn btn-info">Submit</button>
+                <button type="submit" value="Submit" class="btn btn-block">Submit</button>
               </div>
 
 
@@ -195,7 +195,7 @@
         <div class="results" v-for="result in results">
           <results :wine="result"></results>
         </div>
-        <google-map name="example"></google-map>
+        <google-map name="example" class="maps"></google-map>
       </div>
     </div>
   </div>
@@ -264,6 +264,10 @@
     background-color: #EADAC0
   }
 
+  .maps {
+    width: 100%;
+  }
+
   .results {
     display: flex;
     flex-direction: column;
@@ -314,8 +318,6 @@
   .meat {
     min-height: 100%;
     text-align: center;
-
-
   }
 
   .spacerOne {
@@ -334,6 +336,7 @@
     border-radius: 2rem;
     width: 95%;
     margin-left: 20px;
+    margin-bottom: 30px
   }
 
   .bottom-space {
@@ -358,6 +361,20 @@
   .starch {
     border-right: solid 3px rgba(87, 46, 60, 0.85);
     border-left: solid 3px rgba(87, 46, 60, 0.85);
+  }
+
+  .btn-block {
+    font-weight: 700;
+    background-color: rgb(234, 218, 192);
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+    color:black;
+    transition: linear .3s all
+  }
+
+  .btn-block:hover {
+    background-color: rgb(251, 222, 253);
+    color:black;
+    transition: linear .3s all
   }
 
   .background-1 {
