@@ -67,10 +67,10 @@
 
                 <div class="vegatable row">
                   <div class="col-sm-12">
-                      Green Vegetables
-                      <input type="checkbox" name="vegetable[]" value="Green Vegetables" />
-                      <br />
-                      <p>green bean, kale, lettuce</p>
+                    Green Vegetables
+                    <input type="checkbox" name="vegetable[]" value="Green Vegetables" />
+                    <br />
+                    <p>green bean, kale, lettuce</p>
                   </div>
                   <div class="vegMod col-sm-6">
 
@@ -195,6 +195,7 @@
         <div class="results" v-for="result in results">
           <results :wine="result"></results>
         </div>
+        <google-map name="example"></google-map>
       </div>
     </div>
   </div>
@@ -203,6 +204,7 @@
 <script>
   import Results from './Results'
   import Navbar from './Navbar'
+  import GoogleMap from './GoogleMap'
   export default {
     name: 'Search',
     data() {
@@ -212,7 +214,8 @@
     },
     components: {
       Navbar,
-      Results
+      Results,
+      GoogleMap
     },
     mounted() {
       this.$store.dispatch('authenticate');
@@ -326,7 +329,7 @@
 
   .spacerTwo {
     min-height: 2rem;
-    background-color:rgb(234, 218, 192);
+    background-color: rgb(234, 218, 192);
     border: 3px groove black;
     border-radius: 2rem;
     width: 95%;

@@ -74,7 +74,6 @@
                 return this.$store.state.lists;
             },
         },
-
         props: ['wine']
     }
 </script>
