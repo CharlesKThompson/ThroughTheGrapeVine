@@ -9,7 +9,7 @@
                             <h2 class="board">Corkboard</h2>
                         </div>
                         <div class="aligner">
-                            <button type="button" class="btn btn-info" @click="listForm = !listForm">
+                            <button type="button" class="btn new" @click="listForm = !listForm">
                                 Add new list
                             </button>
                             <div v-if="listForm == true" class="d-flex justify-content-center">
@@ -97,5 +97,11 @@
 
     .form-group {
         margin: 5px
+    }
+
+    .new {
+        background-color: rgba(87, 46, 60, .95);
+        color: ivory;
+        font-weight: 700;
     }
 </style>
