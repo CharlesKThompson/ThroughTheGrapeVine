@@ -219,6 +219,9 @@
     },
     mounted() {
       this.$store.dispatch('authenticate');
+      this.$store.state.bestRes = [];
+      this.$store.state.goodRes = [];
+      this.$store.state.results = [];
     },
     methods: {
       getResults(foods) {
