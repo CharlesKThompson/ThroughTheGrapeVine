@@ -15,7 +15,6 @@ router.get('/users/users', (req, res, next) => {
 // ADD TO FOLLOWING
 router.put('/users/:userId', (req, res, next) => {
     Users.findById(req.params.userId)
-        console.log("REQ: ", req)
         .then(user => {
             user.following.push(req.body);
             user.save();
