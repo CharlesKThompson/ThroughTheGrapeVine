@@ -81,7 +81,6 @@
                 return this.$store.state.vineyardwines;
             }
         },
-
         props: ['wine']
     }
 </script>
@@ -101,7 +100,8 @@
     }
 
     .card {
-        margin-top: 1rem;
+        margin-top: .5rem;
+        margin-bottom: .5rem;
         width: 50%
     }
 
