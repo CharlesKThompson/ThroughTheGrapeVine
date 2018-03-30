@@ -16,7 +16,7 @@ var wineAPI = axios.create({
 });
 
 var user = axios.create({
-    baseURL: baseUrl + 'user/',
+    baseURL: baseUrl + 'users/',
     withCredentials: true
 });
 
@@ -29,6 +29,7 @@ vue.use(vuex)
 
 export default new vuex.Store({
     state: {
+        foundUser: {},
         user: {},
         board: {},
         boards: [],
@@ -42,6 +43,9 @@ export default new vuex.Store({
         comments: {}
     },
     mutations: {
+        setFoundUser(state, payload) {
+            state.foundUser = payload;
+        },
         setResults(state, payload) {
             console.log(payload);
             state.bestRes = payload[0];
@@ -197,6 +201,28 @@ export default new vuex.Store({
         },
         //endregion WINESEARCH
 
+        //region USERCOLLAB
+        searchByEmail ({commit, dispatch}, payload){
+            user.get('users')
+                .then(res => {
+                    var user = {};
+                    for (var i = 0; i < res.data.length; i++) {
+                        if (res.data[i].email == payload.email) {
+                            user = res.data[i];
+                        }
+                    }
+                commit('setFoundUser', user);
+                })
+                .catch(err => {
+                    console.log("ERROR", err);
+                })
+        },
+        followUser({commit, dispatch}, payload){
+            user.put('users')
+                .then()
+        },
+        //endregion
+
         // region VINEYARDWINE COMMENTS
         getVWComments({ commit, dispatch }, payload) {
             baseAPI.get('lists/' + payload.lisId + '/vineyardwines/' + payload.vineyardwineId + '/comments/')
@@ -339,15 +365,16 @@ export default new vuex.Store({
                     console.log(err)
                 })
         },
-        editUserWine({ commit, dispatch }, payload) {
-            baseAPI.put('lists/' + payload.listId + '/userwines')
-                .then(res => {
-                    dispatch('getUserWines', res.data)
-                })
-                .catch(err => {
-                    console.log(err)
-                })
-        },
+        // COME BACK TO THIS
+        // editUserWine({ commit, dispatch }, payload) {
+        //     baseAPI.put('lists/' + payload.listId + '/userwines')
+        //         .then(res => {
+        //             dispatch('getUserWines', res.data)
+        //         })
+        //         .catch(err => {
+        //             console.log(err)
+        //         })
+        // },
         // endregion USERWINES
 
         // region LISTS
