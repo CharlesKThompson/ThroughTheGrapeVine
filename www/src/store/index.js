@@ -29,6 +29,7 @@ vue.use(vuex)
 
 export default new vuex.Store({
     state: {
+        foundUser: {},
         user: {},
         board: {},
         boards: [],
@@ -42,6 +43,9 @@ export default new vuex.Store({
         comments: {}
     },
     mutations: {
+        setFoundUser(state, payload) {
+            state.foundUser = payload;
+        },
         setResults(state, payload) {
             console.log(payload);
             state.bestRes = payload[0];
@@ -196,6 +200,24 @@ export default new vuex.Store({
                 })
         },
         //endregion WINESEARCH
+
+        //region USERSEARCH
+        searchByEmail ({commit, dispatch}, payload){
+            user.get('users')
+                .then(res => {
+                    var user = {};
+                    for (var i = 0; i < res.data.length; i++) {
+                        if (res.data[i].email == payload.email) {
+                            user = res.data[i];
+                        }
+                    }
+                commit('setFoundUser', user);
+                })
+                .catch(err => {
+                    console.log("ERROR", err);
+                })
+        },
+        //endregion
 
         // region VINEYARDWINE COMMENTS
         getVWComments({ commit, dispatch }, payload) {

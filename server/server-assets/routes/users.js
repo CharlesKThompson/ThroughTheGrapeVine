@@ -12,15 +12,6 @@ router.get('/users', (req, res, next) => {
         .catch(next);
 });
 
-// GET USER BY ID
-router.get('/users/:userId', (req, res, next) => {
-    Users.findById(req.params.userId)
-        .then(user => {
-            res.send(user);
-        })
-        .catch(next);
-});
-
 // ADD TO FOLLOWING
 router.put('/users/:userId', (req, res, next) => {
     Users.findById(req.params.userId)
