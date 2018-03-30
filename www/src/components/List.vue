@@ -1,8 +1,12 @@
 <template>
     <div class="lists">
         <div class="card bg-1">
+        <div class="rotate">
+            <i class="fas fa-map-pin fa-2x"></i>
+        </div>
             <div class="card-body">
                 <div class="flexor bg-2">
+
                     <div>
                         <h4 class="card-title">{{list.title}}</h4>
                     </div>
@@ -145,6 +149,9 @@
         border-radius: 10px
     }
 
+    .rotate {
+        transform: rotate(20deg);
+    }
 
 
     .button {
