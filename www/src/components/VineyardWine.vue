@@ -7,7 +7,7 @@
             <div class="col-sm-12">
                 <p>{{vineyardwine.description}}</p>
             </div>
-            <button>Delete wine from List</button>
+            <button @click="deleteVW(vineyardwine)">Delete wine from List</button>
         </div>
     </div>
 </template>
@@ -21,7 +21,12 @@
 
             }
         },
-        props: ['vineyardwine']
+        props: ['vineyardwine', 'listId'],
+        methods: {
+            deleteVW(vw) {
+                this.$store.dispatch('deleteVineyardWine', {listId: this.listId, wine: vw})
+            }
+        }
     }
 
 </script>

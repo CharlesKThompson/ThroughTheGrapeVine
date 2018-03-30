@@ -7,21 +7,21 @@
             </div>
             <div class="button">
                 <router-link :to="{name: 'Search'}">
-                    <button type="button" class="btn btn-primary btn-lg btn-block btn-top">
+                    <button type="button" class="btn btn-lg btn-block btn-top">
                         <h2 class="text">By Food</h2>
                     </button>
                 </router-link>
             </div>
             <div class="button">
                 <router-link :to="{name: 'Sweetness'}">
-                    <button type="button" class="btn btn-primary btn-lg btn-block btn-middle">
+                    <button type="button" class="btn btn-lg btn-block btn-middle">
                         <h2 class="text">By Sweetness</h2>
                     </button>
                 </router-link>
             </div>
             <div class="button">
                 <router-link :to="{name: 'Pets'}">
-                    <button type="button" class="btn btn-primary btn-lg btn-block btn-bottom">
+                    <button type="button" class="btn btn-lg btn-block btn-bottom">
                         <h2 class="text">By Pet</h2>
                     </button>
                 </router-link>
@@ -43,6 +43,7 @@
             Navbar
         },
         mounted() {
+            this.$store.dispatch('getAllVineyardWines');
             this.$store.dispatch('authenticate');
         },
     }
@@ -61,6 +62,10 @@
         border: none;
         border-radius: 30px;
         color: black;
+    }
+
+    a {
+        text-decoration: none;
     }
 
     .button {

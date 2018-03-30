@@ -1,17 +1,28 @@
 <template>
     <div>
         <nav class="navbar flexor">
-            <router-link :to="{name: 'Home'}">
-                <div>
-                    <img src="../assets/grapes.png" alt="grapes" height="50px">
-                </div>
-            </router-link>
             <div>
+                <router-link :to="{name: 'Home'}">
+                    <img src="../assets/grapes.png" alt="grapes" height="50px">
+                </router-link>
+            </div>
+            <div class="d-flex">
+                <router-link :to="{name: 'UserSearch'}">
+                    <i class="fas fa-search fa-2x"></i>
+                </router-link>
                 <router-link :to="{name: 'Corkboard'}">
                     <img src="../assets/corks.png" alt="cork" height="50px">
                 </router-link>
-
-                <i class="fas fa-user fa-2x"></i>
+                <div class="dropdown pointer">
+                    <a class="dropdown-toggle" role="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span>
+                            <i class="fas fa-user fa-2x"></i>
+                        </span>
+                    </a>
+                    <div class="dropdown-menu text-center" aria-labelledby="dropdownMenu2">
+                        <button @click.prevent="logout" class="dropdown-item pointer" type="button">Logout</button>
+                    </div>
+                </div>
             </div>
         </nav>
     </div>
@@ -24,18 +35,45 @@
             return {
 
             }
+        },
+        methods: {
+            logout() {
+                this.$store.dispatch('logout')
+            }
         }
     }
 </script>
 
 <style scoped>
     .navbar {
-        background-color: #EADAC0;
+        background-color: #eadac0;
+        background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+    }
+
+    .fa-search {
+        color: #2C3E50;
     }
 
     .flexor {
         display: flex;
         align-items: flex-end;
         justify-content: space-between;
+    }
+
+    .dropdown {
+        cursor: pointer;
+    }
+
+    .dropdown-menu {
+        left: -7rem;
+        cursor: pointer;
+    }
+
+    .pointer {
+        cursor: pointer;
+    }
+
+    .d-flex {
+        align-items: center
     }
 </style>

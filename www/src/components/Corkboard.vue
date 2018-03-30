@@ -6,26 +6,24 @@
                 <div class="margins col-sm-12">
                     <div class="flexor">
                         <div class="boards-title">
-                            <h2>Corkboard</h2>
+                            <h2 class="board">Corkboard</h2>
                         </div>
                         <div class="aligner">
-                            <div class="dropleft">
-                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <form @submit.prevent="addList()">
-                                        <input type="text" name="title" placeholder="List Title" v-model="createdList.title">
-                                        <button type="submit" class="btn btn-submit" hidden>Create List</button>
-                                    </form>
-                                </div>
+                            <button type="button" class="btn btn-info" @click="listForm = !listForm">
+                                Add new list
+                            </button>
+                            <div v-if="listForm == true" class="d-flex justify-content-center">
+                                <form @submit.prevent="addList()" class="col-sm-3 form-group">
+                                    <input type="text" name="title" placeholder="List Name" v-model="createdList.title" class="form-control">
+                                    <button type="submit" class="btn btn-info create" @click="listForm = !listForm">Create List</button>
+                                </form>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div v-for="list in lists" class="col-sm-4">
-                        <list :list="list"></list>
+                    <div class="row d-flex justify-content-center">
+                        <div v-for="(list, listId) in lists" class="col-sm-5">
+                            <list :listId="listId"></list>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -41,6 +39,7 @@
         name: 'Corkboard',
         data() {
             return {
+                listForm: false,
                 createdList: {}
             }
         },
@@ -50,10 +49,12 @@
         },
         mounted() {
             this.$store.dispatch('authenticate');
+            // this.$store.dispatch('getAllVineyardWines');
             this.$store.dispatch('getLists');
         },
         methods: {
             addList() {
+                // console.log("THIS.CREATED LIST", this.createdList)
                 this.$store.dispatch('addList', { title: this.createdList });
             },
         },
@@ -71,9 +72,20 @@
 </script>
 
 <style scoped>
+    .board {
+        font-weight: 700;
+        background-color: #a35f34;
+        background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
+        color: ivory
+    }
+
     .dropdown-menu {
         margin-top: 3px;
         padding: 0;
+    }
+
+    .create {
+        width: 100%
     }
 
     .corkboard {
@@ -81,5 +93,9 @@
         background-repeat: repeat;
         min-height: 100vh;
         margin: 0 0rem !important;
+    }
+
+    .form-group {
+        margin: 5px
     }
 </style>

@@ -11,10 +11,11 @@ var schema = new Schema({
     type: {type: String, required: true},
     img: {type: String}, 
     price: {type: Number},
-    location: {type: String},
     description: {type: String},
     pairings: {type: String},
     recipes: {type: String},
+    comments: [{}],
+    _id: {type: Number},
     userId: {type: ObjectId, ref: 'User', required: true},
     listId: {type: ObjectId, ref: 'List', required: true}
 });

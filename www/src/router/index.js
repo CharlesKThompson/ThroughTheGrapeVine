@@ -12,6 +12,8 @@ import Sweetness from '@/components/Sweetness'
 import Corkboard from '@/components/Corkboard'
 //@ts-ignore
 import Pets from '@/components/Pets'
+//@ts-ignore
+import UserSearch from '@/components/UserSearch'
 
 Vue.use(Router)
 
@@ -46,6 +48,11 @@ export default new Router({
       path: '/pets',
       name: 'Pets',
       component: Pets
+    },
+    {
+      path: '/UserSearch',
+      name: 'UserSearch',
+      component: UserSearch
     }
   ]
 })

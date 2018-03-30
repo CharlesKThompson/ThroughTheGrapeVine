@@ -26,7 +26,8 @@ router.post('/lists', (req, res, next) => {
     })
 });
 
-// EDIT LIST BY USER
+
+// EDIT LIST BY LISTID
 router.put('/lists/:listId', (req, res, next) => {
     Lists.findByIdAndUpdate(
         req.params.listId,
@@ -39,12 +40,12 @@ router.put('/lists/:listId', (req, res, next) => {
         .catch(next);
 });
 
-// DELETE LIST BY USER
+// DELETE LIST BY LISTID
 router.delete('/lists/:listId', (req, res, next) => {
     Lists.findById(req.params.listId)
     .then(list => {
         list.remove();
-        return console.log("List successfully deleted!");
+        res.send("Sucessfully deleted list!")
     })
     .catch(next);
 });
