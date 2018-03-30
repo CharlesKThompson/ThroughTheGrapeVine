@@ -11,12 +11,15 @@
                     <!-- <button class="btn btn-info m-3" @click="setActiveTypes(wine)">View {{wine.variety}}s</button> -->
                     <!-- <button class="btn btn-info m-3">View {{wine.variety}}s</button> -->
                     <div>
+                        <button class="btn btn-info m-3" @click="setActiveTypes(wine)">View {{wine.variety}}s</button>
+                    </div>
+                    <div>
                         <button v-if="activeTypes.length > 1" @click="clearActiveTypes()" class="btn btn-light">Close</button>
                     </div>
                     <div class="row d-flex justify-content-center">
-                            <!-- This is what we want: -->
-                        <div v-for="type in vineyardWines" v-if="wine.variety == type.variety"  class="col-sm-5 bg-1">
-                        <!-- <div v-for="type in activeTypes" class="col-sm-5 bg-1"> -->
+                        <!-- This is what we want: -->
+                        <div v-for="type in vineyardWines" v-if="wine.variety == type.variety" class="col-sm-5 bg-1">
+                            <!-- <div v-for="type in activeTypes" class="col-sm-5 bg-1"> -->
                             <div class="flex1">
                                 <div>
                                     <h4 class="name">{{type.name}}</h4>

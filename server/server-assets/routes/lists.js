@@ -42,11 +42,10 @@ router.put('/lists/:listId', (req, res, next) => {
 
 // DELETE LIST BY LISTID
 router.delete('/lists/:listId', (req, res, next) => {
-    console.log("PARAMS: ", req.params)
     Lists.findById(req.params.listId)
     .then(list => {
         list.remove();
-        return console.log("List successfully deleted!");
+        res.send("Sucessfully deleted list!")
     })
     .catch(next);
 });

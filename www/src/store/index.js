@@ -70,9 +70,12 @@ export default new vuex.Store({
             state.comments = {}
         },
         setLists(state, payload) {
+            // hack to reset the state with current 
+            state.lists = {};
             payload.forEach(list => {
                 // creates lists as dictionary where key = listId and value = object
-                state.lists[list._id] = list
+                // state.lists[list._id] = list // does not apply a watcher
+                vue.set(state.lists, list._id, list) // applies a watcher
             });
         },
         setVineyardWines(state, payload) {
@@ -97,7 +100,7 @@ export default new vuex.Store({
             }
             return state.lists
         },
-        uwInList(state){
+        uwInList(state) {
             for (var listId in state.lists) {
                 let list = state.lists[listId].userwines
                 list.map(uwId => {
@@ -106,11 +109,10 @@ export default new vuex.Store({
                     })
                 })
             }
-            return state.lists            
+            return state.lists
         }
     },
     actions: {
-
         clearActiveTypes({ commit, dispatch }) {
             commit('clearActiveTypes')
         },
@@ -173,7 +175,6 @@ export default new vuex.Store({
 
         },
         refResults({ commit, dispatch }, payload) {
-            console.log("Are we in here?", payload)
             wineAPI.get('wines')
                 .then(wines => {
                     var out = [];
@@ -194,9 +195,6 @@ export default new vuex.Store({
                     // console.log(err);
                 })
         },
-
-
-
         //endregion WINESEARCH
 
         // region VINEYARDWINE COMMENTS
@@ -293,7 +291,7 @@ export default new vuex.Store({
             baseAPI.put('lists/' + payload.listId + '/vineyardwines/' + payload.wine._id, payload.wine)
                 .then(res => {
                     commit('setVineyardWines', res.data.vineyardwines)
-                    
+
                 })
                 .catch(err => {
                     console.log(err)
@@ -320,7 +318,11 @@ export default new vuex.Store({
             console.log(payload);
             baseAPI.put('lists/' + payload.listId + '/userwines/' + payload.userwine._id)
                 .then(res => {
-                    commit('setUserWines', res.data.userwines)
+                    commit('setUserWines', res.data.userwines);
+
+                })
+                .then(res => {
+                    dispatch('getLists');
                 })
                 .catch(err => {
                     console.log(err)
@@ -346,15 +348,12 @@ export default new vuex.Store({
                     console.log(err)
                 })
         },
-
-
         // endregion USERWINES
 
         // region LISTS
         getLists({ commit, dispatch }, payload) {
             baseAPI.get('lists/')
                 .then(res => {
-                    console.log(res.data)
                     commit('setLists', res.data)
                 })
                 .catch(err => {
@@ -374,7 +373,7 @@ export default new vuex.Store({
         deleteList({ commit, dispatch }, payload) {
             baseAPI.delete('lists/' + payload)
                 .then(res => {
-                    dispatch('getLists', res.data)
+                    dispatch('getLists')
                 })
                 .catch(err => {
                     console.log(err);

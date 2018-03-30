@@ -17,7 +17,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form @submit.prevent="addUserWine()" id="uForm">
+                                    <form @submit="addUserWine()" id="uForm">
                                         <select v-model="userWine.variety" name="variety">
                                             <option value="Bold Red">Bold Red</option>
                                             <option value="Medium Red">Medium Red</option>
