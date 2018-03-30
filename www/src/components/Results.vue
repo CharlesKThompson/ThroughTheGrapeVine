@@ -10,14 +10,7 @@
                     <p class="card-text">{{wine.description}}</p>
                     <!-- <button class="btn btn-info m-3" @click="setActiveTypes(wine)">View {{wine.variety}}s</button> -->
                     <!-- <button class="btn btn-info m-3">View {{wine.variety}}s</button> -->
-<<<<<<< HEAD
-                    <div>
-                        <button class="btn btn-info m-3" @click="setActiveTypes(wine)">View {{wine.variety}}s</button>
-                    </div>
-                    <div>
-=======
                     <!-- <div>
->>>>>>> 6f676aeafab36975ab92a385a55d74c8f1193719
                         <button v-if="activeTypes.length > 1" @click="clearActiveTypes()" class="btn btn-light">Close</button>
                     </div> -->
                     <div class="row d-flex justify-content-center">
