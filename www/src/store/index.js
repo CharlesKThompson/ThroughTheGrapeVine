@@ -327,7 +327,7 @@ export default new vuex.Store({
             baseAPI.put('lists/' + payload.listId + '/vineyardwines', payload.wine)
                 .then(res => {
                     console.log("Vineyard wine successfully added to your list!");
-                    commit('setVineyardWines', res.data.vineyardwines);
+                    // commit('setVineyardWines', res.data.vineyardwines);
                 })
                 .catch(err => {
                     console.log(err)
