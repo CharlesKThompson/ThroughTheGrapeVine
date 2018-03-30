@@ -8,15 +8,18 @@
                     </div>
                     <h5 class="card-title">{{wine.variety}}</h5>
                     <p class="card-text">{{wine.description}}</p>
-                    <button class="btn btn-info m-3" @click="setActiveTypes(wine)">View {{wine.variety}}s</button>
+                    <!-- <button class="btn btn-info m-3" @click="setActiveTypes(wine)">View {{wine.variety}}s</button> -->
+                    <!-- <button class="btn btn-info m-3">View {{wine.variety}}s</button> -->
                     <div>
                         <button v-if="activeTypes.length > 1" @click="clearActiveTypes()" class="btn btn-light">Close</button>
                     </div>
                     <div class="row d-flex justify-content-center">
-                        <div v-for="type in activeTypes" class="col-sm-5 bg-1">
+                            <!-- This is what we want: -->
+                        <div v-for="type in vineyardWines" v-if="wine.variety == type.variety"  class="col-sm-5 bg-1">
+                        <!-- <div v-for="type in activeTypes" class="col-sm-5 bg-1"> -->
                             <div class="flex1">
                                 <div>
-                                    <h4 class="name">{{type.name}}&nbsp;&nbsp;</h4>
+                                    <h4 class="name">{{type.name}}</h4>
                                 </div>
                                 <div>
                                     <div class="btn-group">
@@ -25,9 +28,10 @@
                                             Add
                                         </button>
                                         <div class="dropdown-menu">
-                                            <div class="dropdown-item" v-for="list in lists">
-                                                <p @click="addVineyardWine({listId: list._id, type: type})">{{list.title}}</p>
-                                            </div>
+                                            <!-- <div class="dropdown-item" v-for="list in lists">
+                                                <p @click="addVineyardWine({listId: list._id, wine: type})">{{list.title}}</p>
+                                            </div> -->
+                                            <a class="dropdown-item" @click="addVineyardWine({listId: list._id, wine: type})" v-for="list in lists">{{list.title}}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -56,7 +60,6 @@
                 this.$store.dispatch('setActiveTypes', wine)
             },
             addVineyardWine(payload) {
-                console.log(payload)
                 this.$store.dispatch('addVineyardWine', payload)
             },
             getLists() {
@@ -68,11 +71,15 @@
         },
         computed: {
             activeTypes() {
-                return this.$store.state.activeTypes[this.wine._id] || [];
+                return this.$store.state.activeTypes;
+                // return this.$store.state.activeTypes[this.wine._id] || [];
             },
             lists() {
                 return this.$store.state.lists;
             },
+            vineyardWines() {
+                return this.$store.state.vineyardwines;
+            }
         },
 
         props: ['wine']

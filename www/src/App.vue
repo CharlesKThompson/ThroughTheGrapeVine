@@ -6,7 +6,11 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  mounted() {
+    // leave this here or the search results won't draw
+    this.$store.dispatch('getAllVineyardWines');
+  }
 }
 </script>
 

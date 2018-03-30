@@ -161,7 +161,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .sweetness {
         background-image: url(https://images.unsplash.com/photo-1504000862552-65badf4afe88?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f3950e184c95b475d8e1e684ea4bd72e&auto=format&fit=crop&w=700&q=80);
         /* background-image: url(https://media.gettyimages.com/photos/pink-water-splash-picture-id163520693?b=1&k=6&m=163520693&s=612x612&w=0&h=ctmdLR-MxfF7w5M86nhF_iZuRM0n074Bia6BXZX1KKg=); */

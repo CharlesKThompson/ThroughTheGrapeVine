@@ -49,7 +49,8 @@ export default new vuex.Store({
             state.res = payload[2];
         },
         setActiveTypes(state, payload) {
-            vue.set(state.activeTypes, payload.id, payload.type)
+            state.activeTypes = payload;
+            // vue.set(state.activeTypes, payload.id, payload.type)
         },
         clearActiveTypes(state) {
             state.activeTypes = {}
@@ -78,8 +79,7 @@ export default new vuex.Store({
             state.vineyardwines = payload
         },
         setUserWines(state, payload) {
-            // this will probably change
-            state.userwines = payload.type
+            state.userwines = payload
         },
         clearVineyardWines(state) {
             state.vineyardwines = []
@@ -88,22 +88,29 @@ export default new vuex.Store({
     getters: {
         vwInList(state) {
             for (var listId in state.lists) {
-                let list = state.lists[listId].vineyardwines   
+                let list = state.lists[listId].vineyardwines
                 list.map(vwId => {
-                    // @ts-ignore
                     return state.vineyardwines.find(function (wine) {
                         return wine._id === vwId
                     })
                 })
             }
             return state.lists
+        },
+        uwInList(state){
+            for (var listId in state.lists) {
+                let list = state.lists[listId].userwines
+                list.map(uwId => {
+                    return state.userwines.find(function (wine) {
+                        return wine._id === uwId
+                    })
+                })
+            }
+            return state.lists            
         }
     },
     actions: {
 
-        setActiveTypes({ commit, dispatch }, payload) {
-            commit('setActiveTypes', { type: payload.type, id: payload._id });
-        },
         clearActiveTypes({ commit, dispatch }) {
             commit('clearActiveTypes')
         },
@@ -272,32 +279,6 @@ export default new vuex.Store({
         // endregion USERWINE COMMENTS
 
         // region VINEYARDWINES
-        moveToList({ commit, dispatch }, payload) {
-            console.log("Moved task:", payload);
-            serverAPI.put('boards/' + payload.task.boardId + '/lists/' + payload.listId + '/tasks/' + payload.task._id,
-                {
-                    boardId: payload.task.boardId,
-                    body: payload.task.body,
-                    listId: payload.listId
-                })
-                .then(res => {
-                    console.log(res.data)
-                    dispatch('getTasks',
-                        {
-                            listId: res.data.listId,
-                            boardId: res.data.boardId
-                        })
-                    dispatch('getTasks',
-                        {
-                            boardId: res.data.boardId,
-                            listId: payload.oldId
-                        })
-                })
-                .catch(err => {
-                    console.log(err)
-                })
-        },
-
         getAllVineyardWines({ commit, dispatch }) {
             baseAPI.get('/vineyardwines')
                 .then(res => {
@@ -309,19 +290,20 @@ export default new vuex.Store({
                 })
         },
         deleteVineyardWine({ commit, dispatch }, payload) {
-            baseAPI.delete('lists/' + payload.listId + '/vineyardwines/' + payload._id)
+            baseAPI.put('lists/' + payload.listId + '/vineyardwines/' + payload.wine._id, payload.wine)
                 .then(res => {
-                    dispatch('getTasks', res.data)
+                    commit('setVineyardWines', res.data.vineyardwines)
+                    
                 })
                 .catch(err => {
                     console.log(err)
                 })
         },
         addVineyardWine({ commit, dispatch }, payload) {
-            baseAPI.put('lists/' + payload.listId + '/vineyardwines', payload.type)
+            baseAPI.put('lists/' + payload.listId + '/vineyardwines', payload.wine)
                 .then(res => {
                     console.log("Vineyard wine successfully added to your list!");
-                    // dispatch('getVineyardWines', payload);
+                    commit('setVineyardWines', res.data.vineyardwines);
                 })
                 .catch(err => {
                     console.log(err)
@@ -334,30 +316,22 @@ export default new vuex.Store({
         // endregion
 
         // region USERWINES
-        getUserWines({ commit, dispatch }, payload) {
-            baseAPI.get('lists/' + payload.listId + '/userwines')
-                .then(res => {
-                    console.log(res)
-                    commit('setUserWines', { listId: payload.listId, type: res.data })
-                })
-                .catch(err => {
-                    console.log(err);
-                })
-        },
         deleteUserWine({ commit, dispatch }, payload) {
-            baseAPI.delete('lists/' + payload.listId + '/userwines/' + payload._id)
+            console.log(payload);
+            baseAPI.put('lists/' + payload.listId + '/userwines/' + payload.userwine._id)
                 .then(res => {
-                    dispatch('getUserWines', res.data)
+                    commit('setUserWines', res.data.userwines)
                 })
                 .catch(err => {
                     console.log(err)
                 })
         },
         addUserWine({ commit, dispatch }, payload) {
-            baseAPI.post('lists/' + payload.listId + '/userwines', payload.type)
+            baseAPI.put('lists/' + payload.listId + '/userwines', payload.userWine)
                 .then(res => {
-                    console.log("User wine successfully added to your list!");
-                    dispatch('getUserWines', payload);
+                    console.log(res.data, "User wine successfully added to your list!");
+                    console.log("res.data.userwines:", res.data.userwines)
+                    commit('setUserWines', res.data.userwines);
                 })
                 .catch(err => {
                     console.log(err)
@@ -398,7 +372,7 @@ export default new vuex.Store({
                 })
         },
         deleteList({ commit, dispatch }, payload) {
-            baseAPI.delete('lists/:listId')
+            baseAPI.delete('lists/' + payload)
                 .then(res => {
                     dispatch('getLists', res.data)
                 })

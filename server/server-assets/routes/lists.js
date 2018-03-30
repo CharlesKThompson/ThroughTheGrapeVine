@@ -26,18 +26,6 @@ router.post('/lists', (req, res, next) => {
     })
 });
 
-// ADD VW TO LIST BY LISTID
-router.put('/lists/:listId/vineyardwines', (req, res, next) => {
-    Lists.findById(req.params.listId)
-        .then(list => {
-            console.log(list)
-            list.vineyardwines.push(req.body);
-            list.save();
-            res.send(list);
-        }).catch(err => {
-            console.log("ERROR: ", err);
-        })
-});
 
 // EDIT LIST BY LISTID
 router.put('/lists/:listId', (req, res, next) => {
@@ -54,6 +42,7 @@ router.put('/lists/:listId', (req, res, next) => {
 
 // DELETE LIST BY LISTID
 router.delete('/lists/:listId', (req, res, next) => {
+    console.log("PARAMS: ", req.params)
     Lists.findById(req.params.listId)
     .then(list => {
         list.remove();

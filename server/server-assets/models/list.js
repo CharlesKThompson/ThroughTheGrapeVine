@@ -8,8 +8,7 @@ var schema = new Schema({
     date: {type: Date, required: true, default: Date.now()},
     userId: {type: ObjectId, ref: 'User'},
     vineyardwines: [{}],
-    // vineyardwines: [{type: ObjectId, ref: 'VineyardWine' }],
-    wines: []
+    userwines: [{}]
 });
 
 module.exports = mongoose.model(schemaName, schema);
