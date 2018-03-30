@@ -179,6 +179,8 @@
     } */
 
     h1 {
+        margin-top: 4rem;
+        margin-bottom: 3rem;
         color: #dfb88f;
     }
 
