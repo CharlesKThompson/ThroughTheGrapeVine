@@ -10,21 +10,20 @@
                     <p class="card-text">{{wine.description}}</p>
                     <!-- <button class="btn btn-info m-3" @click="setActiveTypes(wine)">View {{wine.variety}}s</button> -->
                     <!-- <button class="btn btn-info m-3">View {{wine.variety}}s</button> -->
-                    <div>
+                    <!-- <div>
                         <button v-if="activeTypes.length > 1" @click="clearActiveTypes()" class="btn btn-light">Close</button>
-                    </div>
+                    </div> -->
                     <div class="row d-flex justify-content-center">
-                            <!-- This is what we want: -->
-                        <div v-for="type in vineyardWines" v-if="wine.variety == type.variety"  class="col-sm-5 bg-1">
-                        <!-- <div v-for="type in activeTypes" class="col-sm-5 bg-1"> -->
+                        <!-- This is what we want: -->
+                        <div v-for="type in vineyardWines" v-if="wine.variety == type.variety" class="col-sm-5 bg-1">
+                            <!-- <div v-for="type in activeTypes" class="col-sm-5 bg-1"> -->
                             <div class="flex1">
                                 <div>
                                     <h4 class="name">{{type.name}}</h4>
                                 </div>
                                 <div>
                                     <div class="btn-group">
-                                        <button @click="getLists" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
+                                        <button @click="getLists" type="button" class="btn dropdown-toggle clear" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Add
                                         </button>
                                         <div class="dropdown-menu">
@@ -116,15 +115,21 @@
         margin-bottom: 5px;
     }
 
+    .clear {
+        background-color: rgba(0, 0, 0, 0);
+        color: black
+    }
+
     .flex1 {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        align-items: flex-end;
+        align-items: center;
     }
 
     .name {
         font-weight: 700;
+        margin-top: 5px;
     }
 
     .dropdown-item {

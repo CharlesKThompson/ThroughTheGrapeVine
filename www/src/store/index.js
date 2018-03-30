@@ -70,6 +70,7 @@ export default new vuex.Store({
             state.comments = {}
         },
         setLists(state, payload) {
+            console.log(payload)
             payload.forEach(list => {
                 // creates lists as dictionary where key = listId and value = object
                 state.lists[list._id] = list

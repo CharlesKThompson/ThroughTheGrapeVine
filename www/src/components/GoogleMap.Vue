@@ -23,7 +23,7 @@
 
             map = new google.maps.Map(document.getElementById(this.mapName), {
                 center: { lat: -34.397, lng: 150.644 },
-                zoom: 14
+                zoom: 15
             });
 
             if (navigator.geolocation) {
@@ -79,11 +79,9 @@
                         anchor: new google.maps.Point(17, 34),
                         scaledSize: new google.maps.Size(25, 25)
                     };
-
                     // Create a marker for each place.
                     var marker = new google.maps.Marker({
                         map: map,
-                        icon: icon,
                         title: place.name,
                         position: place.geometry.location
                     })
