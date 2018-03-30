@@ -14,15 +14,19 @@
                 </form>
             </div>
         </div>
-        <div class="user-results" v-for="foundUser in foundUsers">
-            <UserResults :user="user"></UserResults>>
+        <div class="user-results">
+            <p>{{foundUser.username}}</p>
+            <p>{{foundUser.email}}</p>
+            <div v-if="this.$store.state.foundUser !== {}">
+                <button @click="followUser">follow</button>
+            </div>
         </div>
+    </div>
     </div>
 </template>
 
 <script>
     import Navbar from './Navbar'
-    import UserResults from './UserResults'
     export default {
         name: 'UserSearch',
         data() {
@@ -34,15 +38,17 @@
         },
         methods: {
             searchByEmail() {
-                this.$store.dispatch('searchByEmail', this.userEmail)
+                this.$store.dispatch('searchByEmail', this.userEmail);
+            },
+            followUser() {
+                this.$store.dispatch('followUser');
             }
         },
         components: {
-            Navbar,
-            UserResults
+            Navbar
         },
         computed: {
-            foundUsers() {
+            foundUser() {
                 return this.$store.state.foundUser;
             }
         }

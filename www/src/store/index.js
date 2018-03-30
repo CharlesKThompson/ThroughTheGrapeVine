@@ -16,7 +16,7 @@ var wineAPI = axios.create({
 });
 
 var user = axios.create({
-    baseURL: baseUrl + 'user/',
+    baseURL: baseUrl + 'users/',
     withCredentials: true
 });
 
@@ -201,7 +201,7 @@ export default new vuex.Store({
         },
         //endregion WINESEARCH
 
-        //region USERSEARCH
+        //region USERCOLLAB
         searchByEmail ({commit, dispatch}, payload){
             user.get('users')
                 .then(res => {
@@ -216,6 +216,10 @@ export default new vuex.Store({
                 .catch(err => {
                     console.log("ERROR", err);
                 })
+        },
+        followUser({commit, dispatch}, payload){
+            user.put('users')
+                .then()
         },
         //endregion
 
@@ -361,15 +365,16 @@ export default new vuex.Store({
                     console.log(err)
                 })
         },
-        editUserWine({ commit, dispatch }, payload) {
-            baseAPI.put('lists/' + payload.listId + '/userwines')
-                .then(res => {
-                    dispatch('getUserWines', res.data)
-                })
-                .catch(err => {
-                    console.log(err)
-                })
-        },
+        // COME BACK TO THIS
+        // editUserWine({ commit, dispatch }, payload) {
+        //     baseAPI.put('lists/' + payload.listId + '/userwines')
+        //         .then(res => {
+        //             dispatch('getUserWines', res.data)
+        //         })
+        //         .catch(err => {
+        //             console.log(err)
+        //         })
+        // },
         // endregion USERWINES
 
         // region LISTS
