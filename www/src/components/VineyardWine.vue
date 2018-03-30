@@ -7,7 +7,9 @@
             <div class="col-sm-12">
                 <p>{{vineyardwine.description}}</p>
             </div>
-            <button @click="deleteVW(vineyardwine)">Delete wine from List</button>
+            <div>
+                <button @click="deleteVW(vineyardwine)" class="btn btn-link">Delete wine from List</button>
+            </div>
         </div>
     </div>
 </template>
@@ -24,7 +26,7 @@
         props: ['vineyardwine', 'listId'],
         methods: {
             deleteVW(vw) {
-                this.$store.dispatch('deleteVineyardWine', {listId: this.listId, wine: vw})
+                this.$store.dispatch('deleteVineyardWine', { listId: this.listId, wine: vw })
             }
         }
     }
@@ -44,5 +46,15 @@
     .bg-1 {
         background-color: #cfbc8b;
         background-image: url("https://www.transparenttextures.com/patterns/notebook.png");
+    }
+
+    button {
+        width: 40%;
+        font-weight: 700;
+        color: rgba(87, 46, 46, 0.85)
+    }
+
+    button:hover {
+        color: rgba(170, 43, 43, 0.85)
     }
 </style>
