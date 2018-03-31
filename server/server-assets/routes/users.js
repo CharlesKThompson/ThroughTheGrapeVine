@@ -14,7 +14,6 @@ router.get('/users/users', (req, res, next) => {
 
 // ADD TO FOLLOWING
 router.put('/users/:userId', (req, res, next) => {
-    console.log("REQ: ", req);
     Users.findById(req.params.userId)
         .then(user => {
             user.following.push(req.body.userToAdd);
@@ -41,6 +40,5 @@ router.put('/users/:userId/following', (req, res, next) => {
         })
         .catch(next)
 });
-
 
 module.exports = router;

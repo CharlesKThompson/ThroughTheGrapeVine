@@ -89,9 +89,9 @@
         },
 
         methods: {
-            clearVineyardWines() {
-                this.$store.dispatch('clearVineyardWines')
-            },
+            // clearVineyardWines() {
+            //     this.$store.dispatch('clearVineyardWines')
+            // },
             getVineyardWines(list) {
                 this.$store.dispatch('getVineyardWines', list)
             },
@@ -99,7 +99,6 @@
                 this.$store.dispatch('addUserWine', { userWine: this.userWine, listId: this.listId })
             },
             deleteList(list) {
-                console.log("LIST: ", list)
                 this.$store.dispatch('deleteList', list._id)
             }
         },

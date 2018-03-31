@@ -30,6 +30,7 @@ vue.use(vuex)
 export default new vuex.Store({
     state: {
         foundUser: {},
+        following: [],
         user: {},
         board: {},
         boards: [],
@@ -45,6 +46,9 @@ export default new vuex.Store({
     mutations: {
         setFoundUser(state, payload) {
             state.foundUser = payload;
+        },
+        setFollowers(state, payload){
+            state.following = payload;
         },
         setResults(state, payload) {
             console.log(payload);
@@ -221,7 +225,8 @@ export default new vuex.Store({
             console.log(payload)
             user.put(payload.user._id, payload)
                 .then(res => {
-
+                    console.log("RES.DATA: ", res.data)
+                    commit('setFollowers', res.data)
                 })
         },
         //endregion
@@ -320,7 +325,7 @@ export default new vuex.Store({
             baseAPI.put('lists/' + payload.listId + '/vineyardwines/' + payload.wine._id, payload.wine)
                 .then(res => {
                     commit('setVineyardWines', res.data.vineyardwines)
-
+                    dispatch('getLists');
                 })
                 .catch(err => {
                     console.log(err)
@@ -348,9 +353,6 @@ export default new vuex.Store({
             baseAPI.put('lists/' + payload.listId + '/userwines/' + payload.userwine._id)
                 .then(res => {
                     commit('setUserWines', res.data.userwines);
-
-                })
-                .then(res => {
                     dispatch('getLists');
                 })
                 .catch(err => {
