@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <button @click="deleteUW(userwine)">Delete wine from List</button>
+            <button @click="deleteUW(userwine)" class="btn btn-link">Delete wine from List</button>
         </div>
 
     </div>

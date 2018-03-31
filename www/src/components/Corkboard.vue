@@ -24,6 +24,9 @@
                         <div v-for="(list, listId) in lists" class="col-sm-5">
                             <list :listId="listId"></list>
                         </div>
+                        <!-- <div v-for="(list, listId) in lists" class="col-sm-5">
+                            <list :listId="listId"></list>
+                        </div> -->
                     </div>
                 </div>
             </div>
