@@ -10,8 +10,8 @@
                         <h4 class="card-title">{{list.title}}</h4>
                     </div>
                     <div class="flexy">
-                        <button data-toggle="modal" class="btn" data-target="#login-modal">Add Wine</button>
-                        <div class="modal" id="login-modal" tabindex="-1" role="dialog">
+                        <button data-toggle="modal" class="btn" :data-target="'#'+listId">Add Wine</button>
+                        <div class="modal" :id="listId" tabindex="-1" role="dialog">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -96,6 +96,7 @@
                 this.$store.dispatch('getVineyardWines', list)
             },
             addUserWine() {
+                console.log("this.listId: ", this.listId)
                 this.$store.dispatch('addUserWine', { userWine: this.userWine, listId: this.listId })
             },
             deleteList(list) {

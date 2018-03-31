@@ -14,6 +14,7 @@ router.get('/lists/:listId/userwines', (req, res, next) => {
 
 // ADD USER WINE TO LIST
 router.put('/lists/:listId/userwines', (req, res, next) => {
+    console.log("REQ.BODY: ", req.body)
     req.body.listId = req.params.listId;
     req.body.userId = req.session.uid;
     // when you realize your custom wines don't have mlab _id's:

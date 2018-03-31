@@ -360,11 +360,12 @@ export default new vuex.Store({
                 })
         },
         addUserWine({ commit, dispatch }, payload) {
+            console.log("listId: ", payload.listId)
             baseAPI.put('lists/' + payload.listId + '/userwines', payload.userWine)
                 .then(res => {
-                    console.log(res.data, "User wine successfully added to your list!");
-                    console.log("res.data.userwines:", res.data.userwines)
-                    commit('setUserWines', res.data.userwines);
+                    console.log("User wine successfully added to your list!");
+                    // console.log("res.data.userwines:", res.data.userwines)
+                    // commit('setUserWines', res.data.userwines);
                 })
                 .catch(err => {
                     console.log(err)
