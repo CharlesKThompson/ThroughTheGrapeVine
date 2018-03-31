@@ -23,6 +23,7 @@ router.get('/lists/:listId/vineyardwines', (req, res, next) => {
 
 // ADD VW TO LIST BY LISTID
 router.put('/lists/:listId/vineyardwines', (req, res, next) => {
+    req.body["userId"] = req.session.uid 
     Lists.findById(req.params.listId)
         .then(list => {
             list.vineyardwines.push(req.body);

@@ -47,7 +47,7 @@ export default new vuex.Store({
         setFoundUser(state, payload) {
             state.foundUser = payload;
         },
-        setFollowers(state, payload){
+        setFollowers(state, payload) {
             state.following = payload;
         },
         setResults(state, payload) {
@@ -206,7 +206,7 @@ export default new vuex.Store({
         //endregion WINESEARCH
 
         //region USERCOLLAB
-        searchByEmail ({commit, dispatch}, payload){
+        searchByEmail({ commit, dispatch }, payload) {
             user.get('users')
                 .then(res => {
                     var user = {};
@@ -215,13 +215,13 @@ export default new vuex.Store({
                             user = res.data[i];
                         }
                     }
-                commit('setFoundUser', user);
+                    commit('setFoundUser', user);
                 })
                 .catch(err => {
                     console.log("ERROR", err);
                 })
         },
-        followUser({commit, dispatch}, payload){
+        followUser({ commit, dispatch }, payload) {
             console.log(payload)
             user.put(payload.user._id, payload)
                 .then(res => {
@@ -416,6 +416,24 @@ export default new vuex.Store({
             baseAPI.put('lists/:listId')
                 .then(res => {
                     dispatch('getLists', res.data)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        },
+        getFriendLists({ commit, dispatch }, payload) {
+            console.log("I NEED THIS", payload)
+
+            baseAPI.get('friendslists')
+                .then(res => {
+                    console.log("RES.DATA", res)
+                    var out = []
+                    res.data.forEach(arr => {
+                        arr.forEach(elem =>{
+                            out.push(elem)
+                        })
+                    });
+                    commit('setLists', out)
                 })
                 .catch(err => {
                     console.log(err)

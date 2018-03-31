@@ -9,7 +9,7 @@
                     <div>
                         <h4 class="card-title">{{list.title}}</h4>
                     </div>
-                    <div class="flexy">
+                    <div class="flexy" v-if="list.userId == user._id">
                         <button data-toggle="modal" class="btn" :data-target="'#'+listId">Add Wine</button>
                         <div class="modal" :id="listId" tabindex="-1" role="dialog">
                             <div class="modal-dialog" role="document">
@@ -87,7 +87,9 @@
                 }
             }
         },
-
+        mounted() {
+            this.$store.dispatch('authenticate');
+        },
         methods: {
             // clearVineyardWines() {
             //     this.$store.dispatch('clearVineyardWines')
@@ -113,6 +115,9 @@
             userwines() {
                 return this.$store.getters.uwInList[this.listId].userwines
             },
+            user() {
+                return this.$store.state.user
+            }
 
         },
         components: {
@@ -167,5 +172,4 @@
         font-weight: 700;
         color: ivory
     }
-
 </style>

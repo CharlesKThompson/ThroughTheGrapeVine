@@ -7,7 +7,7 @@
             <div class="col-sm-12">
                 <p>{{vineyardwine.description}}</p>
             </div>
-            <div>
+            <div v-if="vineyardwine.userId == user._id">
                 <button @click="deleteVW(vineyardwine)" class="btn btn-link">Delete wine from List</button>
             </div>
         </div>
@@ -23,10 +23,18 @@
 
             }
         },
+        mounted() {
+            this.$store.dispatch('authenticate')
+        },
         props: ['vineyardwine', 'listId'],
         methods: {
             deleteVW(vw) {
                 this.$store.dispatch('deleteVineyardWine', { listId: this.listId, wine: vw })
+            }
+        },
+        computed:{
+            user(){
+                return this.$store.state.user
             }
         }
     }

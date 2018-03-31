@@ -9,9 +9,21 @@
                             <h2 class="board">Corkboard</h2>
                         </div>
                         <div class="aligner">
-                            <button type="button" class="btn new" @click="listForm = !listForm">
-                                Add new list
-                            </button>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn new" @click="listForm = !listForm">
+                                    Add new list
+                                </button>
+                                <div v-if="friend == false" @click="getFriendLists(user.following), friend = !friend">
+                                    <button type="button" class="btn new">
+                                        View Friend Lists
+                                    </button>
+                                </div>
+                                <div v-if="friend == true" @click="getLists(), friend = !friend">
+                                    <button type="button" class="btn new">
+                                        View My Lists
+                                    </button>
+                                </div>
+                            </div>
                             <div v-if="listForm == true" class="d-flex justify-content-center">
                                 <form @submit.prevent="addList()" class="col-sm-3 form-group">
                                     <input type="text" name="title" placeholder="List Name" v-model="createdList.title" class="form-control">
@@ -24,9 +36,6 @@
                         <div v-for="(list, listId) in lists" class="col-sm-5">
                             <list :listId="listId"></list>
                         </div>
-                        <!-- <div v-for="(list, listId) in lists" class="col-sm-5">
-                            <list :listId="listId"></list>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -43,6 +52,7 @@
         data() {
             return {
                 listForm: false,
+                friend: false,
                 createdList: {}
             }
         },
@@ -56,10 +66,16 @@
             this.$store.dispatch('getLists');
         },
         methods: {
+            getLists() {
+                this.$store.dispatch('getLists')
+            },
             addList() {
                 // console.log("THIS.CREATED LIST", this.createdList)
                 this.$store.dispatch('addList', { title: this.createdList });
             },
+            getFriendLists(payload) {
+                this.$store.dispatch('getFriendLists', payload)
+            }
         },
         computed: {
             lists() {
@@ -106,5 +122,6 @@
         background-color: rgba(87, 46, 60, .95);
         color: ivory;
         font-weight: 700;
+        margin: 10px
     }
 </style>

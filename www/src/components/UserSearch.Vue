@@ -18,7 +18,7 @@
                 <h3>{{foundUser.username}}</h3>
                 <p>{{foundUser.email}}</p>
                 <div>
-                    <button @click="followUser" class="btn">Follow {{foundUser.username}}</button>
+                    <button @click="followUser(user, foundUser)" class="btn">Follow {{foundUser.username}}</button>
                 </div>
             </div>
         </div>

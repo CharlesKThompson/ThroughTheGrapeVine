@@ -20,7 +20,9 @@
                     </div>
                 </div>
             </div>
-            <button @click="deleteUW(userwine)" class="btn btn-link">Delete wine from List</button>
+            <div v-if="userwine.userId == user._id">
+                <button @click="deleteUW(userwine)" class="btn btn-link">Delete wine from List</button>
+            </div>
         </div>
 
     </div>
@@ -35,10 +37,18 @@
 
             }
         },
+        mounted() {
+            this.$store.dispatch('authenticate')
+        },
         props: ['userwine', 'listId'],
         methods: {
             deleteUW(uw) {
                 this.$store.dispatch('deleteUserWine', { listId: this.listId, userwine: uw })
+            }
+        },
+        computed: {
+            user(){
+                return this.$store.state.user
             }
         }
     }
@@ -48,7 +58,8 @@
 <style scoped>
     .flexor {
         display: flex;
-        flex-direction: column
+        flex-direction: column;
+        align-items: center
     }
 
     .name {
@@ -61,7 +72,6 @@
     }
 
     button {
-        width: 40%;
         font-weight: 700;
         color: rgba(87, 46, 46, 0.85)
     }
