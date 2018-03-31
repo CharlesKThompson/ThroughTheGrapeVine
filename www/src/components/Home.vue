@@ -19,13 +19,14 @@
                     </button>
                 </router-link>
             </div>
-            <div class="button">
+            <!-- silly stretch goal: -->
+            <!-- <div class="button">
                 <router-link :to="{name: 'Pets'}">
                     <button type="button" class="btn btn-lg btn-block btn-bottom">
                         <h2 class="text">By Pet</h2>
                     </button>
                 </router-link>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
@@ -110,7 +111,7 @@
         background-image: url('../assets/corks.jpg');
         background-size: cover;
         background-repeat: no-repeat;
-        height: 100%;
+        height: 95vh;
         margin: 0 0rem !important;
         display: flex;
         flex-direction: column;

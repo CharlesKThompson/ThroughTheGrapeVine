@@ -54,7 +54,7 @@ router.delete('/lists/:listId/vineyardwines/:wineId/comments/:commentId', (req, 
 
 // region USERWINE COMMENTS
 router.get('/lists/:listId/userwines/:wineId/comments', (req, res, next) => {
-    Comments.find({wineId: req.params.wineId }) 
+    userWines.find({wineId: req.params.wineId }) 
         .then(comments => {
             res.send(comments);
         })
@@ -62,16 +62,42 @@ router.get('/lists/:listId/userwines/:wineId/comments', (req, res, next) => {
 });
 
 // ADD COMMENT TO USER WINE
-router.post('/lists/:listId/userwines/:wineId/comments', (req, res, next) => {
+router.put('/lists/:listId/userwines/:wineId/comments', (req, res, next) => {
     req.body.listId = req.params.listId;
     req.body.userId = req.session.uid;
     req.body.wineId = req.params.wineId;
-    Comments.create(req.body)
-        .then(comment => {
-            res.send(comment);
+    console.log("REQ.BODY: ", req.body);
+    Lists.findById(req.body.listId)
+        .then(list => {
+            for(var i = 0; i< list.userwines.length; i++) {
+                var uw = list.userwines[i];
+                if(uw._id == req.body.wineId) {
+                    uw.comments.push(req.body);
+                }
+            }
+            list.save();
+            console.log("SAVED LIST: ", list)
+            res.send(list);
         })
-        .catch(next)
+        .catch(err => {
+            console.log("ERROR: ", err);
+        })
 });
+// router.put('/lists/:listId/userwines', (req, res, next) => {
+//     console.log("REQ.BODY: ", req.body)
+//     req.body.listId = req.params.listId;
+//     req.body.userId = req.session.uid;
+//     // when you realize your custom wines don't have mlab _id's:
+//     req.body._id =  Math.floor((Math.random() * 100000000) + 1);
+//     Lists.findById(req.params.listId)
+//     .then(list => {
+//         list.userwines.push(req.body);
+//         list.save();
+//         res.send(list);
+//     }).catch(err => {
+//         console.log("ERROR: ", err);
+//     })
+// });
 
 // EDIT COMMENT BY COMMENT ID
 router.put('/lists/:listId/userwines/:wineId/comments/:commentId', (req, res, next) => {

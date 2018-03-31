@@ -12,7 +12,7 @@
                         <h3> Very Dry</h3>
                         <div class="card-body">
                             <p class="card-text">Examples: Bordeaux, Chianti, Montepulciano</p>
-                            <p class="card-text2">Generarlly 0-5 grams of residual sugar per liter</p>
+                            <p class="card-text2">0-5 grams of residual sugar per liter</p>
                             <h5 class="card-title">
                                 <i class="fas fa-cube"></i>
                             </h5>
@@ -22,7 +22,7 @@
                         <h3> Off Dry</h3>
                         <div class="card-body">
                             <p class="card-text">Examples: Beaujolias, Burgandy, Caberet Franc, Sangiovese, Valpolicella</p>
-                            <p class="card-text2">Generarlly 5-10 grams of residual sugar per liter</p>
+                            <p class="card-text2">5-10 grams of residual sugar per liter</p>
                             <h5 class="card-title">
                                 <i class="fas fa-cube"></i>
                                 <i class="fas fa-cube"></i>
@@ -33,7 +33,7 @@
                         <h3> Medium</h3>
                         <div class="card-body">
                             <p class="card-text">Examples: Caberet Sauvignon, Grenache, Malbec, Merlot, Shiraz/Syrah, Zinfandel</p>
-                            <p class="card-text2">Generarlly 10-20 grams of residual sugar per liter</p>
+                            <p class="card-text2">10-20 grams of residual sugar per liter</p>
                             <h5 class="card-title">
                                 <i class="fas fa-cube"></i>
                                 <i class="fas fa-cube"></i>
@@ -45,7 +45,7 @@
                         <h3> Sweet</h3>
                         <div class="card-body">
                             <p class="card-text">Examples: Port, Maury</p>
-                            <p class="card-text2">Generarlly 20-30 grams of residual sugar per liter</p>
+                            <p class="card-text2">20-30 grams of residual sugar per liter</p>
                             <h5 class="card-title">
                                 <i class="fas fa-cube"></i>
                                 <i class="fas fa-cube"></i>
@@ -58,7 +58,7 @@
                         <h3> Very Sweet</h3>
                         <div class="card-body">
                             <p class="card-text">Examples: Ice Wine, Tawny Port</p>
-                            <p class="card-text2">Generarlly 30+ grams of residual sugar per liter</p>
+                            <p class="card-text2">30+ grams of residual sugar per liter</p>
                             <h5 class="card-title">
                                 <i class="fas fa-cube"></i>
                                 <i class="fas fa-cube"></i>
@@ -78,7 +78,7 @@
                         <h3>Very Dry</h3>
                         <div class="card-body">
                             <h5 class="card-title">Examples: Chenin Blanc, Pinot Grigio</h5>
-                            <p class="card-text">Generallay 0-5 grams if residual sugar per liter</p>
+                            <p class="card-text">0-5 grams of residual sugar per liter</p>
                             <h5>
                                 <i class="fas fa-cube"></i>
                             </h5>
@@ -88,7 +88,7 @@
                         <h3>Off Dry</h3>
                         <div class="card-body">
                             <h5 class="card-title">Examples: Chardonnay, Pinot Gris, Sauvignon Blanc, Semillon</h5>
-                            <p class="card-text">Generallay 5-10 grams if residual sugar per liter</p>
+                            <p class="card-text">5-10 grams of residual sugar per liter</p>
                             <h5>
                                 <i class="fas fa-cube"></i>
                                 <i class="fas fa-cube"></i>
@@ -99,7 +99,7 @@
                         <h3>Medium</h3>
                         <div class="card-body">
                             <h5 class="card-title">Examples: Gewurztraminer, Moscato/Muscat, Riesling</h5>
-                            <p class="card-text">Generallay 10-20 grams if residual sugar per liter</p>
+                            <p class="card-text">10-20 grams of residual sugar per liter</p>
                             <h5>
                                 <i class="fas fa-cube"></i>
                                 <i class="fas fa-cube"></i>
@@ -111,7 +111,7 @@
                         <h3>Sweet</h3>
                         <div class="card-body">
                             <h5 class="card-title">Examples: Sauternes</h5>
-                            <p class="card-text">Generallay 20-30 grams if residual sugar per liter</p>
+                            <p class="card-text">20-30 grams of residual sugar per liter</p>
                             <h5>
                                 <i class="fas fa-cube"></i>
                                 <i class="fas fa-cube"></i>
@@ -124,7 +124,7 @@
                         <h3>Very Sweet</h3>
                         <div class="card-body">
                             <h5 class="card-title">Examples: Ice Wine, White Port, Vin Santo</h5>
-                            <p class="card-text">Generallay 30+ grams if residual sugar per liter</p>
+                            <p class="card-text">30+ grams of residual sugar per liter</p>
                             <h5>
                                 <i class="fas fa-cube"></i>
                                 <i class="fas fa-cube"></i>
@@ -163,9 +163,12 @@
 
 <style scoped>
     .sweetness {
-        background-image: url(https://images.unsplash.com/photo-1504000862552-65badf4afe88?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f3950e184c95b475d8e1e684ea4bd72e&auto=format&fit=crop&w=700&q=80);
-        background-repeat: repeat;
+        background-image: url(https://images.unsplash.com/photo-1513029999387-75ef01da4264?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ec0e8dab25c1eeb8db5b8a6dd8dbf544&auto=format&fit=crop&w=813&q=80);
+        /* background-image: url(https://images.unsplash.com/photo-1504000862552-65badf4afe88?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f3950e184c95b475d8e1e684ea4bd72e&auto=format&fit=crop&w=700&q=80); */
+        background-repeat: no-repeat;
         height: fit-content;
+        background-size: cover;
+        background-attachment: fixed;
     }
 
     /* .col-sm-4 {

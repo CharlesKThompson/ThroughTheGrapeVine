@@ -66,7 +66,6 @@
 </template>
 
 <script>
-    // import Comment from './Comment'
     import UserWine from './UserWine'
     import VineyardWine from './VineyardWine'
     export default {

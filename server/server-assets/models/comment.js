@@ -5,6 +5,7 @@ var schemaName = 'Comment'
 
 var schema = new Schema({
     body: { type: String, required: true },
+    author: {type: String},
     listId: { type: ObjectId, ref: 'List', required: true },
     userId: {type: ObjectId, ref: 'User', required: true},
     wineId: {type: ObjectId, ref: 'userWines', required: true},

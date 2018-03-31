@@ -75,7 +75,7 @@ export default new vuex.Store({
             state.lists = []
             state.vineyardwines = []
             state.userwines = []
-            state.comments = {}
+            state.comments = []
         },
         setLists(state, payload) {
             // hack to reset the state with current 
@@ -91,6 +91,11 @@ export default new vuex.Store({
         },
         setUserWines(state, payload) {
             state.userwines = payload
+        },
+        setUserComments(state, payload) {
+            console.log("SET PAYLOAD: ", payload)
+            vue.set(state.comments, payload[1].wineId, payload)
+            // state.comments = payload
         },
         clearVineyardWines(state) {
             state.vineyardwines = []
@@ -118,7 +123,22 @@ export default new vuex.Store({
                 })
             }
             return state.lists
-        }
+        },
+        // ucInList(state){
+        //     for (var listId in state.lists) {
+        //         let list = state.lists[listId].userwines
+        //         list.map(uwId => {
+        //             state.userwines.find(function (wine) {
+        //                 wine._id === uwId
+        //                 let comment = state.lists[listId].userwines.comments
+        //                 comment.map(c => {
+        //                     state.userwin
+        //                 })
+        //             })
+        //         })
+        //     }
+        //     return state.lists
+        // }
     },
     actions: {
         clearActiveTypes({ commit, dispatch }) {
@@ -272,19 +292,24 @@ export default new vuex.Store({
         // endregion VINEYARDWINE COMMENTS
 
         // region USERWINE COMMENTS
-        getUserComments({ commit, dispatch }, payload) {
-            baseAPI.get('lists/' + payload.lisId + '/userwines/' + payload.userwineId + '/comments/')
-                .then(res => {
-                    commit('setUserComments', { taskId: payload.taskId, comments: res.data })
-                })
-                .catch(err => {
-                    console.log(err);
-                })
-        },
+        // getUserComments({ commit, dispatch }, payload) {
+        //     baseAPI.get('lists/' + payload.listId + '/userwines/' + payload.userwineId + '/comments/')
+        //         .then(res => {
+        //             commit('setUserComments', { taskId: payload.taskId, comments: res.data })
+        //         })
+        //         .catch(err => {
+        //             console.log(err);
+        //         })
+        // },
         addUserComment({ commit, dispatch }, payload) {
-            baseAPI.post('lists/' + payload.lisId + '/userwines/' + payload.userwineId + '/comments/', payload)
-                .then(res => {
-                    dispatch('getUserComments', res.data)
+            baseAPI.put('lists/' + payload.listId + '/userwines/' + payload.wineId + '/comments/', payload)
+            .then(res => {
+                console.log(res.data)
+                    var out = []
+                    for (var i = 0; i < res.data.userwines.length; i++) {
+                        var wine = res.data.userwines[i]
+                            commit('setUserComments', wine.comments)
+                    }
                 })
                 .catch(err => {
                     console.log(err)
@@ -429,7 +454,7 @@ export default new vuex.Store({
                     console.log("RES.DATA", res)
                     var out = []
                     res.data.forEach(arr => {
-                        arr.forEach(elem =>{
+                        arr.forEach(elem => {
                             out.push(elem)
                         })
                     });

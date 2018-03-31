@@ -15,7 +15,7 @@
 </template>
 
 <script>
-    // import Comment from './Comment'
+    import Comment from './Comment'
     export default {
         name: 'VineyardWine',
         data() {
@@ -31,6 +31,9 @@
             deleteVW(vw) {
                 this.$store.dispatch('deleteVineyardWine', { listId: this.listId, wine: vw })
             }
+            // getComments(){
+            //     this.
+            // }
         },
         computed:{
             user(){
