@@ -59,4 +59,14 @@
         background-color: #cfbc8b;
         background-image: url("https://www.transparenttextures.com/patterns/notebook.png");
     }
+
+    button {
+        width: 40%;
+        font-weight: 700;
+        color: rgba(87, 46, 46, 0.85)
+    }
+
+    button:hover {
+        color: rgba(170, 43, 43, 0.85)
+    }
 </style>
