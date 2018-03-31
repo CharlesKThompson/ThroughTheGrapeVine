@@ -36,7 +36,7 @@
 <style scoped>
     .flexor {
         display: flex;
-        flex-direction: column
+        flex-direction: column;
     }
 
     .name {
@@ -49,9 +49,9 @@
     }
 
     button {
-        width: 40%;
         font-weight: 700;
-        color: rgba(87, 46, 46, 0.85)
+        color: rgba(87, 46, 46, 0.85);
+        text-align: center
     }
 
     button:hover {
