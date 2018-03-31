@@ -6,7 +6,6 @@
             <div class="col-sm-9">
                 <form @submit.prevent="searchByEmail">
                     <div class="form-group">
-                        <!-- <label for="Email">Email address</label> -->
                         <input type="email" v-model="userEmail.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
@@ -17,9 +16,7 @@
         <div class="user-results">
             <p>{{foundUser.username}}</p>
             <p>{{foundUser.email}}</p>
-            <div v-if="this.$store.state.foundUser !== {}">
-                <button @click="followUser">follow</button>
-            </div>
+            <button @click="followUser(user, foundUser)">follow</button>
         </div>
     </div>
     </div>
@@ -36,12 +33,15 @@
                 }
             }
         },
+        mounted() {
+            this.$store.dispatch('authenticate');
+        },
         methods: {
             searchByEmail() {
                 this.$store.dispatch('searchByEmail', this.userEmail);
             },
-            followUser() {
-                this.$store.dispatch('followUser');
+            followUser(user, userToAdd) {
+                this.$store.dispatch('followUser', { user: user, userToAdd: userToAdd });
             }
         },
         components: {
@@ -50,6 +50,9 @@
         computed: {
             foundUser() {
                 return this.$store.state.foundUser;
+            },
+            user() {
+                return this.$store.state.user;
             }
         }
     }

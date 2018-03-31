@@ -218,8 +218,11 @@ export default new vuex.Store({
                 })
         },
         followUser({commit, dispatch}, payload){
-            user.put('users')
-                .then()
+            console.log(payload)
+            user.put(payload.user._id, payload)
+                .then(res => {
+
+                })
         },
         //endregion
 

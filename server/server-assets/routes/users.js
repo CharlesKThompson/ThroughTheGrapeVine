@@ -14,12 +14,13 @@ router.get('/users/users', (req, res, next) => {
 
 // ADD TO FOLLOWING
 router.put('/users/:userId', (req, res, next) => {
+    console.log("REQ: ", req);
     Users.findById(req.params.userId)
         .then(user => {
-            user.following.push(req.body);
+            user.following.push(req.body.userToAdd);
             user.save();
-            res.send(user);
-            console.log("You followed: ", user);
+            res.send(user.following);
+            console.log("You followed: ", req.body.userToAdd.username);
         })
         .catch(next)
 });
