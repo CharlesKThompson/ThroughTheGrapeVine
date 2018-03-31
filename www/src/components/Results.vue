@@ -54,6 +54,9 @@
             return {
             }
         },
+        mounted() {
+            this.$store.dispatch('authenticate');
+        },
         methods: {
             setActiveTypes(wine) {
                 this.$store.dispatch('setActiveTypes', wine)
