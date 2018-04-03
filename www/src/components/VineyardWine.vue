@@ -5,7 +5,7 @@
                 <p class="name">{{vineyardwine.name}}</p>
                 <p>({{vineyardwine.variety}})</p>
             </div>
-            <div v-if="show == false"  @click="show = true" class="pointer">
+            <div v-if="show == false" @click="show = true" class="pointer">
                 <i class="fas fa-chevron-circle-down"></i>
             </div>
             <div v-if="show == true">
@@ -13,7 +13,7 @@
                     <i class="fas fa-chevron-circle-up"></i>
                 </div>
                 <div>
-                    <img src="images[vineyardwine.variety]" alt="wine">
+                    <img :src="images[vineyardwine.variety]" alt="wine" class="wine">
                 </div>
                 <div class="col-sm-12">
                     <p>{{vineyardwine.description}}</p>
@@ -94,5 +94,11 @@
     .pointer:hover {
         opacity: 1;
         transition: linear .3s all
+    }
+
+    .wine {
+        width: 80%;
+        border: solid 1px rgba(87, 46, 60, 0.726);
+        border-radius: 10px;
     }
 </style>

@@ -5,23 +5,31 @@
                 <h4 class="name">{{userwine.brandName}}</h4>
                 <p>({{userwine.variety}})</p>
             </div>
-            <div class="col-sm-12">
-                <p>{{userwine.description}}</p>
+            <div v-if="show == false" @click="show = true" class="pointer">
+                <i class="fas fa-chevron-circle-down"></i>
             </div>
-            <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-sm-5">
-                        <p>Type: {{userwine.type}}</p>
-                        <p>Price:{{userwine.price}}</p>
-                    </div>
-                    <div class="col-sm-5">
-                        <p>Pairings: {{userwine.pairings}}</p>
-                        <p>Recipes: {{userwine.recipes}}</p>
+            <div v-if="show == true">
+                <div @click="show = false" class="pointer">
+                    <i class="fas fa-chevron-circle-up"></i>
+                </div>
+                <div class="col-sm-12">
+                    <p>{{userwine.description}}</p>
+                </div>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <p>Type: {{userwine.type}}</p>
+                            <p>Price:{{userwine.price}}</p>
+                        </div>
+                        <div class="col-sm-5">
+                            <p>Pairings: {{userwine.pairings}}</p>
+                            <p>Recipes: {{userwine.recipes}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div v-if="userwine.userId == user._id">
-                <button @click="deleteUW(userwine)" class="btn btn-link">Delete wine from List</button>
+                <div v-if="userwine.userId == user._id">
+                    <button @click="deleteUW(userwine)" class="btn btn-link">Delete wine from List</button>
+                </div>
             </div>
         </div>
         <!-- <div v-if="commentBool == true">
@@ -41,7 +49,8 @@
         name: 'UserWine',
         data() {
             return {
-                
+                show: false
+
             }
         },
         mounted() {
@@ -94,5 +103,16 @@
 
     button:hover {
         color: rgba(170, 43, 43, 0.85)
+    }
+
+    .pointer {
+        cursor: pointer;
+        opacity: .8;
+        transition: linear .3s all
+    }
+
+    .pointer:hover {
+        opacity: 1;
+        transition: linear .3s all
     }
 </style>

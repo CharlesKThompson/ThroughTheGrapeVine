@@ -151,7 +151,9 @@
         background-color: rgba(255, 255, 255, 0);
         margin-bottom: 10px;
         border: solid 3px rgba(87, 46, 60, 0.726);
-        border-radius: 10px
+        border-radius: 10px;
+        display: flex;
+        justify-content: center
     }
 
     .rotate {
