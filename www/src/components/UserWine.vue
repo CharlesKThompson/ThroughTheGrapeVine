@@ -23,37 +23,29 @@
             <div v-if="userwine.userId == user._id">
                 <button @click="deleteUW(userwine)" class="btn btn-link">Delete wine from List</button>
             </div>
-            <div>
-                <button @click="commentBool = !commentBool" class="btn btn-link">Add comment to wine</button>
-            </div>
         </div>
-        <div v-if="commentBool == true">
+        <!-- <div v-if="commentBool == true">
             <form @submit.prevent="addUserComment">
                 <input type="text" v-model="newComment.body" placeholder="add comment">
             </form>
-        </div>
-        <div v-for="comment in comments">
+        </div> -->
+        <!-- <div v-for="comment in comments">
             <Comment :listId="listId" :comment="comment"></Comment>
-        </div>
+        </div> -->
 
     </div>
 </template>
 
 <script>
-    import Comment from './Comment'
     export default {
         name: 'UserWine',
         data() {
             return {
-                commentBool: true,
-                newComment: {
-                    body: ""
-                }
+                
             }
         },
         mounted() {
             this.$store.dispatch('authenticate')
-            this.$store.dispatch('getUserComments')
         },
         props: ['userwine', 'listId'],
         methods: {
@@ -63,21 +55,18 @@
             // getComments() {
             //     this.$store.dispatch('getUserComments', { listId: this.listId, userwine: uw })
             // },
-            addUserComment() {
-                this.$store.dispatch('addUserComment', {body: this.newComment.body, listId: this.listId, author: this.user.username, wineId: this.userwine._id})
-            }
+            // addUserComment() {
+            //     this.$store.dispatch('addUserComment', {body: this.newComment.body, listId: this.listId, author: this.user.username, wineId: this.userwine._id})
+            // }
         },
         computed: {
             user() {
                 return this.$store.state.user
             },
-            comments() {
-                return this.$store.state.comments[this.userwine._id]
-            }
+            // comments() {
+            //     return this.$store.state.comments[this.userwine._id]
+            // }
         },
-        components: {
-            Comment
-        }
     }
 
 </script>

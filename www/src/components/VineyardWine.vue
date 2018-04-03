@@ -3,12 +3,24 @@
         <div class="row flexor">
             <div class="col-sm-12">
                 <p class="name">{{vineyardwine.name}}</p>
+                <p>({{vineyardwine.variety}})</p>
             </div>
-            <div class="col-sm-12">
-                <p>{{vineyardwine.description}}</p>
+            <div v-if="show == false"  @click="show = true" class="pointer">
+                <i class="fas fa-chevron-circle-down"></i>
             </div>
-            <div v-if="vineyardwine.userId == user._id">
-                <button @click="deleteVW(vineyardwine)" class="btn btn-link">Delete wine from List</button>
+            <div v-if="show == true">
+                <div @click="show = false" class="pointer">
+                    <i class="fas fa-chevron-circle-up"></i>
+                </div>
+                <div>
+                    <img src="images[vineyardwine.variety]" alt="wine">
+                </div>
+                <div class="col-sm-12">
+                    <p>{{vineyardwine.description}}</p>
+                </div>
+                <div v-if="vineyardwine.userId == user._id">
+                    <button @click="deleteVW(vineyardwine)" class="btn btn-link">Delete wine from List</button>
+                </div>
             </div>
         </div>
     </div>
@@ -20,6 +32,7 @@
         name: 'VineyardWine',
         data() {
             return {
+                show: false
 
             }
         },
@@ -35,9 +48,12 @@
             //     this.
             // }
         },
-        computed:{
-            user(){
+        computed: {
+            user() {
                 return this.$store.state.user
+            },
+            images() {
+                return this.$store.state.images
             }
         }
     }
@@ -67,5 +83,16 @@
 
     button:hover {
         color: rgba(170, 43, 43, 0.85)
+    }
+
+    .pointer {
+        cursor: pointer;
+        opacity: .8;
+        transition: linear .3s all
+    }
+
+    .pointer:hover {
+        opacity: 1;
+        transition: linear .3s all
     }
 </style>

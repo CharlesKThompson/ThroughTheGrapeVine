@@ -27,7 +27,7 @@
                             <div v-if="listForm == true" class="d-flex justify-content-center">
                                 <form @submit.prevent="addList()" class="col-sm-3 form-group">
                                     <input type="text" name="title" placeholder="List Name" v-model="createdList.title" class="form-control">
-                                    <button type="submit" class="btn btn-info create" @click="listForm = !listForm">Create List</button>
+                                    <button type="submit" class="btn create add" @click="listForm = !listForm">Create List</button>
                                 </form>
                             </div>
                         </div>
@@ -123,5 +123,12 @@
         color: ivory;
         font-weight: 700;
         margin: 10px
+    }
+
+    .add {
+        background-color: rgba(87, 46, 60, .95);
+        color: ivory;
+        font-weight: 700;
+        margin-top: 10px;
     }
 </style>

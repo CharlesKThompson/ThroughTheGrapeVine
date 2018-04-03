@@ -6,7 +6,7 @@
                 <div class="red-chart">
                     <img src="http://i63.tinypic.com/14tsevc.jpg" alt="red wine sweetness chart" class="red-chart">
                 </div>
-                <h1>Red Wine Sugar</h1>
+                <h1 class="wine">Red Wine Sugar</h1>
                 <div class="red-sugar row">
                     <div class="card text-white mb-3" style="max-width: 17rem;">
                         <h3> Very Dry</h3>
@@ -72,7 +72,7 @@
                 <div class="white-chart">
                     <img src="http://winefolly.com/wp-content/uploads/2015/08/wine-sweetness-chart-white.png" class="white-chart">
                 </div>
-                <h1>White Wine Sugar</h1>
+                <h1 class="wine">White Wine Sugar</h1>
                 <div class="white-sugar row">
                     <div class="card-b" style="max-width: 17rem;">
                         <h3>Very Dry</h3>
@@ -219,5 +219,10 @@
         border: 2px ridge black;
         margin-top: 30px;
         margin-bottom: 30px;
+    }
+
+    .wine {
+        color: ivory;
+        font-weight: 700;
     }
 </style>

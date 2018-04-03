@@ -24,7 +24,7 @@
                                 <div>
                                     <div class="btn-group">
                                         <button @click="getLists" type="button" class="btn dropdown-toggle clear" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Add
+                                            Add to
                                         </button>
                                         <div class="dropdown-menu">
                                             <!-- <div class="dropdown-item" v-for="list in lists">
@@ -104,7 +104,7 @@
     .card {
         margin-top: .5rem;
         margin-bottom: .5rem;
-        width: 50%
+        width: 75%
     }
 
     .bg-1 {

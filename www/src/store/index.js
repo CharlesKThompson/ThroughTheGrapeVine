@@ -41,7 +41,18 @@ export default new vuex.Store({
         activeTypes: {},
         vineyardwines: [],
         userwines: [],
-        comments: {}
+        comments: {},
+        images: {
+            "Bold Red": "https://www.vintageroots.co.uk/blog/wp-content/uploads/2015/08/red-wine-glass.jpg",
+            "Medium Red": "https://www.shape.com/sites/shape.com/files/styles/story_detail/public/story/red-wine-holidays_0.jpg?itok=AfwDQZCt",
+            "Light Red": "https://drinks-dvq6ncf.netdna-ssl.com//wordpress/wp-content/uploads/2017/02/Rose_wine-640x427.jpg",
+            "Rose": "https://thewinefeed.com/wp-content/uploads/2017/03/rose1.jpg",
+            "Rich White": "http://winegifted.com/wp-content/uploads/2015/09/White-Wine-e1443641480339.jpg",
+            "Light White": "https://i0.wp.com/blog.tuscanyholidayrent.com/wp-content/uploads/01-Benvenuto-Vermentino.jpg",
+            "Sparkling": "https://www.caymancompass.com/core/wp-content/uploads/2016/08/champagne-verre.jpg",
+            "Sweet White": "https://cf.ltkcdn.net/wine/images/orig/203167-2121x1414-whitewine.jpg",
+            "Dessert": "http://www.totalwine.com/media/sys_master/cmsmedia/h51/h82/9114567868446.jpg",
+        }
     },
     mutations: {
         setFoundUser(state, payload) {
@@ -303,12 +314,12 @@ export default new vuex.Store({
         // },
         addUserComment({ commit, dispatch }, payload) {
             baseAPI.put('lists/' + payload.listId + '/userwines/' + payload.wineId + '/comments/', payload)
-            .then(res => {
-                console.log(res.data)
+                .then(res => {
+                    console.log(res.data)
                     var out = []
                     for (var i = 0; i < res.data.userwines.length; i++) {
                         var wine = res.data.userwines[i]
-                            commit('setUserComments', wine.comments)
+                        commit('setUserComments', wine.comments)
                     }
                 })
                 .catch(err => {
