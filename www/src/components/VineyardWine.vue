@@ -2,7 +2,7 @@
     <div class="vineyardwine">
         <div class="row flexor">
             <div class="col-sm-12">
-                <p class="name">{{vineyardwine.name}}</p>
+                <h4 class="name">{{vineyardwine.name}}</h4>
                 <p>({{vineyardwine.variety}})</p>
             </div>
             <div v-if="show == false" @click="show = true" class="pointer">

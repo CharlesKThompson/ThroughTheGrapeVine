@@ -6,8 +6,8 @@
             </div>
             <div class="card-body">
                 <div class="flexor bg-2">
-                    <div>
-                        <h4 class="card-title">{{list.title}}</h4>
+                    <div class="flexy2">
+                        <h3 class="card-title">{{list.title}}</h3>
                     </div>
                     <div class="flexy" v-if="list.userId == user._id">
                         <button data-toggle="modal" class="btn" :data-target="'#'+listId">Add Wine</button>
@@ -138,7 +138,7 @@
         margin-bottom: 10px
     }
 
-    h4 {
+    h3 {
         font-weight: 700
     }
 
@@ -165,6 +165,12 @@
         display: flex;
         flex-direction: row;
         justify-content: space-around
+    }
+
+    .flexy2 {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px
     }
 
     button {
