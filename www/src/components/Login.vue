@@ -4,7 +4,7 @@
             <div class="bg-1">
                 <div>
                     <h1>
-                        Welcome to ThroughTheGrapeVine
+                        Welcome to The GrapeVine
                     </h1>
                 </div>
                 <div>

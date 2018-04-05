@@ -3,7 +3,7 @@
         <div class="row flexor">
             <div class="col-sm-12">
                 <h4 class="name">{{vineyardwine.name}}</h4>
-                <p>({{vineyardwine.variety}})</p>
+                <p>(<i>{{vineyardwine.variety}}</i>)</p>
             </div>
             <div v-if="show == false" @click="show = true" class="pointer">
                 <i class="fas fa-chevron-circle-down"></i>
@@ -100,5 +100,6 @@
         width: 80%;
         border: solid 1px rgba(87, 46, 60, 0.726);
         border-radius: 10px;
+        margin-bottom: 10px;
     }
 </style>

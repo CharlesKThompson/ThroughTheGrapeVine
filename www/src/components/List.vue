@@ -21,26 +21,30 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form @submit="addUserWine()" id="uForm">
-                                            <select v-model="userWine.variety" name="variety">
-                                                <option value="Bold Red">Bold Red</option>
-                                                <option value="Medium Red">Medium Red</option>
-                                                <option value="Light Red">Light Red</option>
-                                                <option value="Rose">Rose</option>
-                                                <option value="Rich White">Rich White</option>
-                                                <option value="Light White">Light White</option>
-                                                <option value="Sparkling">Sparkling</option>
-                                                <option value="Sweet White">Sweet White</option>
-                                                <option value="Dessert">Dessert</option>
-                                            </select>
-                                            <input type="text" v-model="userWine.brandName" name="brandName" placeholder="Brand Name">
-                                            <input type="text" v-model="userWine.type" name="type" placeholder="Type">
-                                            <input type="text" v-model="userWine.img" name="img" placeholder="Image URL">
-                                            <input type="text" v-model="userWine.price" name="price" placeholder="Price">
-                                            <input type="text" v-model="userWine.description" name="description" placeholder="Description">
-                                            <input type="text" v-model="userWine.pairings" name="pairings" placeholder="Pairings">
-                                            <input type="text" v-model="userWine.recipes" name="recipes" placeholder="Recipes">
-                                            <button type="submit" class="btn btn-submit">Upload</button>
+                                        <form @submit="addUserWine()" id="uForm" class="form-group flexy3">
+                                            <div class="row d-flex justify-content-center">
+                                                <input type="text" v-model="userWine.brandName" name="brandName" placeholder="Brand Name*" class="form-control col-sm-6 brand" required>
+                                                <select v-model="userWine.variety" class="form-control col-sm-6" required>
+                                                    <option value="" selected disabled hidden class="text-muted">Variety*</option>
+                                                    <option value="Bold Red">Bold Red</option>
+                                                    <option value="Medium Red">Medium Red</option>
+                                                    <option value="Light Red">Light Red</option>
+                                                    <option value="Rose">Rose</option>
+                                                    <option value="Rich White">Rich White</option>
+                                                    <option value="Light White">Light White</option>
+                                                    <option value="Sparkling">Sparkling</option>
+                                                    <option value="Sweet White">Sweet White</option>
+                                                    <option value="Dessert">Dessert</option>
+                                                </select>
+                                            </div>
+                                            <input type="text" v-model="userWine.type" name="type" placeholder="Type*" class="form-control col-sm-10" required>
+                                            <textarea type="text" v-model="userWine.description" name="description" placeholder="Description*" class="form-control col-sm-10" required></textarea>
+                                            <input type="text" v-model="userWine.img" name="img" placeholder="Image URL" class="form-control col-sm-10">
+                                            <input type="text" v-model="userWine.price" name="price" placeholder="Price" class="form-control col-sm-10">
+                                            <input type="text" v-model="userWine.pairings" name="pairings" placeholder="Pairings" class="form-control col-sm-10">
+                                            <textarea type="text" v-model="userWine.recipes" name="recipes" placeholder="Recipes" class="form-control col-sm-10"></textarea>
+                                            <small class="text-muted">* required</small>
+                                            <button type="submit" class="btn btn-submit upload">Upload</button>
                                         </form>
                                     </div>
                                 </div>
@@ -145,6 +149,7 @@
     .bg-1 {
         background-color: #eadac0;
         background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        box-shadow: 2px 3px 12px 0px rgba(50, 50, 50, 0.75);
     }
 
     .bg-2 {
@@ -173,10 +178,24 @@
         margin-top: 10px
     }
 
+    .flexy3 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     button {
         width: 40%;
         background-color: rgba(87, 46, 60, 0.85);
         font-weight: 700;
         color: ivory
+    }
+
+    .upload {
+        margin-top: 20px;
+    }
+
+    .form-control {
+        margin-bottom: 5px
     }
 </style>

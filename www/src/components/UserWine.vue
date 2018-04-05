@@ -3,7 +3,7 @@
         <div class="row flexor">
             <div class="col-sm-12">
                 <h4 class="name">{{userwine.brandName}}</h4>
-                <p>({{userwine.variety}})</p>
+                <p>(<i>{{userwine.variety}}</i>)</p>
             </div>
             <div v-if="show == false" @click="show = true" class="pointer col-sm-12">
                 <i class="fas fa-chevron-circle-down"></i>
@@ -13,25 +13,25 @@
                     <div @click="show = false" class="pointer col-sm-12">
                         <i class="fas fa-chevron-circle-up"></i>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-12" v-if="userwine.img">
                         <img :src="userwine.img" class="wine" alt="wine">
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-12" v-if="userwine.description">
                         <p>{{userwine.description}}</p>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" v-if="userwine.type">
                         <h4>Type:</h4>
                         <p>{{userwine.type}}</p>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" v-if="userwine.price">
                         <h4>Price:</h4>
                         <p>{{userwine.price}}</p>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" v-if="userwine.pairings">
                         <h4>Pairings:</h4>
                         <p>{{userwine.pairings}}</p>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" v-if="userwine.recipes">
                         <h4>Recipes:</h4>
                         <p>{{userwine.recipes}}</p>
                     </div>
@@ -128,5 +128,6 @@
         width: 80%;
         border: solid 1px rgba(87, 46, 60, 0.726);
         border-radius: 10px;
+        margin-bottom: 10px;
     }
 </style>

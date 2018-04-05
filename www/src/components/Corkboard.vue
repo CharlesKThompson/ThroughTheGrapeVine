@@ -95,7 +95,9 @@
         font-weight: 700;
         background-color: #a35f34;
         background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
-        color: ivory
+        color: ivory;
+        border-top: 3px solid rgba(87, 46, 60, .95);
+        border-bottom: 3px solid rgba(87, 46, 60, .95); 
     }
 
     .dropdown-menu {
@@ -131,4 +133,5 @@
         font-weight: 700;
         margin-top: 10px;
     }
+
 </style>
