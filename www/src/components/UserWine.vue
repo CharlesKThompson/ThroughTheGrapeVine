@@ -69,21 +69,12 @@
         methods: {
             deleteUW(uw) {
                 this.$store.dispatch('deleteUserWine', { listId: this.listId, userwine: uw })
-            },
-            // getComments() {
-            //     this.$store.dispatch('getUserComments', { listId: this.listId, userwine: uw })
-            // },
-            // addUserComment() {
-            //     this.$store.dispatch('addUserComment', {body: this.newComment.body, listId: this.listId, author: this.user.username, wineId: this.userwine._id})
-            // }
+            }
         },
         computed: {
             user() {
                 return this.$store.state.user
-            },
-            // comments() {
-            //     return this.$store.state.comments[this.userwine._id]
-            // }
+            }
         },
     }
 

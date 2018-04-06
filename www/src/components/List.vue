@@ -23,7 +23,8 @@
                                     <div class="modal-body">
                                         <form @submit="addUserWine()" id="uForm" class="form-group flexy3">
                                             <div class="row d-flex justify-content-center">
-                                                <input type="text" v-model="userWine.brandName" name="brandName" placeholder="Brand Name*" class="form-control col-sm-6 brand" required>
+                                                <input type="text" v-model="userWine.brandName" name="brandName" placeholder="Brand Name*" class="form-control col-sm-6 brand"
+                                                    required>
                                                 <select v-model="userWine.variety" class="form-control col-sm-6" required>
                                                     <option value="" selected disabled hidden class="text-muted">Variety*</option>
                                                     <option value="Bold Red">Bold Red</option>
@@ -38,7 +39,8 @@
                                                 </select>
                                             </div>
                                             <input type="text" v-model="userWine.type" name="type" placeholder="Type*" class="form-control col-sm-10" required>
-                                            <textarea type="text" v-model="userWine.description" name="description" placeholder="Description*" class="form-control col-sm-10" required></textarea>
+                                            <textarea type="text" v-model="userWine.description" name="description" placeholder="Description*" class="form-control col-sm-10"
+                                                required></textarea>
                                             <input type="text" v-model="userWine.img" name="img" placeholder="Image URL" class="form-control col-sm-10">
                                             <input type="text" v-model="userWine.price" name="price" placeholder="Price" class="form-control col-sm-10">
                                             <input type="text" v-model="userWine.pairings" name="pairings" placeholder="Pairings" class="form-control col-sm-10">
@@ -51,7 +53,6 @@
                             </div>
                         </div>
                         <button @click="deleteList(list)" class="btn">Delete List</button>
-                        <!-- <button @click="getVineyardWines(list)">Expand List</button> -->
                     </div>
                 </div>
                 <div class="list-group">
@@ -64,6 +65,14 @@
                         <VineyardWine :listId="listId" :vineyardwine="vineyardwine"></VineyardWine>
                     </div>
                 </div>
+                <div v-if="commentBool == true">
+                    <form @submit="addComment(user)">
+                        <input type="text" v-model="newComment.body" placeholder="add comment">
+                    </form>
+                </div>
+                <div v-for="comment in comments">
+                    <Comment :listId="listId" :comment="comment"></Comment>
+                </div>
             </div>
         </div>
     </div>
@@ -72,11 +81,16 @@
 <script>
     import UserWine from './UserWine'
     import VineyardWine from './VineyardWine'
+    import Comment from './Comment'
     export default {
         name: 'Lists',
         data() {
             return {
+                commentBool: true,
                 // for form data
+                newComment: {
+                    body: ''
+                },
                 userWine: {
                     variety: '',
                     brandName: '',
@@ -85,8 +99,7 @@
                     price: '',
                     description: '',
                     pairings: '',
-                    recipes: '',
-                    comments: [{}]
+                    recipes: ''
                 }
             }
         },
@@ -106,11 +119,18 @@
             },
             deleteList(list) {
                 this.$store.dispatch('deleteList', list._id)
+            },
+            addComment(user) {
+                this.$store.dispatch('addComment', {body: this.newComment.body, author: user.username, listId: this.listId})
+                this.newComment.body = ''
             }
         },
         computed: {
             list() {
                 return this.$store.state.lists[this.listId]
+            },
+            user() {
+                return this.$store.state.user
             },
             vineyardwines() {
                 return this.$store.getters.vwInList[this.listId].vineyardwines
@@ -118,14 +138,14 @@
             userwines() {
                 return this.$store.getters.uwInList[this.listId].userwines
             },
-            user() {
-                return this.$store.state.user
+            comments() {
+                return this.$store.getters.ucInList[this.listId].comments
             }
-
         },
         components: {
             VineyardWine,
-            UserWine
+            UserWine,
+            Comment
         },
         props: ['listId']
     }

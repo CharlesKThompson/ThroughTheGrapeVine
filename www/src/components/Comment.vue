@@ -13,7 +13,16 @@
 
             }
         },
-        props: ['comment']
+        mounted(){
+            this.$store.dispatch('authenticate')
+        },
+        props: ['comment', 'listId'],
+        computed: {
+            user(){
+                return this.$store.state.user
+            }
+        }
+
     }
 </script>
 

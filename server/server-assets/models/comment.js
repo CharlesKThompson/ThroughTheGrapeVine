@@ -8,7 +8,6 @@ var schema = new Schema({
     author: {type: String},
     listId: { type: ObjectId, ref: 'List', required: true },
     userId: {type: ObjectId, ref: 'User', required: true},
-    wineId: {type: ObjectId, ref: 'userWines', required: true},
     date: {type: Date, required: true, default: Date.now()}
 });
 

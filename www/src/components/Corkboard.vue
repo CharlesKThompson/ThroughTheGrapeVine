@@ -34,7 +34,7 @@
                     </div>
                     <div class="row d-flex justify-content-center">
                         <div v-for="(list, listId) in lists" class="col-sm-5">
-                            <list :listId="listId"></list>
+                            <list :listId="listId" :user="user"></list>
                         </div>
                     </div>
                 </div>
@@ -92,8 +92,10 @@
 
 <style scoped>
     .board {
-        font-weight: 700;
+        /* font-weight: 700; */
+        font-size: 4rem;
         background-color: #a35f34;
+        font-family: 'Fredericka the Great', cursive;
         background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
         color: ivory;
         border-top: 3px solid rgba(87, 46, 60, .95);

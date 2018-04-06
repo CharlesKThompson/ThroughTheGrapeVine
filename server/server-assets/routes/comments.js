@@ -8,7 +8,7 @@ var VineyardWines = require('../models/vineyardWine');
 // region VINEYARDWINE COMMENTS
 // GET ALL COMMENTS BY USER WINE
 router.get('/lists/:listId/vineyardwines/:wineId/comments', (req, res, next) => {
-    Comments.find({wineId: req.params.wineId }) 
+    Comments.find({ wineId: req.params.wineId })
         .then(comments => {
             res.send(comments);
         })
@@ -43,46 +43,24 @@ router.put('/lists/:listId/vineyardwines/:wineId/comments/:commentId', (req, res
 // DELETE COMMENT BY COMMENT ID
 router.delete('/lists/:listId/vineyardwines/:wineId/comments/:commentId', (req, res, next) => {
     Comments.findById(req.params.commentId)
-    .then(comments => {
-        comments.remove();
-        return console.log("Comment on vineyard wine successfully deleted!");
-    })
-    .catch(next);
+        .then(comments => {
+            comments.remove();
+            return console.log("Comment on vineyard wine successfully deleted!");
+        })
+        .catch(next);
 });
 
 // endregion VINEYARDWINE COMMENTS
 
 // region USERWINE COMMENTS
-router.get('/lists/:listId/userwines/:wineId/comments', (req, res, next) => {
-    userWines.find({wineId: req.params.wineId }) 
+router.get('/lists/:listId/comments', (req, res, next) => {
+    userWines.find({ wineId: req.params.wineId })
         .then(comments => {
             res.send(comments);
         })
         .catch(next);
 });
 
-// ADD COMMENT TO USER WINE
-router.put('/lists/:listId/userwines/:wineId/comments', (req, res, next) => {
-    req.body.listId = req.params.listId;
-    req.body.userId = req.session.uid;
-    req.body.wineId = req.params.wineId;
-    console.log("REQ.BODY: ", req.body);
-    Lists.findById(req.body.listId)
-        .then(list => {
-            for(var i = 0; i< list.userwines.length; i++) {
-                var uw = list.userwines[i];
-                if(uw._id == req.body.wineId) {
-                    uw.comments.push(req.body);
-                }
-            }
-            list.save();
-            console.log("SAVED LIST: ", list)
-            res.send(list);
-        })
-        .catch(err => {
-            console.log("ERROR: ", err);
-        })
-});
 // router.put('/lists/:listId/userwines', (req, res, next) => {
 //     console.log("REQ.BODY: ", req.body)
 //     req.body.listId = req.params.listId;
@@ -99,8 +77,41 @@ router.put('/lists/:listId/userwines/:wineId/comments', (req, res, next) => {
 //     })
 // });
 
+// ADD COMMENT TO USER WINE
+router.put('/lists/:listId/comments', (req, res, next) => {
+    req.body.listId = req.params.listId;
+    req.body.userId = req.session.uid;
+    console.log("REQ.BODY: ", req.body);
+    Lists.findById(req.body.listId)
+        .then(list => {
+            list.comments.push(req.body);
+            list.save();
+            res.send(list);
+        }).catch(err => {
+            console.log("ERROR: ", err);
+        })
+    .catch(err => {
+        console.log("ERROR: ", err);
+    })
+});
+// router.put('/lists/:listId/comments/:commentId', (req, res, next) => {
+//     console.log("REQ.BODY: ", req.body)
+//     req.body.listId = req.params.listId;
+//     req.body.userId = req.session.uid;
+//     // when you realize your custom wines don't have mlab _id's:
+//     req.body._id =  Math.floor((Math.random() * 100000000) + 1);
+//     Lists.findById(req.params.listId)
+//     .then(list => {
+//         list.userwines.push(req.body);
+//         list.save();
+//         res.send(list);
+//     }).catch(err => {
+//         console.log("ERROR: ", err);
+//     })
+// });
+
 // EDIT COMMENT BY COMMENT ID
-router.put('/lists/:listId/userwines/:wineId/comments/:commentId', (req, res, next) => {
+router.put('/lists/:listId/comments/:commentId', (req, res, next) => {
     Comments.findByIdAndUpdate(
         req.params.commentId,
         req.body,
@@ -113,13 +124,13 @@ router.put('/lists/:listId/userwines/:wineId/comments/:commentId', (req, res, ne
 });
 
 // DELETE COMMENT BY COMMENT ID
-router.delete('/lists/:listId/userwines/:wineId/comments/:commentId', (req, res, next) => {
+router.delete('/lists/:listId/comments/:commentId', (req, res, next) => {
     Comments.findById(req.params.commentId)
-    .then(comments => {
-        comments.remove();
-        return console.log("Comment on user wine successfully deleted!");
-    })
-    .catch(next);
+        .then(comments => {
+            comments.remove();
+            return console.log("Comment on user wine successfully deleted!");
+        })
+        .catch(next);
 });
 
 // endregion USERWINE COMMENTS
