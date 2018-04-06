@@ -254,15 +254,17 @@ export default new vuex.Store({
         //endregion
 
         // regions COMMENTS
-        getComments({ commit, dispatch }, payload) {
-            baseAPI.get('lists/' + payload.listId + '/comments/')
-                .then(res => {
-                    commit('setComments', { taskId: payload.taskId, comments: res.data })
-                })
-                .catch(err => {
-                    console.log(err);
-                })
-        },
+        // getComments({ commit, dispatch }, payload) {
+        //     console.log("PAYLOAD: ", payload)
+        //     baseAPI.get('lists/' + payload.listId + '/comments/')
+        //         .then(res => {
+        //             console.log("RES: ", res)
+        //             commit('setComments', res.data)
+        //         })
+        //         .catch(err => {
+        //             console.log(err);
+        //         })
+        // },
         addComment({ commit, dispatch }, payload) {
             console.log('COMMENT PAYLOAD: ', payload)
             baseAPI.put('lists/' + payload.listId + '/comments/', payload)

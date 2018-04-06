@@ -147,7 +147,12 @@
             UserWine,
             Comment
         },
-        props: ['listId']
+        props: ['listId'],
+        getters:{
+            lists(){
+                return this.$store.state.lists[this.listId]
+            }
+        }
     }
 </script>
 
