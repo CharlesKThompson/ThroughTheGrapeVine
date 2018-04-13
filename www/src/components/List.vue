@@ -67,7 +67,7 @@
                 </div>
                 <div v-if="commentBool == true">
                     <form @submit="addComment(user)">
-                        <input type="text" v-model="newComment.body" placeholder="add comment">
+                        <input type="text" v-model="newComment.body" placeholder="Add Comment" class="form-control">
                     </form>
                 </div>
                 <div v-for="comment in comments">

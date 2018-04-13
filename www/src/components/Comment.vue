@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h6>{{comment.author}}:</h6>
+    <div class="d-flex justify-content-start align-items-start">
+        <h6><b>{{comment.author}}:&nbsp;</b></h6>
         <p>{{comment.body}}</p>
     </div>
 </template>

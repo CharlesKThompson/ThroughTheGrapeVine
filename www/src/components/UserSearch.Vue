@@ -1,14 +1,13 @@
 <template>
-    <div>
+    <div class="search">
         <navbar></navbar>
         <h3>Search Users by email</h3>
         <div class="row" style="justify-content: center;">
             <div class="col-sm-9">
                 <form @submit.prevent="searchByEmail">
                     <div class="form-group">
-                        <input type="email" v-model="userEmail.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                    </div>
+                        <input type="email" v-model="userEmail.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Friend's Email">
+                        </div>
                     <button type="submit" class="btn">Submit</button>
                 </form>
             </div>
@@ -63,13 +62,22 @@
 </script>
 
 <style scoped>
+    .search {
+        background-image: url(https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=efa71ae041cd94e911339f2e42a405a9&auto=format&fit=crop&w=750&q=80);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 97vh;
+        width: 100%;
+    }
+
     h3 {
         margin-top: 1rem;
         margin-bottom: 1rem;
     }
 
     .user-results {
-        background-color: rgba(255, 255, 255, 0);
+        background-color: rgba(255, 255, 255, 0.616);
         margin: 10px;
         border: solid 3px rgba(87, 46, 60, 0.726);
         border-radius: 10px;
